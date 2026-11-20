@@ -1,5 +1,5 @@
 /* Service worker de Ex Libris: funciona sin conexión y guarda las portadas ya vistas. */
-const VERSION = 'exlibris-v1.0.0';
+const VERSION = 'exlibris-v1.0.1';
 const IMG = 'exlibris-portadas';
 const SHELL = ['./', 'index.html', 'app.js', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/favicon.svg', 'icons/favicon-48.png', 'vendor/zxing-0.21.3.min.js'];
 const IMG_HOSTS = ['books.google.com', 'books.googleusercontent.com', 'covers.openlibrary.org', 'archive.org'];
