@@ -1,0 +1,18 @@
+{
+  "_ayuda": "Fuentes de la pestaña Novedades. 'rss' es una web con feed; 'google' es una búsqueda en Google Noticias. 'filtro': 'libros' deja solo noticias literarias; 'musica' solo libros de música. 'categoria' fuerza la categoría.",
+  "fuentes": [
+    {"nombre": "Zenda", "rss": "https://www.zendalibros.com/feed/"},
+    {"nombre": "Babelia (El País)", "rss": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/babelia/portada"},
+    {"nombre": "Revista de Libros", "rss": "https://www.revistadelibros.com/feed/"},
+    {"nombre": "Qué Leer", "rss": "https://www.revistaqueleer.com/feed/"},
+    {"nombre": "Jot Down", "rss": "https://www.jotdown.es/feed/", "filtro": "libros"},
+    {"nombre": "elDiario.es Cultura", "rss": "https://www.eldiario.es/rss/cultura/", "filtro": "libros"},
+    {"nombre": "La Vanguardia Cultura", "rss": "https://www.lavanguardia.com/rss/cultura.xml", "filtro": "libros"},
+    {"nombre": "Efe Eme", "rss": "https://www.efeeme.com/feed/", "filtro": "musica", "categoria": "Libros de música"},
+    {"google": "novedades editoriales libros", "categoria": "Novedades editoriales"},
+    {"google": "\"nueva novela\" OR \"nuevo libro\" editorial", "categoria": "Novedades editoriales"},
+    {"google": "premio literario novela OR poesía OR ensayo", "categoria": "Premios"},
+    {"google": "libro biografía OR memorias músico OR banda OR cantante", "filtro": "musica", "categoria": "Libros de música"},
+    {"google": "libro rock OR punk OR jazz OR flamenco editorial", "filtro": "musica", "categoria": "Libros de música"}
+  ]
+}

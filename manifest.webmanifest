@@ -1,0 +1,23 @@
+{
+  "name": "Ex Libris · Mi biblioteca",
+  "short_name": "Ex Libris",
+  "description": "Tu biblioteca personal: catálogo, préstamos, qué leer ahora y novedades literarias.",
+  "lang": "es",
+  "id": "./",
+  "start_url": "./#biblioteca",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1d2a62",
+  "theme_color": "#1d2a62",
+  "categories": ["books", "productivity", "lifestyle"],
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Escanear libros", "short_name": "Escanear", "url": "./#escanear", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "Añadir libro", "short_name": "Añadir", "url": "./#nuevo", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+  ]
+}
