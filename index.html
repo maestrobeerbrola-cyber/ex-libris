@@ -343,6 +343,17 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 .note-s{margin:-6px 0 0;font-size:14px;color:var(--mute)}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+<script>
+/* Si al arrancar falla una versión antigua guardada en el móvil, la app se repara sola sin tocar tus datos. */
+(function(){var boot=true;addEventListener('load',function(){setTimeout(function(){boot=false},0)});
+addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js/.test(e.filename))return;boot=false;
+  var b=document.getElementById('banner'),say=function(t){if(b){b.textContent=t;b.hidden=false}};
+  try{if(sessionStorage.getItem('exlibris-fix')){say('No he podido abrir Ex Libris. Cierra la app del todo y vuelve a abrirla: tus libros siguen guardados.');return}sessionStorage.setItem('exlibris-fix','1')}catch(x){}
+  say('Actualizando Ex Libris…');
+  (async function(){try{if(self.caches)for(const k of await caches.keys())if(/^exlibris-v/.test(k))await caches.delete(k);
+    if(navigator.serviceWorker){const r=await navigator.serviceWorker.getRegistration();if(r&&r.scope===new URL('./',location.href).href)await r.unregister()}}catch(x){}
+    location.reload()})()})})();
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -423,6 +434,8 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 
   <section class="view" id="v-prestamos" aria-label="Préstamos" hidden>
     <div class="lhead">
+      <!-- Se mantiene oculto: versiones anteriores de app.js guardadas en caché lo buscan al arrancar. -->
+      <button id="lscanhdr" type="button" hidden aria-hidden="true" tabindex="-1"></button>
       <div class="seg" role="group" aria-label="Tipo de préstamo" id="ltab">
         <button type="button" data-v="prestado">Los que presto</button><button type="button" data-v="recibido">Los que me prestan</button>
       </div>
@@ -499,7 +512,7 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 </div>
 <div class="toast" id="toast" role="status"></div>
 
-<script src="config.js"></script>
-<script src="app.js"></script>
+<script src="config.js?v=1.4.3"></script>
+<script src="app.js?v=1.4.3"></script>
 </body>
 </html>

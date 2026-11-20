@@ -1,11 +1,15 @@
-/* Service worker de Ex Libris: funciona sin conexión y guarda las portadas ya vistas. */
-const VERSION = 'exlibris-v1.4.2';
+/* Service worker de Ex Libris: funciona sin conexión y guarda las portadas ya vistas.
+   La página y su código se piden siempre a la red primero (con la copia guardada solo sin conexión),
+   para que nunca se mezcle una página nueva con un código antiguo. */
+const VERSION = 'exlibris-v1.4.3';
 const IMG = 'exlibris-portadas';
 const SHELL = ['./', 'index.html', 'app.js', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/favicon.svg', 'icons/favicon-48.png', 'vendor/zxing-0.21.3.min.js'];
 const IMG_HOSTS = ['books.google.com', 'books.googleusercontent.com', 'covers.openlibrary.org', 'archive.org'];
+const FRESH = /(\/|\.html|\/app\.js|\/config\.js|\.webmanifest|\/news\.json)$/;
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)));
+  // cache:'reload' evita guardar copias antiguas de la caché HTTP del navegador.
+  e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL.map(u => new Request(u, { cache: 'reload' })))));
 });
 self.addEventListener('message', e => { if (e.data === 'skip') self.skipWaiting(); });
 self.addEventListener('activate', e => {
@@ -20,8 +24,8 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin === location.origin) {
-    if (url.pathname.endsWith('/news.json')) { e.respondWith(networkFirst(req)); return; }
-    if (req.mode === 'navigate') { e.respondWith(networkFirst(req, 'index.html')); return; }
+    if (req.mode === 'navigate') { e.respondWith(networkFirst(req, new URL('index.html', self.registration.scope).href)); return; }
+    if (FRESH.test(url.pathname)) { e.respondWith(networkFirst(req, url.origin + url.pathname)); return; }
     e.respondWith(staleWhileRevalidate(req));
     return;
   }
@@ -33,14 +37,14 @@ self.addEventListener('fetch', e => {
     e.respondWith(staleWhileRevalidate(req));
   }
 });
-async function networkFirst(req, fallback) {
+async function networkFirst(req, key) {
   const c = await caches.open(VERSION);
   try {
-    const r = await fetch(req);
-    if (r.ok) c.put(fallback || req, r.clone());
+    const r = await fetch(req, { cache: 'no-cache' });
+    if (r.ok) c.put(key, r.clone());
     return r;
   } catch (err) {
-    return (await c.match(fallback || req, { ignoreSearch: true })) || (await c.match('index.html')) || Response.error();
+    return (await c.match(key, { ignoreSearch: true })) || (await c.match(new URL('index.html', self.registration.scope).href)) || Response.error();
   }
 }
 async function staleWhileRevalidate(req) {

@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.4.2';
+const VERSION='1.4.3';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -726,10 +726,10 @@ $('#fab').addEventListener('click',()=>S.tab==='prestamos'?loanForm():bookForm()
   refresh();S.loaded=true;render();
   if(S.after){const a=S.after;S.after=null;a==='nuevo'?bookForm():Scan.open(quickAdd,true)}
   if(!Sync.clientId())Sync.set('noconfig');else{Sync.set(Sync.connected()?(Sync.token()?'ok':'tap'):'off');Sync.gis().then(()=>Sync.initClient()).catch(()=>{});if(Sync.connected()&&Sync.token())Sync.run(false)}
-  loadNews();
+  loadNews();try{sessionStorage.removeItem('exlibris-fix')}catch(e){}
   if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){const hadCtrl=!!navigator.serviceWorker.controller;try{const reg=await navigator.serviceWorker.register('sw.js');
     const offer=w=>{if(w&&navigator.serviceWorker.controller)toast('Hay una versión nueva de Ex Libris',{label:'Actualizar',keep:true,fn:()=>{w.postMessage('skip');}})};
-    if(reg.waiting)offer(reg.waiting);
+    if(reg.waiting)offer(reg.waiting);else reg.update().catch(()=>{});
     reg.addEventListener('updatefound',()=>{const w=reg.installing;w?.addEventListener('statechange',()=>{if(w.state==='installed')offer(w)})});
     document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')reg.update().catch(()=>{})});
     let reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloaded||!hadCtrl)return;reloaded=true;location.reload()})}catch(e){}}
