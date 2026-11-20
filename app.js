@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.4.1';
+const VERSION='1.4.2';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -430,7 +430,6 @@ function loanStatus(l){if(l.adquirido)return ['',`En tu colección desde el ${fm
 const loanBook=l=>l.tipo==='prestado'&&l.bookId&&store.books[l.bookId]&&!store.books[l.bookId].deleted?store.books[l.bookId]:l;
 function renderLoans(){
   $$('#ltab button').forEach(b=>{const n=activeLoans(b.dataset.v).length;b.setAttribute('aria-pressed',b.dataset.v===S.ltab);b.textContent=(b.dataset.v==='prestado'?'Los que presto':'Los que me prestan')+(n?` (${n})`:'')});
-  $('#lscanhdr').hidden=S.ltab!=='recibido';
   const el=$('#loans');if(!S.loaded){el.innerHTML='<p class="count">Cargando…</p>';return}
   const all=S.loans.filter(l=>l.tipo===S.ltab),act=all.filter(l=>!cerrado(l)).sort((a,b)=>(a.fechaDevolucion||'9999').localeCompare(b.fechaDevolucion||'9999')),hist=all.filter(cerrado).sort((a,b)=>String(b.devuelto||b.adquirido).localeCompare(String(a.devuelto||a.adquirido)));
   const yo=S.ltab==='prestado';
@@ -441,12 +440,10 @@ function renderLoans(){
     ${l.notas?`<p class="la">${esc(l.notas)}</p>`:''}
     <div class="lst"><span class="pill ${c}">${t}</span></div>
     <div class="lf"><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button>${yo?'':`<button type="button" class="btn sm" data-own="${esc(l.id)}">${ic('book')}Añadir a mi colección</button>`}<button type="button" class="btn sm pri" data-ret="${esc(l.id)}">${ic('check')}Devuelto</button></div></article>`}).join('');
-  el.innerHTML=(act.length?`<div class="lgrid">${cards}</div>`:`<div class="empty"><h2>${yo?'No tienes libros prestados':'Nadie te ha dejado libros ahora mismo'}</h2><p>${yo?'Cuando prestes uno, apúntalo aquí con la fecha y te avisaré si se retrasa la devolución.':'Escanea el código de barras del libro que te dejen: se crea su ficha aquí, sin añadirlo a tu colección, y te recuerda cuándo devolverlo.'}</p><div class="trow">${yo?'':`<button type="button" class="btn pri" data-scan>${ic('barcode')}Escanear libro prestado</button>`}<button type="button" class="btn${yo?' pri':''}" data-new>${ic('plus')}Nuevo préstamo</button></div></div>`)
+  el.innerHTML=(act.length?`<div class="lgrid">${cards}</div>`:`<div class="empty"><h2>${yo?'No tienes libros prestados':'Nadie te ha dejado libros ahora mismo'}</h2><p>${yo?'Cuando prestes uno, apúntalo aquí con la fecha y te avisaré si se retrasa la devolución.':'Añade un préstamo nuevo y escanea el código de barras del libro: se crea su ficha aquí, sin añadirlo a tu colección, y te recuerda cuándo devolverlo.'}</p></div>`)
    +(hist.length?`<details class="hist"><summary>Historial (${hist.length})</summary>${hist.map(l=>`<div class="hrow">${cover(loanBook(l),'mini')}<div><b>${esc(l.titulo)}</b><p>${yo?'A':'De'} ${esc(l.persona)} · ${fmtD(l.fechaPrestamo)} → ${l.adquirido?'pasó a tu colección el '+fmtD(l.adquirido):'devuelto el '+fmtD(l.devuelto)}</p></div><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button></div>`).join('')}</details>`:'')}
 $('#ltab').addEventListener('click',e=>{const b=e.target.closest('button');if(b){S.ltab=b.dataset.v;renderLoans()}});
 $('#addloan').addEventListener('click',()=>loanForm());
-const scanBorrowed=()=>Scan.open(async code=>{toast('Buscando el libro…');let r=null;try{r=await lookupIsbn(code)}catch(e){}loanForm(null,{tipo:'recibido',ficha:r&&r.titulo?r:{isbn:code},aviso:r&&r.titulo?'':'No he encontrado este ISBN en los catálogos; completa la ficha a mano.'})});
-$('#lscanhdr').addEventListener('click',scanBorrowed);
 function makeOwn(id){const l=store.loans[id];if(!l||l.deleted)return;
   const dup=l.isbn&&S.books.find(b=>b.isbn===l.isbn);
   if(dup){patchRec('loans',id,{adquirido:today(),bookId:dup.id});toast(`Ya tenías «${dup.titulo}» en tu colección; el préstamo queda cerrado`);return}
@@ -455,8 +452,6 @@ function makeOwn(id){const l=store.loans[id];if(!l||l.deleted)return;
   patchRec('loans',id,{adquirido:today(),bookId:b.id});
   toast(`«${l.titulo}» pasa a tu colección`,{label:'Deshacer',fn:()=>{delRec('books',b.id);patchRec('loans',id,{adquirido:null,bookId:null})}})}
 $('#loans').addEventListener('click',e=>{const r=e.target.closest('[data-ret]'),ed=e.target.closest('[data-ed]'),own=e.target.closest('[data-own]');
-  if(e.target.closest('[data-new]'))return loanForm();
-  if(e.target.closest('[data-scan]'))return scanBorrowed();
   if(ed)return loanForm(store.loans[ed.dataset.ed]);
   if(own)return makeOwn(own.dataset.own);
   if(r){const id=r.dataset.ret;patchRec('loans',id,{devuelto:today()});toast('Marcado como devuelto',{label:'Deshacer',fn:()=>patchRec('loans',id,{devuelto:null})})}});
