@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.1.0';
+const VERSION='1.1.1';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -79,7 +79,7 @@ const bookland=s=>/^97[89]\d{10}$/.test(s)&&isbnOK(s);
 function mapGenre(cats,title){const t=norm((cats||[]).join(' ')+' '+(title||''));
   const R=[[/science fiction|fantasy|ciencia ficcion|fantas/,'Ciencia ficción y fantasía'],[/mystery|crime|thriller|detective|policiac|negra/,'Novela negra'],[/comic|graphic novel|novela grafica|manga/,'Cómic y novela gráfica'],[/music|musica/,'Música'],[/biograph|biograf|memoir|memorias/,'Biografía y memorias'],[/poetry|poesia/,'Poesía'],[/drama|teatro/,'Teatro'],[/juvenile|young adult|infantil|juvenil|para ninos/,'Infantil y juvenil'],[/histor/,'Historia'],[/philosoph|filosof/,'Filosofía'],[/science|ciencia|nature|mathemat/,'Ciencia'],[/art\b|arte|photograph|fotograf|design/,'Arte y fotografía'],[/travel|viaje/,'Viajes'],[/literary criticism|essay|social science|political|ensayo|language arts/,'Ensayo'],[/short stories|relato|cuento/,'Relato'],[/fiction|novela|ficcion/,'Novela']];
   for(const [re,g] of R)if(re.test(t))return g;return ''}
-async function getJSON(url,ms=9000){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms);try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error('http '+r.status);return await r.json()}finally{clearTimeout(t)}}
+async function getJSON(url,ms=8000){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms);try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error('http '+r.status);return await r.json()}finally{clearTimeout(t)}}
 function gbRec(it){const v=it.volumeInfo||{};const ids=v.industryIdentifiers||[];let isbn=ids.find(x=>x.type==='ISBN_13')?.identifier||'';if(!isbn){const i10=ids.find(x=>x.type==='ISBN_10')?.identifier;if(i10)isbn=to13(i10)}
   const img=(v.imageLinks?.thumbnail||v.imageLinks?.smallThumbnail||'').replace(/^http:/,'https:').replace('&edge=curl','');
   return {titulo:[v.title,v.subtitle].filter(Boolean).join(': ').slice(0,300),autor:(v.authors||[]).join(', '),anio:parseInt(v.publishedDate)||null,editorial:v.publisher||'',isbn,genero:mapGenre(v.categories,v.title),portadaUrl:okUrl(img)?img:''}}
@@ -143,18 +143,23 @@ async function bneSearch(q){const esc=s=>s.replace(/["\\]/g,' ').trim();let rs=a
   if(!rs.length)rs=await bneQuery(`alma.all_for_ui all "${esc(q)}"`,20);
   const rank=r=>(/^97[89]84|^84/.test(r.isbn)?3:0)+(r.isbn?2:0)+(r.online?-5:0);
   return rs.filter(r=>!r.online&&r.isbn).sort((a,b)=>rank(b)-rank(a)||(b.anio||0)-(a.anio||0)).slice(0,12)}
-async function lookupIsbn(isbn){const [b,g,o]=await Promise.allSettled([bneIsbn(isbn),gbSearch('isbn:'+isbn,1),olIsbn(isbn)]);
-  const B=b.status==='fulfilled'?b.value:null,G=g.status==='fulfilled'?g.value[0]:null,O=o.status==='fulfilled'?o.value:null;
+const settle=(p,ms)=>new Promise(res=>{const t=setTimeout(()=>res({status:'rejected',reason:'timeout'}),ms);p.then(v=>{clearTimeout(t);res({status:'fulfilled',value:v})},e=>{clearTimeout(t);res({status:'rejected',reason:e})})});
+async function lookupIsbn(isbn){const pB=bneIsbn(isbn),pG=gbSearch('isbn:'+isbn,1),pO=olIsbn(isbn);
+  const b=await settle(pB,12000);const B=b.status==='fulfilled'?b.value:null;
+  // Con la ficha de la BNE solo esperamos un momento a Google/Open Library (portada); sin ella, lo que tarden
+  const extra=B?2500:9000;const [g,o]=await Promise.all([settle(pG,extra),settle(pO,extra)]);
+  const G=g.status==='fulfilled'?g.value[0]:null,O=o.status==='fulfilled'?o.value:null;
   if(!B&&!G&&!O){if([b,g,o].every(x=>x.status==='rejected'))throw new Error('net');return null}
   const pick=k=>(B&&B[k])||(G&&G[k])||(O&&O[k])||'';
   return {titulo:pick('titulo'),autor:pick('autor'),anio:pick('anio')||null,editorial:pick('editorial'),edicion:B?.edicion||'',formato:B?.formato||'',genero:pick('genero'),isbn,
     portadaUrl:(G&&G.portadaUrl)||(O&&O.portadaUrl)||`https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false`,fuente:B?'BNE':G?'Google Books':'Open Library'}}
-async function searchCatalog(q){const [b,g]=await Promise.allSettled([bneSearch(q),gbSearch(q,10)]);
-  const B=b.status==='fulfilled'?b.value:[],G=g.status==='fulfilled'?g.value.map(r=>({...r,fuente:'Google Books'})):[];
+async function searchCatalog(q){const pB=bneSearch(q),pG=gbSearch(q,10);
+  const b=await settle(pB,12000);const B=b.status==='fulfilled'?b.value:[];
+  const g=await settle(pG,B.length?2500:9000);const G=g.status==='fulfilled'?g.value.map(r=>({...r,fuente:'Google Books'})):[];
   const cov=new Map(G.filter(r=>r.portadaUrl&&r.isbn).map(r=>[r.isbn,r.portadaUrl]));
   let rs=B.map(r=>({...r,portadaUrl:cov.get(r.isbn)||`https://covers.openlibrary.org/b/isbn/${r.isbn}-S.jpg?default=false`}));const seen=new Set(rs.map(r=>r.isbn));
   for(const r of G){if(r.isbn&&seen.has(r.isbn))continue;if(r.isbn)seen.add(r.isbn);rs.push(r)}
-  if(!rs.length){try{rs=(await olSearch(q)).map(r=>({...r,fuente:'Open Library'}))}catch(e){if(b.status==='rejected'&&g.status==='rejected')throw e}}
+  if(!rs.length){const o=await settle(olSearch(q),9000);if(o.status==='fulfilled')rs=o.value.map(r=>({...r,fuente:'Open Library'}));else if(b.status==='rejected'&&g.status==='rejected')throw new Error('net')}
   return rs.slice(0,20)}
 
 /* ================= imágenes y escáner ================= */
