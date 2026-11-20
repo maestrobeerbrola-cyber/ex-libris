@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.2.1';
+const VERSION='1.3.0';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -54,7 +54,8 @@ function saveRec(c,rec){const r={...rec,id:rec.id||uid(),actualizado:Date.now()}
 function patchRec(c,id,p){const r=store[c][id];if(!r||r.deleted)return;store[c][id]={...r,...p,actualizado:Date.now()};commit()}
 function delRec(c,id){store[c][id]={id,deleted:true,actualizado:Date.now()};commit()}
 function mergeColl(a={},b={}){const out={...a};for(const [id,r] of Object.entries(b||{})){if(!r||typeof r!=='object')continue;const l=out[id];if(!l||(+r.actualizado||0)>(+l.actualizado||0))out[id]={...r,id}}return out}
-function pruneTomb(c){const lim=Date.now()-180*864e5;for(const [id,r] of Object.entries(c))if(r?.deleted&&(+r.actualizado||0)<lim)delete c[id]}
+function pruneTomb(c){const lim=Date.now()-180*864e5;let n=0;for(const [id,r] of Object.entries(c))if(r?.deleted&&(+r.actualizado||0)<lim){delete c[id];n++}return n}
+function localNewer(loc,rem){for(const [id,r] of Object.entries(loc||{})){const o=rem?.[id];if(!o||(+r.actualizado||0)>(+o.actualizado||0))return true}return false}
 function snapshot(){return {app:'exlibris',version:1,actualizado:new Date().toISOString(),books:store.books,loans:store.loans}}
 
 /* ================= helpers de interfaz ================= */
@@ -291,7 +292,7 @@ function filtered(){
   const k=S.sort,d=S.dir;const val=b=>k==='anio'?(+b.anio||null):k==='valoracion'?(+b.valoracion||0):(b[k]||null);
   return arr.sort((a,b)=>{const va=val(a),vb=val(b);if(va===vb||va==null&&vb==null)return coll.compare(a.titulo||'',b.titulo||'');if(va==null)return 1;if(vb==null)return -1;return (typeof va==='number'?va-vb:coll.compare(String(va),String(vb)))*d})}
 function card(b,lm){return `<button type="button" class="bk" data-id="${esc(b.id)}">${cover(b,'',lm.get(b.id))}<span class="bt">${esc(b.titulo||'Sin título')}</span><span class="ba">${esc(b.autor||'Autor desconocido')}${b.anio?' · '+esc(b.anio):''}</span>${stars(b.valoracion)}</button>`}
-function rowL(b,lm){const l=lm.get(b.id);return `<tr data-id="${esc(b.id)}"><td class="t">${esc(b.titulo||'Sin título')}</td><td>${esc(b.autor)}</td><td class="num">${esc(b.anio||'')}</td><td>${esc(b.editorial)}</td><td>${esc(b.formato)}</td><td>${stars(b.valoracion)}</td><td>${l?'<span class="tag red">Prestado</span>':b.leido?'<span class="tag">Leído</span>':'<span class="tag">Por leer</span>'}</td></tr>`}
+function rowL(b,lm){const l=lm.get(b.id);return `<tr data-id="${esc(b.id)}"><td class="cvc">${cover(b,'mini')}</td><td class="t">${esc(b.titulo||'Sin título')}</td><td>${esc(b.autor)}</td><td class="num">${esc(b.anio||'')}</td><td>${esc(b.editorial)}</td><td>${esc(b.formato)}</td><td>${stars(b.valoracion)}</td><td>${l?'<span class="tag red">Prestado</span>':b.leido?'<span class="tag">Leído</span>':'<span class="tag">Por leer</span>'}</td></tr>`}
 const EMPTY_SVG=`<svg viewBox="0 0 260 120" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 104h240" stroke-width="5"/><rect x="40" y="40" width="22" height="64" rx="2"/><rect x="66" y="28" width="18" height="76" rx="2"/><path d="m92 104 34-58 16 9-34 58"/><path d="M48 52h6M71 40h8"/><rect x="190" y="54" width="20" height="50" rx="2" stroke-dasharray="5 5"/><rect x="214" y="46" width="16" height="58" rx="2" stroke-dasharray="5 5"/></svg>`;
 function renderShelf(){
   $('#sort').value=S.sort;$('#dirtxt').textContent=S.sort==='anio'||S.sort==='fechaAdq'?(S.dir>0?'Antiguos':'Recientes'):S.sort==='valoracion'?(S.dir>0?'Menos':'Más'):(S.dir>0?'A–Z':'Z–A');
@@ -307,7 +308,7 @@ function renderShelf(){
   $('#count').textContent=arr.length===S.books.length?plural(arr.length,'libro','libros'):`${arr.length} de ${S.books.length} libros`;
   if(!arr.length){el.innerHTML=`<div class="empty"><h2>Ningún libro coincide</h2><p>Prueba con otra búsqueda o quita los filtros.</p><div class="trow"><button type="button" class="btn" data-do="clear">Quitar filtros</button></div></div>`;return}
   const groups=[];if(GROUPED.has(S.sort)){let cur=null;for(const b of arr){const g=b[S.sort]||'Sin indicar';if(!cur||cur.g!==g)groups.push(cur={g,items:[]});cur.items.push(b)}}else groups.push({g:null,items:arr});
-  el.innerHTML=groups.map(({g,items})=>(g?`<h3 class="gh">${esc(g)}<span>${items.length}</span></h3>`:'')+(S.view==='grid'?`<div class="grid">${items.map(b=>card(b,lm)).join('')}</div>`:`<table class="lt stack"><thead><tr><th>Título</th><th>Autor</th><th class="num">Año</th><th>Editorial</th><th>Tipo de edición</th><th>Valoración</th><th>Estado</th></tr></thead><tbody>${items.map(b=>rowL(b,lm)).join('')}</tbody></table>`)).join('')}
+  el.innerHTML=groups.map(({g,items})=>(g?`<h3 class="gh">${esc(g)}<span>${items.length}</span></h3>`:'')+(S.view==='grid'?`<div class="grid">${items.map(b=>card(b,lm)).join('')}</div>`:`<table class="lt stack"><thead><tr><th class="cvc"><span class="vh">Portada</span></th><th>Título</th><th>Autor</th><th class="num">Año</th><th>Editorial</th><th>Tipo de edición</th><th>Valoración</th><th>Estado</th></tr></thead><tbody>${items.map(b=>rowL(b,lm)).join('')}</tbody></table>`)).join('')}
 $('#q').addEventListener('input',e=>{S.q=e.target.value;renderShelf()});
 $('#sort').addEventListener('change',e=>{S.sort=e.target.value;S.dir=(S.sort==='valoracion'||S.sort==='fechaAdq')?-1:1;savePrefs();renderShelf()});
 $('#dir').addEventListener('click',()=>{S.dir*=-1;savePrefs();renderShelf()});
@@ -527,6 +528,8 @@ const Sync={state:'off',note:'',busy:false,timer:null,client:null,clientFor:'',p
   clientId(){return (CFG.googleClientId||'').trim()||(localStorage.getItem('exlibris-client')||'').trim()},
   connected(){return localStorage.getItem('exlibris-drive')==='1'},
   token(){try{const t=JSON.parse(localStorage.getItem('exlibris-tok')||'null');if(t&&t.exp>Date.now()+60000)return t.v}catch(e){}return null},
+  tokenLeft(){try{const t=JSON.parse(localStorage.getItem('exlibris-tok')||'null');return t?Math.max(0,t.exp-Date.now()):0}catch(e){return 0}},
+  email(){return localStorage.getItem('exlibris-email')||''},
   gis(){if(window.google?.accounts?.oauth2)return Promise.resolve();return this._gis||(this._gis=new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;s.onload=()=>res();s.onerror=()=>{this._gis=null;rej(new Error('gis'))};document.head.appendChild(s)}))},
   initClient(){const id=this.clientId();if(!window.google?.accounts?.oauth2||!id)return false;if(this.client&&this.clientFor===id)return true;
     this.client=google.accounts.oauth2.initTokenClient({client_id:id,scope:SCOPE,callback:r=>{const p=this.pending;this.pending=null;if(!p)return;
@@ -536,7 +539,9 @@ const Sync={state:'off',note:'',busy:false,timer:null,client:null,clientFor:'',p
       error_callback:err=>{const p=this.pending;this.pending=null;p?.rej(new Error(err?.type||'popup'))}});this.clientFor=id;return true},
   async getToken(interactive){const t=this.token();if(t)return t;if(!interactive)return null;
     if(!this.initClient()){await this.gis();if(!this.initClient())throw new Error('noclient')}
-    return new Promise((res,rej)=>{this.pending={res,rej};this.client.requestAccessToken({prompt:this.connected()?'':'consent'})})},
+    const opts={prompt:this.connected()?'':'consent'};if(this.email())opts.login_hint=this.email();
+    return new Promise((res,rej)=>{this.pending={res,rej};this.client.requestAccessToken(opts)})},
+  async whoami(tok){if(this.email()||this._who)return;this._who=true;try{const r=await this.api('https://www.googleapis.com/drive/v3/about?fields=user(emailAddress)',{},tok);const e=(await r.json()).user?.emailAddress;if(e)localStorage.setItem('exlibris-email',e)}catch(x){}},
   async api(url,opt,tok){const r=await fetch(url,{...opt,headers:{...(opt?.headers||{}),Authorization:'Bearer '+tok}});
     if(r.status===401){localStorage.removeItem('exlibris-tok');const e=new Error('auth');e.auth=true;throw e}
     if(!r.ok){const e=new Error('http '+r.status);e.status=r.status;throw e}return r},
@@ -548,36 +553,44 @@ const Sync={state:'off',note:'',busy:false,timer:null,client:null,clientFor:'',p
     const mp=`--${b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(meta)}\r\n--${b}\r\nContent-Type: application/json\r\n\r\n${body}\r\n--${b}--`;
     const r=await this.api('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+b},body:mp},tok);return (await r.json()).id},
   set(s,note=''){this.state=s;this.note=note;this.ui()},
-  ui(){const el=$('#sync');const txt={noconfig:'Activar Drive',off:'Conectar Drive',tap:store.meta.dirty?'Sincronizar · pendiente':'Sincronizar',busy:'Sincronizando…',ok:'Sincronizado',offline:'Sin conexión',error:'Reintentar'}[this.state]||'Drive';
+  ui(){const el=$('#sync');const txt={noconfig:'Activar Drive',off:'Conectar Drive',tap:store.meta.dirty?'Pendiente · toca':'Toca para sincronizar',busy:'Sincronizando…',ok:'Sincronizado',offline:'Sin conexión',error:'Reintentar'}[this.state]||'Drive';
     const s=this.state==='ok'&&store.meta.dirty?'pending':this.state;el.dataset.s=s;$('#synctxt').textContent=this.state==='ok'&&store.meta.dirty?'Pendiente':txt;
     el.title=this.state==='ok'?`Última sincronización: ${ago(store.meta.lastSync)}`:this.note||'Sincronizar con Google Drive';
     const st=$('#drivestate');if(st)st.innerHTML=this.describe()},
   describe(){if(!this.clientId())return 'Falta el ID de cliente de Google (ver abajo).';if(!this.connected())return 'Sin conectar. Tus libros están solo en este dispositivo.';
     const last=store.meta.lastSync?`Última sincronización: ${esc(ago(store.meta.lastSync))}.`:'Aún no se ha sincronizado.';
-    return `<span class="ok-t">Conectado a Google Drive.</span> ${last}${store.meta.dirty?' Hay cambios pendientes de subir.':''}${this.note?' '+esc(this.note):''}`},
+    return `<span class="ok-t">Conectado a Google Drive${this.email()?' como '+esc(this.email()):''}.</span> ${last}${store.meta.dirty?' Hay cambios pendientes de subir.':''}${this.note?' '+esc(this.note):''} La sincronización es automática: al abrir la app, tras cada cambio y cada pocos minutos. Google pide renovar el permiso cada hora; la app lo renueva sola en cuanto tocas la pantalla (puede verse un instante la ventana de Google).`},
   schedule(){store.meta.dirty=true;persist();if(!this.connected()){this.ui();return}clearTimeout(this.timer);this.timer=setTimeout(()=>this.run(false),2500);this.ui()},
   async run(interactive){
     if(this.busy)return;if(!this.clientId()){this.set('noconfig');return}
     if(!navigator.onLine){this.set('offline');return}
     let tok;try{tok=await this.getToken(interactive)}catch(e){this.set(this.connected()?'tap':'off',e.message==='popup'?'El navegador ha bloqueado la ventana de Google; vuelve a pulsar.':'No se ha completado el inicio de sesión de Google.');return}
     if(!tok){this.set(this.connected()?'tap':'off');return}
-    this.busy=true;this.set('busy');const rev=store.meta.rev;
+    this.busy=true;this.set('busy');const rev=store.meta.rev;this.whoami(tok);
     try{let id=store.meta.driveFileId||await this.findFile(tok),remote=null;
       if(id){try{remote=await this.download(id,tok)}catch(e){if(e.status===404){id=await this.findFile(tok);remote=id?await this.download(id,tok):null}else throw e}}
-      if(remote&&remote.app==='exlibris'){store.books=mergeColl(store.books,remote.books);store.loans=mergeColl(store.loans,remote.loans)}
-      pruneTomb(store.books);pruneTomb(store.loans);
-      id=await this.upload(id,snapshot(),tok);
+      let subir=!(remote&&remote.app==='exlibris');
+      if(!subir){subir=localNewer(store.books,remote.books)||localNewer(store.loans,remote.loans);store.books=mergeColl(store.books,remote.books);store.loans=mergeColl(store.loans,remote.loans)}
+      if(pruneTomb(store.books)+pruneTomb(store.loans))subir=true;
+      if(subir)id=await this.upload(id,snapshot(),tok);
       store.meta.driveFileId=id;store.meta.lastSync=Date.now();if(store.meta.rev===rev)store.meta.dirty=false;
       refresh();persist();render();this.busy=false;this.set('ok');
       if(store.meta.dirty)this.schedule()}
     catch(e){this.busy=false;if(e.auth)this.set('tap');else this.set('error',e.status===403?'Google ha denegado el acceso; revisa que la API de Drive esté habilitada.':'No se ha podido sincronizar.')}},
   disconnect(){const t=this.token();try{if(t&&window.google?.accounts?.oauth2)google.accounts.oauth2.revoke(t,()=>{})}catch(e){}
-    localStorage.removeItem('exlibris-tok');localStorage.removeItem('exlibris-drive');store.meta.driveFileId=null;persist();this.set(this.clientId()?'off':'noconfig')}};
+    localStorage.removeItem('exlibris-tok');localStorage.removeItem('exlibris-drive');localStorage.removeItem('exlibris-email');store.meta.driveFileId=null;persist();this.set(this.clientId()?'off':'noconfig')}};
 $('#sync').addEventListener('click',()=>{if(!Sync.clientId())settingsSheet();else Sync.run(true)});
 $('#gear').addEventListener('click',()=>settingsSheet());
 addEventListener('online',()=>{if(Sync.connected())Sync.run(false)});
 addEventListener('offline',()=>{if(Sync.connected())Sync.set('offline')});
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(Sync.connected()&&Sync.token())Sync.run(false);if(S.tab==='novedades')loadNews()}});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(Sync.connected()){if(Sync.token())Sync.run(false);else Sync.set('tap')}if(S.tab==='novedades')loadNews()}});
+// Sincronización automática: cada 3 minutos mientras la app está abierta…
+setInterval(()=>{if(document.visibilityState==='visible'&&Sync.connected()&&Sync.token()&&!Sync.busy)Sync.run(false)},180000);
+// …y renovación del permiso de Google aprovechando el primer toque (Google solo deja abrir su ventana tras un gesto)
+let lastAutoAuth=0;
+document.addEventListener('click',e=>{if(!Sync.connected()||!Sync.clientId()||Sync.busy||Sync.pending||!navigator.onLine)return;
+  if(e.target.closest('#sync,input,label,select,textarea'))return;if(!$('#scan').hidden||!$('#cam').hidden)return;
+  if(Sync.tokenLeft()>5*60000)return;if(Date.now()-lastAutoAuth<120000)return;lastAutoAuth=Date.now();Sync.run(true)},true);
 
 /* ================= ajustes, copias e instalación ================= */
 let installEvt=null;
