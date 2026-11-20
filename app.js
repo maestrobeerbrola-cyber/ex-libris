@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.2.0';
+const VERSION='1.2.1';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -59,7 +59,7 @@ function snapshot(){return {app:'exlibris',version:1,actualizado:new Date().toIS
 
 /* ================= helpers de interfaz ================= */
 let tt;
-function toast(m,act){const t=$('#toast');t.innerHTML=esc(m)+(act?`<button type="button">${esc(act.label)}</button>`:'');if(act)t.querySelector('button').onclick=()=>{t.classList.remove('on');act.fn()};t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),act?6000:2600)}
+function toast(m,act){const t=$('#toast');t.innerHTML=`<span>${esc(m)}</span>`+(act?`<button type="button">${esc(act.label)}</button>`:'');if(act)t.querySelector('button').onclick=()=>{t.classList.remove('on');act.fn()};t.classList.add('on');clearTimeout(tt);if(!act?.keep)tt=setTimeout(()=>t.classList.remove('on'),act?6000:2600)}
 function banner(m){const b=$('#banner');b.textContent=m||'';b.hidden=!m}
 const clr=b=>CLOTH[hash((b.titulo||'')+'|'+(b.autor||''))%CLOTH.length];
 function stars(v){v=Math.max(0,Math.min(5,Math.round(+v||0)));return v?`<span class="stars" aria-label="${v} de 5">${'★'.repeat(v)}<i>${'★'.repeat(5-v)}</i></span>`:''}
@@ -657,7 +657,7 @@ $('#fab').addEventListener('click',()=>S.tab==='prestamos'?loanForm():bookForm()
   if(!Sync.clientId())Sync.set('noconfig');else{Sync.set(Sync.connected()?(Sync.token()?'ok':'tap'):'off');Sync.gis().then(()=>Sync.initClient()).catch(()=>{});if(Sync.connected()&&Sync.token())Sync.run(false)}
   loadNews();
   if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){const hadCtrl=!!navigator.serviceWorker.controller;try{const reg=await navigator.serviceWorker.register('sw.js');
-    reg.addEventListener('updatefound',()=>{const w=reg.installing;w?.addEventListener('statechange',()=>{if(w.state==='installed'&&navigator.serviceWorker.controller)toast('Hay una versión nueva de Ex Libris',{label:'Actualizar',fn:()=>{w.postMessage('skip');}})})});
+    reg.addEventListener('updatefound',()=>{const w=reg.installing;w?.addEventListener('statechange',()=>{if(w.state==='installed'&&navigator.serviceWorker.controller)toast('Hay una versión nueva de Ex Libris',{label:'Actualizar',keep:true,fn:()=>{w.postMessage('skip');}})})});
     let reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloaded||!hadCtrl)return;reloaded=true;location.reload()})}catch(e){}}
 })();
 }
