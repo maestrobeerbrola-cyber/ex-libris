@@ -334,6 +334,13 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 @media(max-width:600px){.lt.stack tr{grid-template-columns:52px minmax(0,1fr);column-gap:14px;align-items:start}
   .lt.stack td.cvc{grid-row:1/span 8;padding:2px 0 0;width:auto}.lt.stack td.cvc::before{display:none}.lt.stack td.cvc .cv.mini{width:52px}
   .lt.stack td:not(.cvc){grid-column:2;padding-inline-start:6.5em}.lt.stack td:not(.cvc)::before{width:6em;margin-inline-start:-6.5em}.lt.stack td.t{padding-inline-start:0}}
+
+/* fichas de libros prestados */
+.lh{display:flex;gap:12px;align-items:flex-start}.lh>div{min-width:0}.lh .cv.mini{width:48px;flex:none}
+.loan .lm{margin:2px 0 0;font-size:14px;color:var(--mute)}
+.hrow .cv.mini{width:36px;flex:none}
+#lextra{display:contents}
+.note-s{margin:-6px 0 0;font-size:14px;color:var(--mute)}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -420,6 +427,7 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
         <button type="button" data-v="prestado">Los que presto</button><button type="button" data-v="recibido">Los que me prestan</button>
       </div>
       <span class="sp"></span>
+      <button class="btn" id="lscanhdr" type="button" hidden><svg class="ic"><use href="#i-barcode"/></svg>Escanear libro prestado</button>
       <button class="btn pri desk" id="addloan" type="button"><svg class="ic"><use href="#i-plus"/></svg>Nuevo préstamo</button>
     </div>
     <div id="loans"></div>

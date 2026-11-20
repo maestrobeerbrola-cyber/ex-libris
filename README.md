@@ -7,7 +7,7 @@ App personal para catalogar tus libros, llevar los préstamos, elegir la próxim
 - **Biblioteca**: título, autor, año, editorial, número de edición, ISBN, género, fecha de adquisición, valoración, tipo de edición, leído/no leído, notas y portada. Orden por cualquier campo, agrupación por género, editorial o tipo de edición, filtros y búsqueda.
 - **Portadas**: cámara propia con marco 2:3 (o imagen desde archivo) y encuadre arrastrando y ampliando; se guardan a 300×450.
 - **Fichas automáticas**: escáner de código de barras con la cámara en directo (también desde una foto), y búsqueda por ISBN, título o autor en el catálogo de la Biblioteca Nacional de España (SRU público, con número de edición y editorial de la edición española), Google Books y Open Library (portadas). Modo «Escanear» para dar de alta muchos libros seguidos.
-- **Préstamos**: los que prestas y los que te prestan, con fechas, avisos de retraso e historial.
+- **Préstamos**: los que prestas y los que te prestan, con fechas, avisos de retraso e historial. Los libros que te prestan se escanean y tienen su propia ficha (con portada) sin entrar en tu colección; con «A mi colección» pasan a ella si se quedan contigo.
 - **¿Qué leo ahora?**: una lectura pendiente al azar, filtrable por género.
 - **Novedades**: noticias de webs literarias, editoriales y libros de música, actualizadas cada mañana por GitHub Actions (`scripts/fetch-news.mjs`, fuentes en `feeds.json`).
 - **Copias**: exportar/importar CSV (Excel, Google Sheets) y copia completa en JSON.

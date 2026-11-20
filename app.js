@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.3.0';
+const VERSION='1.4.0';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -64,7 +64,7 @@ function toast(m,act){const t=$('#toast');t.innerHTML=`<span>${esc(m)}</span>`+(
 function banner(m){const b=$('#banner');b.textContent=m||'';b.hidden=!m}
 const clr=b=>CLOTH[hash((b.titulo||'')+'|'+(b.autor||''))%CLOTH.length];
 function stars(v){v=Math.max(0,Math.min(5,Math.round(+v||0)));return v?`<span class="stars" aria-label="${v} de 5">${'★'.repeat(v)}<i>${'★'.repeat(5-v)}</i></span>`:''}
-function activeLoans(t){return S.loans.filter(l=>l.tipo===t&&!l.devuelto)}
+function activeLoans(t){return S.loans.filter(l=>l.tipo===t&&!l.devuelto&&!l.adquirido)}
 function lentMap(){const m=new Map();for(const l of activeLoans('prestado'))if(l.bookId)m.set(l.bookId,l);return m}
 function coverSrc(b){return okImg(b.portada)?b.portada:okUrl(b.portadaUrl)?b.portadaUrl:''}
 function cover(b,cls='',lent){const src=coverSrc(b);
@@ -403,7 +403,7 @@ function bookForm(b,preset={}){
     async function byText(q){amsg('Buscando…',true);sh.querySelector('#fres').innerHTML='';
       try{const rs=await searchCatalog(q);if(!rs.length){amsg('No he encontrado nada con esa búsqueda.');return}
         amsg(`${plural(rs.length,'resultado','resultados')}. Toca tu edición (mira la editorial, el año y el ISBN) para rellenar la ficha.`);
-        sh.querySelector('#fres').innerHTML=rs.map((r,i)=>`<button type="button" class="ri" data-i="${i}">${cover(r)}<span><b>${esc(r.titulo)}</b><span>${esc([r.autor,r.editorial,r.anio,r.edicion&&r.edicion+' ed.'].filter(Boolean).join(' · '))}</span><span class="rs">${esc([r.isbn&&'ISBN '+r.isbn,r.fuente==='BNE'?'Biblioteca Nacional':r.fuente].filter(Boolean).join(' · '))}</span></span></button>`).join('');
+        sh.querySelector('#fres').innerHTML=rs.map((r,i)=>`<button type="button" class="ri" data-i="${i}">${cover(r)}<span><b>${esc(r.titulo)}</b><span>${esc([r.autor,r.editorial,r.anio,r.edicion&&'ed. '+r.edicion].filter(Boolean).join(' · '))}</span><span class="rs">${esc([r.isbn&&'ISBN '+r.isbn,r.fuente==='BNE'?'Biblioteca Nacional':r.fuente].filter(Boolean).join(' · '))}</span></span></button>`).join('');
         sh.querySelector('#fres').onclick=ev=>{const x=ev.target.closest('.ri');if(!x)return;const r=rs[+x.dataset.i];sh.querySelector('#fres').innerHTML='';const n=fill(r);amsg(`He rellenado ${plural(n,'campo','campos')}. Revisa que la edición coincida con tu ejemplar.`)}}
       catch(x){amsg('No hay conexión con los catálogos. Puedes rellenarlo a mano.')}}
     const go=()=>{const q=sh.querySelector('#fq').value.trim();if(!q)return amsg('Escribe un ISBN, un título o un autor.');const c=cleanIsbn(q);if(/^(\d{13}|\d{9}[\dX])$/.test(c))byIsbn(c);else byText(q)};
@@ -424,36 +424,71 @@ function bookForm(b,preset={}){
     else if(isNew&&matchMedia('(pointer:fine)').matches)sh.querySelector('#fq').focus()})}
 
 /* ================= préstamos ================= */
-function loanStatus(l){if(l.devuelto)return ['',`Devuelto el ${fmtD(l.devuelto)}`];if(!l.fechaDevolucion)return ['','Sin fecha de devolución'];const d=diff(l.fechaDevolucion,today());
+const cerrado=l=>!!(l.devuelto||l.adquirido);
+function loanStatus(l){if(l.adquirido)return ['',`En tu colección desde el ${fmtD(l.adquirido)}`];if(l.devuelto)return ['',`Devuelto el ${fmtD(l.devuelto)}`];if(!l.fechaDevolucion)return ['','Sin fecha de devolución'];const d=diff(l.fechaDevolucion,today());
   if(d<0)return ['late',`Retrasado ${plural(-d,'día','días')}`];if(d===0)return ['soon','Vence hoy'];if(d<=7)return ['soon',`Vence en ${plural(d,'día','días')}`];return ['',`Quedan ${d} días`]}
+const loanBook=l=>l.tipo==='prestado'&&l.bookId&&store.books[l.bookId]&&!store.books[l.bookId].deleted?store.books[l.bookId]:l;
 function renderLoans(){
   $$('#ltab button').forEach(b=>{const n=activeLoans(b.dataset.v).length;b.setAttribute('aria-pressed',b.dataset.v===S.ltab);b.textContent=(b.dataset.v==='prestado'?'Los que presto':'Los que me prestan')+(n?` (${n})`:'')});
+  $('#lscanhdr').hidden=S.ltab!=='recibido';
   const el=$('#loans');if(!S.loaded){el.innerHTML='<p class="count">Cargando…</p>';return}
-  const all=S.loans.filter(l=>l.tipo===S.ltab),act=all.filter(l=>!l.devuelto).sort((a,b)=>(a.fechaDevolucion||'9999').localeCompare(b.fechaDevolucion||'9999')),hist=all.filter(l=>l.devuelto).sort((a,b)=>String(b.devuelto).localeCompare(String(a.devuelto)));
+  const all=S.loans.filter(l=>l.tipo===S.ltab),act=all.filter(l=>!cerrado(l)).sort((a,b)=>(a.fechaDevolucion||'9999').localeCompare(b.fechaDevolucion||'9999')),hist=all.filter(cerrado).sort((a,b)=>String(b.devuelto||b.adquirido).localeCompare(String(a.devuelto||a.adquirido)));
   const yo=S.ltab==='prestado';
-  const cards=act.map(l=>{const[c,t]=loanStatus(l);return `<article class="loan ${c==='late'?'late':''}"><div><h3>${esc(l.titulo)}</h3>${l.autor?`<p class="la">${esc(l.autor)}</p>`:''}</div>
+  const cards=act.map(l=>{const[c,t]=loanStatus(l);const bk=loanBook(l);const meta=[bk.editorial,bk.anio,bk.edicion&&'ed. '+bk.edicion].filter(Boolean).map(esc).join(' · ');
+    return `<article class="loan ${c==='late'?'late':''}"><div class="lh">${cover(bk,'mini')}<div><h3>${esc(l.titulo)}</h3>${l.autor?`<p class="la">${esc(l.autor)}</p>`:''}${meta?`<p class="lm">${meta}</p>`:''}</div></div>
     <p class="lp">${yo?'Lo tiene':'Me lo dejó'} <b>${esc(l.persona)}</b></p>
     <dl class="ld"><div><dt>Prestado</dt><dd>${fmtD(l.fechaPrestamo)||'—'}</dd></div><div><dt>Devolución</dt><dd>${fmtD(l.fechaDevolucion)||'—'}</dd></div></dl>
     ${l.notas?`<p class="la">${esc(l.notas)}</p>`:''}
     <div class="lst"><span class="pill ${c}">${t}</span></div>
-    <div class="lf"><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button><button type="button" class="btn sm pri" data-ret="${esc(l.id)}">${ic('check')}Devuelto</button></div></article>`}).join('');
-  el.innerHTML=(act.length?`<div class="lgrid">${cards}</div>`:`<div class="empty"><h2>${yo?'No tienes libros prestados':'Nadie te ha dejado libros ahora mismo'}</h2><p>${yo?'Cuando prestes uno, apúntalo aquí con la fecha y te avisaré si se retrasa la devolución.':'Apunta aquí los libros que te dejen para no olvidar devolverlos.'}</p><div class="trow"><button type="button" class="btn pri" data-new>${ic('plus')}Nuevo préstamo</button></div></div>`)
-   +(hist.length?`<details class="hist"><summary>Historial (${hist.length})</summary>${hist.map(l=>`<div class="hrow"><div><b>${esc(l.titulo)}</b><p>${yo?'A':'De'} ${esc(l.persona)} · ${fmtD(l.fechaPrestamo)} → devuelto el ${fmtD(l.devuelto)}</p></div><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button></div>`).join('')}</details>`:'')}
+    <div class="lf"><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button>${yo?'':`<button type="button" class="btn sm" data-own="${esc(l.id)}">${ic('book')}A mi colección</button>`}<button type="button" class="btn sm pri" data-ret="${esc(l.id)}">${ic('check')}Devuelto</button></div></article>`}).join('');
+  el.innerHTML=(act.length?`<div class="lgrid">${cards}</div>`:`<div class="empty"><h2>${yo?'No tienes libros prestados':'Nadie te ha dejado libros ahora mismo'}</h2><p>${yo?'Cuando prestes uno, apúntalo aquí con la fecha y te avisaré si se retrasa la devolución.':'Escanea el código de barras del libro que te dejen: se crea su ficha aquí, sin añadirlo a tu colección, y te recuerda cuándo devolverlo.'}</p><div class="trow">${yo?'':`<button type="button" class="btn pri" data-scan>${ic('barcode')}Escanear libro prestado</button>`}<button type="button" class="btn${yo?' pri':''}" data-new>${ic('plus')}Nuevo préstamo</button></div></div>`)
+   +(hist.length?`<details class="hist"><summary>Historial (${hist.length})</summary>${hist.map(l=>`<div class="hrow">${cover(loanBook(l),'mini')}<div><b>${esc(l.titulo)}</b><p>${yo?'A':'De'} ${esc(l.persona)} · ${fmtD(l.fechaPrestamo)} → ${l.adquirido?'pasó a tu colección el '+fmtD(l.adquirido):'devuelto el '+fmtD(l.devuelto)}</p></div><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button></div>`).join('')}</details>`:'')}
 $('#ltab').addEventListener('click',e=>{const b=e.target.closest('button');if(b){S.ltab=b.dataset.v;renderLoans()}});
 $('#addloan').addEventListener('click',()=>loanForm());
-$('#loans').addEventListener('click',e=>{const r=e.target.closest('[data-ret]'),ed=e.target.closest('[data-ed]');
+const scanBorrowed=()=>Scan.open(async code=>{toast('Buscando el libro…');let r=null;try{r=await lookupIsbn(code)}catch(e){}loanForm(null,{tipo:'recibido',ficha:r&&r.titulo?r:{isbn:code},aviso:r&&r.titulo?'':'No he encontrado este ISBN en los catálogos; completa la ficha a mano.'})});
+$('#lscanhdr').addEventListener('click',scanBorrowed);
+function makeOwn(id){const l=store.loans[id];if(!l||l.deleted)return;
+  const dup=l.isbn&&S.books.find(b=>b.isbn===l.isbn);
+  if(dup){patchRec('loans',id,{adquirido:today(),bookId:dup.id});toast(`Ya tenías «${dup.titulo}» en tu colección; el préstamo queda cerrado`);return}
+  const nota=`Me lo dejó ${l.persona}${l.fechaPrestamo?' el '+fmtD(l.fechaPrestamo):''} y se quedó en mi biblioteca.`;
+  const b=saveRec('books',{titulo:l.titulo,autor:l.autor||'',anio:l.anio||null,editorial:l.editorial||'',edicion:l.edicion||'',isbn:l.isbn||'',genero:l.genero||'',formato:l.formato||'',portada:okImg(l.portada)?l.portada:null,portadaUrl:okUrl(l.portadaUrl)?l.portadaUrl:'',fechaAdq:today(),valoracion:0,leido:!!l.leido,notas:[l.notas,nota].filter(Boolean).join('\n'),creado:Date.now()});
+  patchRec('loans',id,{adquirido:today(),bookId:b.id});
+  toast(`«${l.titulo}» pasa a tu colección`,{label:'Deshacer',fn:()=>{delRec('books',b.id);patchRec('loans',id,{adquirido:null,bookId:null})}})}
+$('#loans').addEventListener('click',e=>{const r=e.target.closest('[data-ret]'),ed=e.target.closest('[data-ed]'),own=e.target.closest('[data-own]');
   if(e.target.closest('[data-new]'))return loanForm();
+  if(e.target.closest('[data-scan]'))return scanBorrowed();
   if(ed)return loanForm(store.loans[ed.dataset.ed]);
+  if(own)return makeOwn(own.dataset.own);
   if(r){const id=r.dataset.ret;patchRec('loans',id,{devuelto:today()});toast('Marcado como devuelto',{label:'Deshacer',fn:()=>patchRec('loans',id,{devuelto:null})})}});
 function loanForm(l,preset={}){
-  const e=l||{},isNew=!l;let tipo=e.tipo||preset.tipo||S.ltab;
+  const e=l?{...l}:{...(preset.ficha||{})},isNew=!l;let tipo=e.tipo||preset.tipo||S.ltab;
   const label=b=>`${b.titulo}${b.autor?' — '+b.autor:''}`;const bk=S.books.find(b=>b.id===(e.bookId||preset.bookId));
   const people=[...new Set(S.loans.map(x=>x.persona).filter(Boolean))].sort(coll.compare);
+  const manual=new Set();if(!isNew)for(const k of ['titulo','autor','anio','editorial','edicion','genero','isbn','formato'])if(e[k])manual.add(k);
+  let portada=okImg(e.portada)?e.portada:null,portadaUrl=okUrl(e.portadaUrl)?e.portadaUrl:'';
+  const uniq=k=>[...new Set(S.books.map(x=>x[k]).filter(Boolean))].sort(coll.compare);
   openSheet(head(isNew?'Nuevo préstamo':'Editar préstamo')+`<form id="lf" novalidate>
    <div class="opts" role="radiogroup" aria-label="Tipo" style="margin-bottom:16px"><label class="opt"><input type="radio" name="tipo" value="prestado" ${tipo==='prestado'?'checked':''}><span>Yo lo presto</span></label><label class="opt"><input type="radio" name="tipo" value="recibido" ${tipo==='recibido'?'checked':''}><span>Me lo prestan</span></label></div>
+   <div class="auto" id="lauto">
+     <p class="auto-h">Ficha del libro prestado</p>
+     <p class="note-s">Se guarda solo en Préstamos, sin añadirlo a tu colección.</p>
+     <div class="arow"><button type="button" class="btn" id="lscan">${ic('barcode')}Escanear código de barras</button></div>
+     <div class="irow"><label class="f"><span>ISBN, título o autor</span><input id="lq" autocomplete="off" enterkeyhint="search"></label><button type="button" class="btn" id="lbq">${ic('search')}Buscar</button></div>
+     <div class="res" id="lres"></div>
+     <p class="amsg" id="lmsg" aria-live="polite"></p>
+   </div>
    <div class="fg">
-    <label class="f full"><span>Libro *</span><input id="llib" list="dlb" autocomplete="off" value="${esc(bk?label(bk):(e.titulo||''))}"></label>
-    <label class="f full"><span>Autor</span><input id="laut" value="${esc(bk?bk.autor:(e.autor||''))}"></label>
+    <label class="f full"><span>Libro *</span><input id="llib" data-k="titulo" list="dlb" autocomplete="off" value="${esc(bk?label(bk):(e.titulo||''))}"></label>
+    <label class="f full"><span>Autor</span><input id="laut" data-k="autor" value="${esc(bk?bk.autor:(e.autor||''))}"></label>
+    <div id="lextra" class="sub">
+      <label class="f"><span>Editorial</span><input data-k="editorial" list="dle2" value="${esc(e.editorial)}" autocomplete="off"></label>
+      <label class="f"><span>Año de publicación</span><input data-k="anio" inputmode="numeric" maxlength="4" value="${esc(e.anio??'')}"></label>
+      <label class="f"><span>Número de edición</span><input data-k="edicion" value="${esc(e.edicion)}"></label>
+      <label class="f"><span>ISBN</span><input data-k="isbn" inputmode="numeric" value="${esc(e.isbn)}"></label>
+      <label class="f full"><span>Género</span><input data-k="genero" list="dlg2" value="${esc(e.genero)}" autocomplete="off"></label>
+      <div class="f full"><span>Tipo de edición</span><div class="opts">${FORMATOS.map(f=>`<label class="opt"><input type="radio" name="lformato" data-k="formato" value="${f}" ${e.formato===f?'checked':''}><span>${f}</span></label>`).join('')}</div></div>
+      <div class="f full"><span>Portada</span><div class="pc" id="lpc"></div></div>
+    </div>
     <label class="f full"><span id="lperl"></span><input id="lper" list="dlp" autocomplete="off" value="${esc(e.persona)}"></label>
     <label class="f"><span>Fecha de préstamo</span><input type="date" id="lfp" value="${esc(e.fechaPrestamo||today())}"></label>
     <label class="f"><span>Devolución prevista</span><input type="date" id="lfd" value="${esc(isNew?addDays(today(),30):(e.fechaDevolucion||''))}"></label>
@@ -461,25 +496,53 @@ function loanForm(l,preset={}){
     <label class="f full"><span>Notas</span><textarea id="lnot">${esc(e.notas)}</textarea></label>
    </div>
    <datalist id="dlb">${S.books.map(b=>`<option value="${esc(label(b))}">`).join('')}</datalist><datalist id="dlp">${people.map(p=>`<option value="${esc(p)}">`).join('')}</datalist>
+   <datalist id="dle2">${uniq('editorial').map(v=>`<option value="${esc(v)}">`).join('')}</datalist><datalist id="dlg2">${[...new Set([...GENEROS,...uniq('genero')])].map(v=>`<option value="${esc(v)}">`).join('')}</datalist>
    <p class="err" id="lerr"></p>
-   <div class="sh-foot" id="lfoot">${isNew?'':'<button type="button" class="btn" data-a="del">Eliminar</button>'}<span class="sp"></span><button type="button" class="btn" data-close>Cancelar</button><button type="submit" class="btn pri">Guardar</button></div></form>`,sh=>{
-    const sync=()=>{tipo=sh.querySelector('[name=tipo]:checked').value;sh.querySelector('#lperl').textContent=tipo==='prestado'?'¿A quién se lo prestas? *':'¿Quién te lo presta? *';sh.querySelector('#llib').placeholder=tipo==='prestado'?'Busca en tu biblioteca':'Título del libro'};sync();
+   <div class="sh-foot" id="lfoot">${isNew?'':'<button type="button" class="btn" data-a="del">Eliminar</button>'}${!isNew&&e.tipo==='recibido'&&!cerrado(e)?`<button type="button" class="btn" data-a="own">${ic('book')}A mi colección</button>`:''}<span class="sp"></span><button type="button" class="btn" data-close>Cancelar</button><button type="submit" class="btn pri">Guardar</button></div></form>`,sh=>{
+    const F=k=>sh.querySelector(`#lf [data-k="${k}"]`),V=k=>(F(k)?.value||'').trim();
+    const sync=()=>{tipo=sh.querySelector('[name=tipo]:checked').value;const rec=tipo==='recibido';sh.querySelector('#lperl').textContent=rec?'¿Quién te lo presta? *':'¿A quién se lo prestas? *';sh.querySelector('#llib').placeholder=rec?'Título del libro':'Busca en tu biblioteca';
+      sh.querySelector('#llib').setAttribute('list',rec?'':'dlb');sh.querySelector('#lauto').hidden=!rec;sh.querySelector('#lextra').hidden=!rec};sync();
     sh.querySelectorAll('[name=tipo]').forEach(r=>r.addEventListener('change',sync));
-    sh.querySelector('#llib').addEventListener('change',ev=>{const m=S.books.find(b=>label(b)===ev.target.value);if(m)sh.querySelector('#laut').value=m.autor||''});
-    sh.querySelector('#lfoot').addEventListener('click',ev=>{if(ev.target.closest('[data-a="del"]'))confirmFoot(sh.querySelector('#lfoot'),'¿Eliminar este préstamo?',()=>{delRec('loans',e.id);closeSheet(true);toast('Préstamo eliminado')})});
+    sh.querySelector('#llib').addEventListener('change',ev=>{if(tipo!=='prestado')return;const m=S.books.find(b=>label(b)===ev.target.value);if(m)sh.querySelector('#laut').value=m.autor||''});
+    sh.addEventListener('input',ev=>{const k=ev.target.dataset?.k;if(k)manual.add(k)});
+    const drawPc=()=>{const pc=sh.querySelector('#lpc');const src=portada||portadaUrl;
+      pc.innerHTML=(src?`<div class="cv ph" style="--c:#3b4260"><img src="${esc(src)}" alt="Portada" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove('ph');this.remove()"></div>`:'')+`<button type="button" class="btn sm" id="lcam">${ic('camera')}Hacer foto</button><label class="btn sm">${ic('up')}Subir archivo<input type="file" accept="image/*" class="vh" id="lfile"></label>`+(src?'<button type="button" class="btn sm" id="lrm">Quitar</button>':'');
+      const done=url=>{portada=url;drawPc()};pc.querySelector('#lcam').addEventListener('click',()=>Cover.camera(done));
+      pc.querySelector('#lfile').addEventListener('change',ev=>{const f=ev.target.files[0];ev.target.value='';if(f)Cover.fromFile(f,done)});
+      pc.querySelector('#lrm')?.addEventListener('click',()=>{portada=null;portadaUrl='';drawPc()})};drawPc();
+    const msg=(t,busy)=>{sh.querySelector('#lmsg').innerHTML=(busy?'<span class="spin"></span>':'')+esc(t)};
+    const fill=r=>{let n=0;if(!r)return 0;for(const k of ['titulo','autor','anio','editorial','edicion','genero','isbn']){const v=r[k];if(v==null||v===''||manual.has(k))continue;F(k).value=String(v).slice(0,300);n++}
+      if(r.formato&&FORMATOS.includes(r.formato)&&!manual.has('formato')){const o=sh.querySelector(`[name=lformato][value="${r.formato}"]`);if(o){o.checked=true;n++}}
+      if(r.portadaUrl&&!portada){portadaUrl=r.portadaUrl;drawPc()}return n};
+    async function byIsbn(code){if(!isbnOK(code))return msg('Ese ISBN no cuadra: revisa los dígitos.');code=to13(code);msg('Buscando en la Biblioteca Nacional, Google Books y Open Library…',true);
+      try{const r=await lookupIsbn(code);if(!r){if(!manual.has('isbn'))F('isbn').value=code;return msg('Este ISBN no aparece en los catálogos; completa la ficha a mano.')}
+        const n=fill(r);msg(`He rellenado ${plural(n,'campo','campos')} con los datos de ${r.fuente==='BNE'?'la Biblioteca Nacional de España':r.fuente}.`)}catch(x){msg('No hay conexión con los catálogos; puedes rellenarlo a mano.')}}
+    async function byText(q){msg('Buscando…',true);sh.querySelector('#lres').innerHTML='';
+      try{const rs=await searchCatalog(q);if(!rs.length)return msg('No he encontrado nada con esa búsqueda.');msg(`${plural(rs.length,'resultado','resultados')}. Toca la edición que te han dejado.`);
+        sh.querySelector('#lres').innerHTML=rs.map((r,i)=>`<button type="button" class="ri" data-i="${i}">${cover(r)}<span><b>${esc(r.titulo)}</b><span>${esc([r.autor,r.editorial,r.anio].filter(Boolean).join(' · '))}</span><span class="rs">${esc([r.isbn&&'ISBN '+r.isbn,r.fuente==='BNE'?'Biblioteca Nacional':r.fuente].filter(Boolean).join(' · '))}</span></span></button>`).join('');
+        sh.querySelector('#lres').onclick=ev=>{const x=ev.target.closest('.ri');if(!x)return;sh.querySelector('#lres').innerHTML='';const n=fill(rs[+x.dataset.i]);msg(`He rellenado ${plural(n,'campo','campos')}.`)}}catch(x){msg('No hay conexión con los catálogos.')}}
+    const go=()=>{const q=sh.querySelector('#lq').value.trim();if(!q)return msg('Escribe un ISBN, un título o un autor.');const c=cleanIsbn(q);if(/^(\d{13}|\d{9}[\dX])$/.test(c))byIsbn(c);else byText(q)};
+    sh.querySelector('#lbq').addEventListener('click',go);sh.querySelector('#lq').addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();go()}});
+    sh.querySelector('#lscan').addEventListener('click',()=>Scan.open(code=>{sh.querySelector('#lq').value=code;manual.delete('isbn');byIsbn(code)}));
+    if(preset.ficha&&isNew){const n=fill({...preset.ficha});if(preset.aviso)msg(preset.aviso);else if(n)msg(`Ficha creada con los datos de ${preset.ficha.fuente==='BNE'?'la Biblioteca Nacional de España':preset.ficha.fuente||'los catálogos'}. Indica quién te lo presta.`);setTimeout(()=>sh.querySelector('#lper').focus(),50)}
+    sh.querySelector('#lfoot').addEventListener('click',ev=>{const a=ev.target.closest('[data-a]')?.dataset.a;
+      if(a==='del')confirmFoot(sh.querySelector('#lfoot'),'¿Eliminar este préstamo?',()=>{delRec('loans',e.id);closeSheet(true);toast('Préstamo eliminado')});
+      if(a==='own'){closeSheet(true);makeOwn(e.id)}});
     sh.querySelector('#lf').addEventListener('submit',ev=>{ev.preventDefault();const err=sh.querySelector('#lerr');
       const txt=sh.querySelector('#llib').value.trim(),persona=sh.querySelector('#lper').value.trim();
       if(!txt){err.textContent='Indica el libro.';return}if(!persona){err.textContent='Indica la persona.';return}
-      let bookId=null,titulo=txt,autor=sh.querySelector('#laut').value.trim();
+      let bookId=null,titulo=txt,autor=sh.querySelector('#laut').value.trim(),extra={};
       if(tipo==='prestado'){const m=S.books.find(b=>label(b)===txt)||S.books.find(b=>norm(b.titulo)===norm(txt));if(m){bookId=m.id;titulo=m.titulo;autor=m.autor||autor}
-        const busy=bookId&&S.loans.find(x=>x.id!==e.id&&x.tipo==='prestado'&&!x.devuelto&&x.bookId===bookId);if(busy){err.textContent=`Ese libro ya lo tiene ${busy.persona}.`;return}}
-      saveRec('loans',{id:isNew?undefined:e.id,tipo,bookId,titulo,autor,persona,fechaPrestamo:sh.querySelector('#lfp').value||today(),fechaDevolucion:sh.querySelector('#lfd').value||'',devuelto:sh.querySelector('#ldv')?.value||e.devuelto||null,notas:sh.querySelector('#lnot').value.trim(),leido:!!e.leido,creado:e.creado||Date.now()});
+        const busy=bookId&&S.loans.find(x=>x.id!==e.id&&x.tipo==='prestado'&&!cerrado(x)&&x.bookId===bookId);if(busy){err.textContent=`Ese libro ya lo tiene ${busy.persona}.`;return}}
+      else{let isbn=cleanIsbn(V('isbn'));if(isbn&&isbnOK(isbn))isbn=to13(isbn);const anio=parseInt(V('anio'));
+        extra={editorial:V('editorial'),anio:anio>0?anio:null,edicion:V('edicion'),isbn,genero:V('genero'),formato:sh.querySelector('[name=lformato]:checked')?.value||'',portada:portada||null,portadaUrl:portada?'':portadaUrl};bookId=e.adquirido?e.bookId:null}
+      saveRec('loans',{...(isNew?{}:store.loans[e.id]),...extra,id:isNew?undefined:e.id,tipo,bookId,titulo,autor,persona,fechaPrestamo:sh.querySelector('#lfp').value||today(),fechaDevolucion:sh.querySelector('#lfd').value||'',devuelto:sh.querySelector('#ldv')?.value||e.devuelto||null,notas:sh.querySelector('#lnot').value.trim(),leido:!!e.leido,creado:e.creado||Date.now()});
       closeSheet(true);S.ltab=tipo;toast(isNew?'Préstamo anotado':'Préstamo actualizado');if(S.tab!=='prestamos')location.hash='prestamos';else renderLoans()})})}
 
 /* ================= qué leo ================= */
 function recPool(gen=S.rGen){const lent=new Set(activeLoans('prestado').map(l=>l.bookId).filter(Boolean));
   let p=S.books.filter(b=>!b.leido&&!lent.has(b.id)).map(b=>({k:'b:'+b.id,b,g:b.genero||''}));
-  if(S.rRcb)p=p.concat(activeLoans('recibido').filter(l=>!l.leido).map(l=>({k:'l:'+l.id,l,b:{titulo:l.titulo,autor:l.autor},g:'Prestados'})));
+  if(S.rRcb)p=p.concat(activeLoans('recibido').filter(l=>!l.leido).map(l=>({k:'l:'+l.id,l,b:{titulo:l.titulo,autor:l.autor,anio:l.anio,editorial:l.editorial,genero:l.genero,portada:l.portada,portadaUrl:l.portadaUrl},g:'Prestados'})));
   return gen?p.filter(x=>x.g===gen):p}
 const pickR=(p,not)=>{const c=p.length>1?p.filter(x=>x.k!==not):p;return c[Math.floor(Math.random()*c.length)]};
 function renderRec(anim){
