@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.4.0';
+const VERSION='1.4.1';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -440,7 +440,7 @@ function renderLoans(){
     <dl class="ld"><div><dt>Prestado</dt><dd>${fmtD(l.fechaPrestamo)||'—'}</dd></div><div><dt>Devolución</dt><dd>${fmtD(l.fechaDevolucion)||'—'}</dd></div></dl>
     ${l.notas?`<p class="la">${esc(l.notas)}</p>`:''}
     <div class="lst"><span class="pill ${c}">${t}</span></div>
-    <div class="lf"><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button>${yo?'':`<button type="button" class="btn sm" data-own="${esc(l.id)}">${ic('book')}A mi colección</button>`}<button type="button" class="btn sm pri" data-ret="${esc(l.id)}">${ic('check')}Devuelto</button></div></article>`}).join('');
+    <div class="lf"><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button>${yo?'':`<button type="button" class="btn sm" data-own="${esc(l.id)}">${ic('book')}Añadir a mi colección</button>`}<button type="button" class="btn sm pri" data-ret="${esc(l.id)}">${ic('check')}Devuelto</button></div></article>`}).join('');
   el.innerHTML=(act.length?`<div class="lgrid">${cards}</div>`:`<div class="empty"><h2>${yo?'No tienes libros prestados':'Nadie te ha dejado libros ahora mismo'}</h2><p>${yo?'Cuando prestes uno, apúntalo aquí con la fecha y te avisaré si se retrasa la devolución.':'Escanea el código de barras del libro que te dejen: se crea su ficha aquí, sin añadirlo a tu colección, y te recuerda cuándo devolverlo.'}</p><div class="trow">${yo?'':`<button type="button" class="btn pri" data-scan>${ic('barcode')}Escanear libro prestado</button>`}<button type="button" class="btn${yo?' pri':''}" data-new>${ic('plus')}Nuevo préstamo</button></div></div>`)
    +(hist.length?`<details class="hist"><summary>Historial (${hist.length})</summary>${hist.map(l=>`<div class="hrow">${cover(loanBook(l),'mini')}<div><b>${esc(l.titulo)}</b><p>${yo?'A':'De'} ${esc(l.persona)} · ${fmtD(l.fechaPrestamo)} → ${l.adquirido?'pasó a tu colección el '+fmtD(l.adquirido):'devuelto el '+fmtD(l.devuelto)}</p></div><button type="button" class="btn sm" data-ed="${esc(l.id)}">Editar</button></div>`).join('')}</details>`:'')}
 $('#ltab').addEventListener('click',e=>{const b=e.target.closest('button');if(b){S.ltab=b.dataset.v;renderLoans()}});
@@ -472,7 +472,7 @@ function loanForm(l,preset={}){
    <div class="auto" id="lauto">
      <p class="auto-h">Ficha del libro prestado</p>
      <p class="note-s">Se guarda solo en Préstamos, sin añadirlo a tu colección.</p>
-     <div class="arow"><button type="button" class="btn" id="lscan">${ic('barcode')}Escanear código de barras</button></div>
+     <div class="arow"><button type="button" class="btn pri" id="lscan">${ic('barcode')}Escanear código de barras</button></div>
      <div class="irow"><label class="f"><span>ISBN, título o autor</span><input id="lq" autocomplete="off" enterkeyhint="search"></label><button type="button" class="btn" id="lbq">${ic('search')}Buscar</button></div>
      <div class="res" id="lres"></div>
      <p class="amsg" id="lmsg" aria-live="polite"></p>
@@ -498,7 +498,7 @@ function loanForm(l,preset={}){
    <datalist id="dlb">${S.books.map(b=>`<option value="${esc(label(b))}">`).join('')}</datalist><datalist id="dlp">${people.map(p=>`<option value="${esc(p)}">`).join('')}</datalist>
    <datalist id="dle2">${uniq('editorial').map(v=>`<option value="${esc(v)}">`).join('')}</datalist><datalist id="dlg2">${[...new Set([...GENEROS,...uniq('genero')])].map(v=>`<option value="${esc(v)}">`).join('')}</datalist>
    <p class="err" id="lerr"></p>
-   <div class="sh-foot" id="lfoot">${isNew?'':'<button type="button" class="btn" data-a="del">Eliminar</button>'}${!isNew&&e.tipo==='recibido'&&!cerrado(e)?`<button type="button" class="btn" data-a="own">${ic('book')}A mi colección</button>`:''}<span class="sp"></span><button type="button" class="btn" data-close>Cancelar</button><button type="submit" class="btn pri">Guardar</button></div></form>`,sh=>{
+   <div class="sh-foot" id="lfoot">${isNew?'':'<button type="button" class="btn" data-a="del">Eliminar</button>'}${!isNew&&e.tipo==='recibido'&&!cerrado(e)?`<button type="button" class="btn" data-a="own">${ic('book')}Añadir a mi colección</button>`:''}<span class="sp"></span><button type="button" class="btn" data-close>Cancelar</button><button type="submit" class="btn pri">Guardar</button></div></form>`,sh=>{
     const F=k=>sh.querySelector(`#lf [data-k="${k}"]`),V=k=>(F(k)?.value||'').trim();
     const sync=()=>{tipo=sh.querySelector('[name=tipo]:checked').value;const rec=tipo==='recibido';sh.querySelector('#lperl').textContent=rec?'¿Quién te lo presta? *':'¿A quién se lo prestas? *';sh.querySelector('#llib').placeholder=rec?'Título del libro':'Busca en tu biblioteca';
       sh.querySelector('#llib').setAttribute('list',rec?'':'dlb');sh.querySelector('#lauto').hidden=!rec;sh.querySelector('#lextra').hidden=!rec};sync();
@@ -733,7 +733,10 @@ $('#fab').addEventListener('click',()=>S.tab==='prestamos'?loanForm():bookForm()
   if(!Sync.clientId())Sync.set('noconfig');else{Sync.set(Sync.connected()?(Sync.token()?'ok':'tap'):'off');Sync.gis().then(()=>Sync.initClient()).catch(()=>{});if(Sync.connected()&&Sync.token())Sync.run(false)}
   loadNews();
   if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){const hadCtrl=!!navigator.serviceWorker.controller;try{const reg=await navigator.serviceWorker.register('sw.js');
-    reg.addEventListener('updatefound',()=>{const w=reg.installing;w?.addEventListener('statechange',()=>{if(w.state==='installed'&&navigator.serviceWorker.controller)toast('Hay una versión nueva de Ex Libris',{label:'Actualizar',keep:true,fn:()=>{w.postMessage('skip');}})})});
+    const offer=w=>{if(w&&navigator.serviceWorker.controller)toast('Hay una versión nueva de Ex Libris',{label:'Actualizar',keep:true,fn:()=>{w.postMessage('skip');}})};
+    if(reg.waiting)offer(reg.waiting);
+    reg.addEventListener('updatefound',()=>{const w=reg.installing;w?.addEventListener('statechange',()=>{if(w.state==='installed')offer(w)})});
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')reg.update().catch(()=>{})});
     let reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloaded||!hadCtrl)return;reloaded=true;location.reload()})}catch(e){}}
 })();
 }
