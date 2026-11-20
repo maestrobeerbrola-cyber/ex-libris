@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.1.1';
+const VERSION='1.2.0';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -210,13 +210,65 @@ async function quickAdd(code){const dup=S.books.find(b=>b.isbn===code);
   else{row.classList.add('miss');row.innerHTML=`<div><b>${esc(code)}</b><p>${r===null?'No aparece en los catálogos':'Sin conexión con los catálogos'}</p></div><button type="button" class="btn sm">A mano</button>`;
     row.querySelector('button').onclick=()=>{Scan.close();bookForm(null,{isbn:code})}}}
 $('#scanmany').addEventListener('click',()=>Scan.open(quickAdd,true));
+/* ================= foto de portada (cámara 2:3 y archivo, con encuadre) ================= */
+const Cover={stream:null,src:null,iw:0,ih:0,s:1,min:1,x:0,y:0,W:0,H:0,onDone:null,from:'camera',ptrs:new Map(),pinch:null,
+  el:k=>$('#cam'+k),
+  mode(m){$('#cam').dataset.m=m;$('#camv').hidden=m!=='camera';$('#camf').hidden=m!=='camera';$('#crop').hidden=m!=='crop';$('#camrow1').hidden=m!=='camera';$('#camrow2').hidden=m!=='crop'},
+  msg(t){$('#cammsg').textContent=t},
+  show(onDone){this.onDone=onDone;$('#cam').hidden=false;document.body.classList.add('lock')},
+  async camera(onDone){if(onDone)this.show(onDone);this.from='camera';this.mode('camera');$('#camtorch').hidden=true;$('#camshot').disabled=true;
+    this.msg('Encaja la portada en el marco y pulsa el botón');
+    if(!navigator.mediaDevices?.getUserMedia){this.msg('Este navegador no deja usar la cámara aquí. Sube una foto desde archivo.');return}
+    try{this.stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1080}},audio:false})}
+    catch(e){this.msg(e?.name==='NotAllowedError'?'No tengo permiso para usar la cámara. Actívalo en el navegador o sube una foto desde archivo.':'No he podido abrir la cámara. Sube una foto desde archivo.');return}
+    if($('#cam').hidden){this.stop();return}
+    const v=$('#camv');v.srcObject=this.stream;await v.play().catch(()=>{});$('#camshot').disabled=false;
+    try{if(this.stream.getVideoTracks()[0].getCapabilities?.().torch)$('#camtorch').hidden=false}catch(e){}},
+  shoot(){const v=$('#camv');if(!v.videoWidth)return;const box=$('#cam').getBoundingClientRect(),fr=$('#camf').getBoundingClientRect();
+    const k=Math.max(box.width/v.videoWidth,box.height/v.videoHeight),ox=(box.width-v.videoWidth*k)/2,oy=(box.height-v.videoHeight*k)/2;
+    const c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);
+    try{navigator.vibrate?.(40)}catch(e){}
+    this.stop();this.crop(c,{x:(fr.left-box.left-ox)/k,y:(fr.top-box.top-oy)/k,w:fr.width/k})},
+  async fromFile(file,onDone){if(onDone)this.show(onDone);this.stop();this.from='file';
+    try{const im=await loadImg(file);this.crop(scaled(im,2200),null)}catch(e){this.close();toast('No he podido abrir esa imagen.')}},
+  crop(canvas,rect){this.mode('crop');this.msg('Arrastra y amplía para encuadrar la portada');
+    const box=$('#cropbox');box.replaceChildren(canvas);canvas.className='cropimg';this.src=canvas;this.iw=canvas.width;this.ih=canvas.height;
+    $('#camagain').hidden=this.from!=='camera';$('#camother').hidden=this.from==='camera';
+    requestAnimationFrame(()=>{this.W=box.clientWidth;this.H=box.clientHeight;this.min=Math.max(this.W/this.iw,this.H/this.ih);
+      if(rect&&rect.w>0){this.s=this.W/rect.w;this.x=-rect.x*this.s;this.y=-rect.y*this.s}else{this.s=this.min;this.x=(this.W-this.iw*this.s)/2;this.y=(this.H-this.ih*this.s)/2}
+      this.clamp();this.render()})},
+  clamp(){this.s=Math.min(Math.max(this.s,this.min),this.min*6);this.x=Math.min(0,Math.max(this.W-this.iw*this.s,this.x));this.y=Math.min(0,Math.max(this.H-this.ih*this.s,this.y))},
+  render(){if(!this.src)return;this.src.style.transform=`translate(${this.x}px,${this.y}px) scale(${this.s})`;$('#camzoom').value=String(Math.round(this.s/this.min*100)/100)},
+  zoomTo(ns,cx,cy){const px=(cx-this.x)/this.s,py=(cy-this.y)/this.s;this.s=Math.min(Math.max(ns,this.min),this.min*6);this.x=cx-px*this.s;this.y=cy-py*this.s;this.clamp();this.render()},
+  use(){if(!this.src)return;const out=document.createElement('canvas');out.width=300;out.height=450;const g=out.getContext('2d');g.imageSmoothingQuality='high';
+    g.drawImage(this.src,-this.x/this.s,-this.y/this.s,this.W/this.s,this.H/this.s,0,0,300,450);const url=out.toDataURL('image/jpeg',.76);const cb=this.onDone;this.close();cb&&cb(url)},
+  stop(){this.stream?.getTracks().forEach(t=>t.stop());this.stream=null;const v=$('#camv');if(v)v.srcObject=null},
+  close(){this.stop();$('#cam').hidden=true;this.src=null;$('#cropbox').replaceChildren();this.ptrs.clear();if($('#scrim').hidden&&$('#scan').hidden)document.body.classList.remove('lock')}};
+{const box=$('#cropbox');const pt=(e)=>{const r=box.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top}};
+  box.addEventListener('pointerdown',e=>{box.setPointerCapture(e.pointerId);Cover.ptrs.set(e.pointerId,pt(e));Cover.pinch=null});
+  box.addEventListener('pointermove',e=>{if(!Cover.ptrs.has(e.pointerId))return;const p=pt(e),prev=Cover.ptrs.get(e.pointerId);Cover.ptrs.set(e.pointerId,p);
+    if(Cover.ptrs.size===1){Cover.x+=p.x-prev.x;Cover.y+=p.y-prev.y;Cover.clamp();Cover.render();return}
+    const [a,b]=[...Cover.ptrs.values()];const d=Math.hypot(a.x-b.x,a.y-b.y),mid={x:(a.x+b.x)/2,y:(a.y+b.y)/2};
+    if(Cover.pinch)Cover.zoomTo(Cover.s*d/Cover.pinch,mid.x,mid.y);Cover.pinch=d});
+  const up=e=>{Cover.ptrs.delete(e.pointerId);Cover.pinch=null};box.addEventListener('pointerup',up);box.addEventListener('pointercancel',up);
+  box.addEventListener('wheel',e=>{e.preventDefault();const p=pt(e);Cover.zoomTo(Cover.s*Math.exp(-e.deltaY*0.0015),p.x,p.y)},{passive:false});
+  $('#camzoom').addEventListener('input',e=>Cover.zoomTo(Cover.min*(+e.target.value||1),Cover.W/2,Cover.H/2));
+  $('#camshot').addEventListener('click',()=>Cover.shoot());
+  $('#camuse').addEventListener('click',()=>Cover.use());
+  $('#camagain').addEventListener('click',()=>{Cover.src=null;$('#cropbox').replaceChildren();Cover.camera()});
+  $('#camx').addEventListener('click',()=>Cover.close());
+  for(const id of ['#camfile','#camfile2'])$(id).addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)Cover.fromFile(f)});
+  $('#camtorch').addEventListener('click',async e=>{const tr=Cover.stream?.getVideoTracks()[0];if(!tr)return;const on=!e.currentTarget.classList.contains('on');try{await tr.applyConstraints({advanced:[{torch:on}]});e.currentTarget.classList.toggle('on',on)}catch(x){}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#cam').hidden){e.stopImmediatePropagation();Cover.close()}},true);
+  addEventListener('resize',()=>{if(!$('#cam').hidden&&Cover.src){const b=$('#cropbox');const ow=Cover.W;Cover.W=b.clientWidth;Cover.H=b.clientHeight;if(ow){const f=Cover.W/ow;Cover.x*=f;Cover.y*=f;Cover.s*=f}Cover.min=Math.max(Cover.W/Cover.iw,Cover.H/Cover.ih);Cover.clamp();Cover.render()}})}
+
 
 /* ================= hoja modal ================= */
 let sheetBusy=false;
 function openSheet(html,mount){const sc=$('#scrim'),sh=$('#sheet');sh.innerHTML=html;sh.scrollTop=0;sc.hidden=false;document.body.classList.add('lock');requestAnimationFrame(()=>sc.classList.add('on'));mount&&mount(sh)}
-function closeSheet(force){if(sheetBusy&&!force)return;sheetBusy=false;const sc=$('#scrim');sc.classList.remove('on');sc.hidden=true;$('#sheet').innerHTML='';if($('#scan').hidden)document.body.classList.remove('lock')}
+function closeSheet(force){if(sheetBusy&&!force)return;sheetBusy=false;const sc=$('#scrim');sc.classList.remove('on');sc.hidden=true;$('#sheet').innerHTML='';if($('#scan').hidden&&$('#cam').hidden)document.body.classList.remove('lock')}
 $('#scrim').addEventListener('click',e=>{if(e.target.id==='scrim'||e.target.closest('[data-close]'))closeSheet()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#scrim').hidden&&$('#scan').hidden)closeSheet()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#scrim').hidden&&$('#scan').hidden&&$('#cam').hidden)closeSheet()});
 const head=t=>`<div class="sh-head"><h2>${esc(t)}</h2><button type="button" class="x" data-close aria-label="Cerrar">${ic('x')}</button></div>`;
 function confirmFoot(foot,q,fn){const old=foot.innerHTML;foot.innerHTML=`<span style="font-weight:600">${esc(q)}</span><span class="sp"></span><button type="button" class="btn" data-no>Cancelar</button><button type="button" class="btn warn" data-yes>Eliminar</button>`;
   foot.querySelector('[data-no]').onclick=e=>{e.stopPropagation();foot.innerHTML=old};foot.querySelector('[data-yes]').onclick=e=>{e.stopPropagation();fn()}}
@@ -327,8 +379,10 @@ function bookForm(b,preset={}){
     const drawStars=()=>$$('#fsin button',sh).forEach(s=>s.classList.toggle('on',+s.dataset.v<=rating));drawStars();
     sh.querySelector('#fsin').addEventListener('click',ev=>{const x=ev.target.closest('button');if(!x)return;const v=+x.dataset.v;rating=v===rating?0:v;drawStars()});
     const drawPc=()=>{const pc=sh.querySelector('#pc');const src=portada||portadaUrl;
-      pc.innerHTML=(src?`<div class="cv ph" style="--c:#3b4260"><img src="${esc(src)}" alt="Portada" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove('ph');this.remove()"></div>`:'')+`<label class="btn sm">${ic('camera')}${portada?'Cambiar foto':'Hacer foto'}<input type="file" accept="image/*" capture="environment" class="vh" id="incv"></label>`+(src?'<button type="button" class="btn sm" id="rmcv">Quitar</button>':'');
-      pc.querySelector('#incv').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;try{portada=await thumb(f);drawPc()}catch(x){toast('No he podido abrir esa imagen.')}});
+      pc.innerHTML=(src?`<div class="cv ph" style="--c:#3b4260"><img src="${esc(src)}" alt="Portada" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove('ph');this.remove()"></div>`:'')+`<button type="button" class="btn sm" id="incam">${ic('camera')}${portada?'Repetir foto':'Hacer foto'}</button><label class="btn sm">${ic('up')}Subir archivo<input type="file" accept="image/*" class="vh" id="incv"></label>`+(src?'<button type="button" class="btn sm" id="rmcv">Quitar</button>':'');
+      const done=url=>{portada=url;drawPc()};
+      pc.querySelector('#incam').addEventListener('click',()=>Cover.camera(done));
+      pc.querySelector('#incv').addEventListener('change',ev=>{const f=ev.target.files[0];ev.target.value='';if(f)Cover.fromFile(f,done)});
       pc.querySelector('#rmcv')?.addEventListener('click',()=>{portada=null;portadaUrl='';drawPc()})};drawPc();
     sh.addEventListener('input',ev=>{const k=ev.target.dataset?.k;if(k)manual.add(k)});
     const amsg=(t,busy)=>{sh.querySelector('#amsg').innerHTML=(busy?'<span class="spin"></span>':'')+esc(t)};

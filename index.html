@@ -307,6 +307,24 @@ details.hist summary{cursor:pointer;font:600 19px var(--serif);padding:10px 0;mi
 a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 .brand h1{white-space:nowrap}
 @media(max-width:759px){.brand{display:contents}.brand h1{grid-area:title;align-self:center}.stats{grid-area:stats}.top-in{grid-template-areas:"title acts" "stats stats" "shelf shelf";grid-template-columns:minmax(0,1fr) auto;row-gap:0}.acts{align-self:center}.sync{max-width:min(48vw,190px)}.sync .t{overflow:hidden;text-overflow:ellipsis}}
+
+/* foto de portada 2:3 */
+.cam .f23{position:absolute;left:50%;top:calc(50% - 44px);height:min(calc(100dvh - 330px),calc(84vw * 1.5),720px);aspect-ratio:2/3;transform:translate(-50%,-50%);border-radius:10px}
+.cam-frame{border:3px solid #fff;box-shadow:0 0 0 100vmax rgb(0 0 0/.55);pointer-events:none}
+.cam-frame::before,.cam-frame::after{content:"";position:absolute;left:33.33%;right:33.33%;top:0;bottom:0;border-inline:1px solid rgb(255 255 255/.35)}
+.cam-frame::after{left:0;right:0;top:33.33%;bottom:33.33%;border-inline:0;border-block:1px solid rgb(255 255 255/.35)}
+.crop{position:absolute;inset:0;background:#0b0d16}
+.crop-box{overflow:hidden;background:#000;outline:3px solid #fff;box-shadow:0 0 0 100vmax rgb(11 13 22/.9);touch-action:none;cursor:grab;user-select:none}
+.crop-box:active{cursor:grabbing}
+.cropimg{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;pointer-events:none}
+.shutter{width:76px;height:76px;border-radius:50%;border:5px solid #fff;background:rgb(255 255 255/.25);box-shadow:inset 0 0 0 4px rgb(0 0 0/.35);cursor:pointer;flex:none}
+.shutter:active{background:#fff}.shutter:disabled{opacity:.4}
+.cam .scrow{gap:14px}
+#camrow1{display:flex;flex-direction:column;align-items:center;gap:14px}
+.zoom{display:flex;align-items:center;gap:10px;max-width:440px;width:100%;margin:0 auto 12px;color:#fff}
+.zoom input{flex:1;min-height:44px;accent-color:#fff;background:none;border:0;padding:0}
+#camtorch.on{background:#fff;color:#000}
+.zoom input:focus{outline:none}.zoom input:focus-visible{outline:2px solid #fff;outline-offset:2px}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -437,6 +455,29 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
       <button type="button" class="btn" id="sctorch" hidden><svg class="ic"><use href="#i-bolt"/></svg>Linterna</button>
       <label class="btn"><svg class="ic"><use href="#i-camera"/></svg>Usar una foto<input type="file" accept="image/*" class="vh" id="scfile"></label>
       <button type="button" class="btn pri" id="scdone" hidden>Terminar</button>
+    </div>
+  </div>
+</div>
+<div class="scan cam" id="cam" hidden role="dialog" aria-modal="true" aria-label="Foto de la portada" data-m="camera">
+  <video id="camv" playsinline muted></video>
+  <div class="f23 cam-frame" id="camf"></div>
+  <div class="crop" id="crop" hidden><div class="f23 crop-box" id="cropbox"></div></div>
+  <div class="scan-top"><p id="cammsg">Encaja la portada en el marco</p><button type="button" class="x" id="camx" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="scan-bot">
+    <div id="camrow1">
+      <button type="button" class="shutter" id="camshot" aria-label="Hacer la foto"></button>
+      <div class="scrow">
+        <label class="btn"><svg class="ic"><use href="#i-up"/></svg>Subir archivo<input type="file" accept="image/*" class="vh" id="camfile"></label>
+        <button type="button" class="btn" id="camtorch" hidden><svg class="ic"><use href="#i-bolt"/></svg>Linterna</button>
+      </div>
+    </div>
+    <div id="camrow2" hidden>
+      <label class="zoom"><span class="vh">Ampliar</span><svg class="ic"><use href="#i-search"/></svg><input type="range" id="camzoom" min="1" max="6" step="0.01" value="1"></label>
+      <div class="scrow">
+        <button type="button" class="btn" id="camagain"><svg class="ic"><use href="#i-camera"/></svg>Repetir</button>
+        <label class="btn" id="camother"><svg class="ic"><use href="#i-up"/></svg>Elegir otra<input type="file" accept="image/*" class="vh" id="camfile2"></label>
+        <button type="button" class="btn pri" id="camuse"><svg class="ic"><use href="#i-check"/></svg>Usar foto</button>
+      </div>
     </div>
   </div>
 </div>
