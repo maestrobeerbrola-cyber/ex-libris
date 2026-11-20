@@ -25,5 +25,6 @@ App personal para catalogar tus libros, llevar los préstamos, elegir la próxim
 ## Notas
 
 - Los datos viven en cada dispositivo (IndexedDB) y se fusionan con el archivo de Drive registro a registro; gana el cambio más reciente.
+- La app comparte dominio con otras apps de la misma cuenta de GitHub (Farma·Lab). Por eso el manifiesto lleva un `id` propio (`/ex-libris/`), el service worker solo toca cachés que empiezan por `exlibris-` y los datos locales usan nombres con prefijo `exlibris`. No borres los datos del sitio desde el navegador: afectaría a todas las apps del dominio.
 - Para publicar una versión nueva de la app, cambia `VERSION` en `sw.js` para que los dispositivos descarguen los archivos nuevos.
 - Lector de códigos de barras: [ZXing](https://github.com/zxing-js/library) (Apache 2.0), incluido en `vendor/`.

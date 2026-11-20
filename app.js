@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.0.1';
+const VERSION='1.0.2';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();

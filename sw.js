@@ -1,5 +1,5 @@
 /* Service worker de Ex Libris: funciona sin conexión y guarda las portadas ya vistas. */
-const VERSION = 'exlibris-v1.0.1';
+const VERSION = 'exlibris-v1.0.2';
 const IMG = 'exlibris-portadas';
 const SHELL = ['./', 'index.html', 'app.js', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/favicon.svg', 'icons/favicon-48.png', 'vendor/zxing-0.21.3.min.js'];
 const IMG_HOSTS = ['books.google.com', 'books.googleusercontent.com', 'covers.openlibrary.org', 'archive.org'];
@@ -10,7 +10,8 @@ self.addEventListener('install', e => {
 self.addEventListener('message', e => { if (e.data === 'skip') self.skipWaiting(); });
 self.addEventListener('activate', e => {
   e.waitUntil((async () => {
-    for (const k of await caches.keys()) if (k !== VERSION && k !== IMG) await caches.delete(k);
+    // Solo borra cachés antiguas de Ex Libris: el dominio es compartido con otras apps (p. ej. Farma·Lab).
+    for (const k of await caches.keys()) if (k.startsWith('exlibris-') && k !== VERSION && k !== IMG) await caches.delete(k);
     await self.clients.claim();
   })());
 });
