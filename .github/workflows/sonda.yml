@@ -35,17 +35,24 @@ jobs:
                       if d: ds.append(d.date().isoformat())
               tit=[re.sub(r'<!\[CDATA\[|\]\]>','',x).strip()[:60] for x in re.findall(r'<title[^>]*>([\s\S]*?)</title>',b)[1:4]]
               return f'{st} items={len(items)} recientes={sorted(ds)[-1] if ds else "?"} antiguo={sorted(ds)[0] if ds else "?"} | '+' / '.join(tit)
-          webs=['https://librotea.eldiario.es/','https://www.lecturalia.com/','https://www.todoliteratura.es/','https://www.revistadelibros.com/','https://www.cervantesvirtual.com/areas/literatura/','https://www.cervantesvirtual.com/']
-          for w in webs:
+          import urllib.parse as up
+          def site(w,extra):
+              out=[]
               st,ct,b,fin=get(w)
               alts=re.findall(r'<link[^>]+(?:rss|atom)\+xml[^>]*>',b,re.I)
-              hrefs=[urllib.parse.urljoin(fin,h) for a in alts for h in re.findall(r'href=["\']([^"\']+)',a)]
-              rsslinks=sorted(set(urllib.parse.urljoin(fin,h) for h in re.findall(r'href=["\']([^"\']*(?:rss|feed|atom)[^"\']*)["\']',b,re.I)))[:12]
-              print(f'::notice title=WEB {w}::{st} -> {fin} | alt={hrefs[:5]} | enlaces={rsslinks}')
-              cands=list(dict.fromkeys(hrefs+[urllib.parse.urljoin(fin,p) for p in ['feed/','rss/','rss','rss.xml','feed','index.rss','atom.xml']]))
-              for c in cands[:10]:
-                  print(f'::notice title=FEED {c}::{feedinfo(c)}')
-          for c in ['https://www.revistadelibros.com/feed/','https://www.lecturalia.com/rss/','https://www.lecturalia.com/rss/noticias.xml','https://www.todoliteratura.es/rss/','https://www.todoliteratura.es/rss/noticias/','https://librotea.eldiario.es/rss','https://www.eldiario.es/rss/librotea/','https://www.cervantesvirtual.com/rss/','https://www.cervantesvirtual.com/novedades.rss']:
-              print(f'::notice title=EXTRA {c}::{feedinfo(c)}')
+              hrefs=[up.urljoin(fin,h) for a in alts for h in re.findall(r'href=["\']([^"\']+)',a)]
+              links=sorted(set(up.urljoin(fin,h) for h in re.findall(r'href=["\']([^"\']*(?:rss|feed|atom|xml)[^"\']*)["\']',b,re.I)))[:15]
+              out.append(f'WEB {st} {fin} alt={hrefs[:4]} enlaces={links}')
+              for c in list(dict.fromkeys(hrefs[:4]+[up.urljoin(fin,x) for x in ['feed/','rss/','rss.xml']]+extra)):
+                  out.append(f'{c} => {feedinfo(c)}')
+              return ' || '.join(out)
+          g=lambda q:'https://news.google.com/rss/search?'+up.urlencode({'q':q+' when:30d','hl':'es','gl':'ES','ceid':'ES:es'})
+          tests={'todoliteratura':('https://www.todoliteratura.es/',['https://www.todoliteratura.es/rss/','https://www.todoliteratura.es/rss/noticias.xml','https://www.todoliteratura.es/rss/portada.xml']),
+                 'revistadelibros':('https://www.revistadelibros.com/',['https://www.revistadelibros.com/feed/','https://www.revistadelibros.com/?feed=rss2']),
+                 'cervantes':('https://www.cervantesvirtual.com/areas/literatura/',['https://www.cervantesvirtual.com/rss/','https://www.cervantesvirtual.com/feed/','https://www.cervantesvirtual.com/novedades/rss/']),
+                 'lecturalia':('https://www.lecturalia.com/',['https://www.lecturalia.com/rss/','https://www.lecturalia.com/blog/feed/'])}
+          for k,(w,ex) in tests.items(): print(f'::notice title={k}::'+site(w,ex))
+          for k,q in {'gn-librotea':'site:librotea.eldiario.es','gn-lecturalia':'site:lecturalia.com','gn-todoliteratura':'site:todoliteratura.es','gn-cervantes':'site:cervantesvirtual.com','gn-revistadelibros':'site:revistadelibros.com'}.items():
+              print(f'::notice title={k}::'+feedinfo(g(q)))
           PY
           python3 s.py
