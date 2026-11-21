@@ -341,6 +341,93 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 .hrow .cv.mini{width:36px;flex:none}
 #lextra{display:contents}
 .note-s{margin:-6px 0 0;font-size:14px;color:var(--mute)}
+
+/* lector de libros electrónicos */
+.vt{margin:0;font:600 26px/1.2 var(--serif)}
+.bnav{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bnav a{font-size:12.5px}
+.ebb{position:absolute;left:6px;bottom:6px;width:26px;height:26px;border-radius:50%;background:#fff;color:#1d2a62;display:grid;place-items:center;box-shadow:0 1px 4px rgb(0 0 0/.35);z-index:1}
+.ebb .ic{width:16px;height:16px;stroke-width:2.2;position:static;transform:none;color:inherit}
+.pbar{display:block;height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:9px}
+.pbar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.ebk .est{font-size:12.5px;color:var(--mute);line-height:1.3;margin-top:2px}
+.ebhero{display:flex;gap:18px;align-items:center;background:var(--panel);border-radius:18px;padding:16px;margin:0 0 8px}
+.ebhero .cv{width:96px;flex:none}
+.ebhero>div{min-width:0;flex:1}
+.ebhero h3{margin:2px 0 4px;font:600 21px/1.25 var(--serif)}
+.ebhero .ebp{margin:6px 0 10px;font-size:14px;color:var(--mute)}
+.ebhero .trow{justify-content:flex-start}
+.ebrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:18px;padding:12px 14px;border-radius:14px;background:var(--panel)}
+.ebrow>.ic{color:var(--accent)}
+.ebrow>span:not(.sp){display:flex;flex-direction:column;min-width:0}
+.ebrow>span>span{font-size:14px;color:var(--mute)}
+.ebnew{display:flex;gap:16px;align-items:center}
+.ebnew .cv{width:84px;flex:none}
+.ebnew h3{margin:4px 0 2px;font:600 21px/1.25 var(--serif)}
+.ebnew .det-a{margin:0}
+.ebopts{display:grid;gap:8px}
+.ebo{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;cursor:pointer;min-height:44px}
+.ebo:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.ebo>input{width:20px;height:20px;flex:none;accent-color:var(--accent)}
+.ebo>span:last-child{display:flex;flex-direction:column;min-width:0;flex:1}
+.ebo>span:last-child>span{font-size:14px;color:var(--mute)}
+.ebo .cv.mini{width:36px}
+.ebi{width:36px;height:54px;flex:none;border-radius:4px;border:1px dashed var(--line);display:grid;place-items:center;color:var(--mute)}
+.ebo input[type=search],.ebo #ebq{margin-top:6px;min-height:40px;border:1px solid var(--line);border-radius:10px;padding:0 10px;font:inherit;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box}
+.rdr{position:fixed;inset:0;z-index:70;background:#fff;color:#16171d;overflow:hidden;--rbg:#fff;--rfg:#16171d;--rmu:#5b5f6e;--rln:rgb(0 0 0/.12)}
+.rdr.t-sepia{--rbg:#f4ecd8;--rfg:#3b2f22;--rmu:#6e5d48;--rln:rgb(59 47 34/.18);background:var(--rbg);color:var(--rfg)}
+.rdr.t-oscuro{--rbg:#14161d;--rfg:#d8dae2;--rmu:#9aa0b3;--rln:rgb(255 255 255/.14);background:var(--rbg);color:var(--rfg)}
+.rdr-body{position:absolute;inset:0}
+.rdr-body.epub{top:calc(54px + env(safe-area-inset-top));bottom:calc(58px + env(safe-area-inset-bottom));left:max(14px,env(safe-area-inset-left));right:max(14px,env(safe-area-inset-right))}
+.rdr-body.pdf{overflow:auto;overscroll-behavior:contain;padding:calc(64px + env(safe-area-inset-top)) 0 calc(90px + env(safe-area-inset-bottom));box-sizing:border-box}
+.pdfpages{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:min-content;padding:0 8px}
+.pg{background:#fff;box-shadow:0 1px 5px rgb(0 0 0/.22);position:relative;flex:none}
+.pg>span{position:absolute;inset:0;display:grid;place-items:center;color:#9a9a9a;font-size:14px}
+.pg canvas{display:block;position:relative}
+.t-oscuro .pg{background:#23252d}.t-oscuro .pg canvas{filter:invert(.88) hue-rotate(180deg)}
+.t-sepia .pg{background:#f4ecd8}.t-sepia .pg canvas{filter:sepia(.35) brightness(.98)}
+.rdr-top,.rdr-bot{position:absolute;left:0;right:0;z-index:2;display:flex;align-items:center;gap:6px;background:var(--rbg);color:var(--rfg);transition:transform .22s,opacity .22s}
+.rdr-top{top:0;padding:calc(4px + env(safe-area-inset-top)) 8px 4px;border-bottom:1px solid var(--rln)}
+.rdr-bot{bottom:0;padding:4px 8px calc(6px + env(safe-area-inset-bottom));border-top:1px solid var(--rln)}
+.rdr.nobars .rdr-top{transform:translateY(-100%);opacity:0;pointer-events:none}
+.rdr.nobars .rdr-bot{transform:translateY(100%);opacity:0;pointer-events:none}
+.rdr.nobars[data-k=epub] .rdr-bot{transform:none;opacity:1;pointer-events:auto;border-top-color:transparent}
+.rdr.nobars[data-k=epub] .rdr-bot .rb{visibility:hidden}
+.rdr.nobars[data-k=epub] .rdr-bot input{visibility:hidden}
+.rb{width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;flex:none;font:700 17px/1 var(--serif)}
+.rb:hover{background:var(--rln)}
+.rb .ic{width:22px;height:22px}
+.rdr-t{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.rdr-t b{font:600 16px/1.25 var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rdr-t span{font-size:13px;color:var(--rmu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rdr-pos{flex:1;min-width:0;display:flex;flex-direction:column}
+.rdr-pos p{margin:0;display:flex;gap:10px;font-size:13px;color:var(--rmu);line-height:1.3;min-height:17px}
+.rdr-pos p span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rdr-pos input{width:100%;accent-color:#3a4fb8;height:24px;margin:0}
+.rdr-pan{position:absolute;left:0;right:0;bottom:0;z-index:3;max-height:72%;overflow:auto;background:var(--rbg);color:var(--rfg);border-radius:20px 20px 0 0;box-shadow:0 -10px 30px -12px rgb(0 0 0/.45);padding:4px 18px calc(18px + env(safe-area-inset-bottom));max-width:640px;margin:0 auto;overscroll-behavior:contain}
+.pan-h{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--rbg);padding:12px 0 8px}
+.pan-h h3{margin:0;font:600 19px/1.2 var(--serif)}
+.rdr-pan .x{background:var(--rln);color:inherit}
+.rdr-pan .lbl{color:var(--rmu)}
+.rdr-pan .ba{color:var(--rmu)}
+.toc{list-style:none;margin:0;padding:0}
+.toc li{padding-left:calc(var(--d,0)*16px)}
+.toc button{all:unset;box-sizing:border-box;display:block;width:100%;padding:11px 4px;border-bottom:1px solid var(--rln);cursor:pointer;line-height:1.35}
+.toc button:hover{text-decoration:underline}
+.prow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:10px 0}
+.stp{display:flex;align-items:center;gap:12px}
+.stp b{min-width:56px;text-align:center}
+.rdr-pan .btn{background:transparent;color:inherit;border-color:var(--rln)}
+.rdr-pan .seg{border-color:var(--rln)}
+.rdr-pan .seg button{background:transparent;color:inherit}
+.rdr-pan .seg button+button{border-left-color:var(--rln)}
+.rdr-pan .seg button[aria-pressed=true]{background:var(--rfg);color:var(--rbg)}
+.rdr-load{position:absolute;inset:0;z-index:4;display:grid;place-content:center;justify-items:center;gap:10px;background:var(--rbg);color:var(--rfg);text-align:center;padding:24px}
+.rdr-load p{margin:0;font-weight:600}
+.rdr-load .spin{width:28px;height:28px;margin:0;border-width:3px}
+.rdr-prog{display:block;width:min(260px,70vw);height:6px;border-radius:3px;background:var(--rln);overflow:hidden}
+.rdr-prog i{display:block;height:100%;width:0;background:#3a4fb8;transition:width .2s}
+@media(min-width:760px){.bnav a{font-size:13px}.rdr-body.epub{left:max(48px,8vw);right:max(48px,8vw)}}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 <script>
@@ -376,6 +463,9 @@ addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js
 <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 16V5m0 0-4 4m4-4 4 4M5 20h14"/></symbol>
 <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.1 9.2 4.5 4.5 0 0 0 7 18z"/></symbol>
 <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></symbol>
+<symbol id="i-reader" viewBox="0 0 24 24"><path d="M12 6.6C10 5.1 7.2 4.6 4 5v13c3.2-.4 6 .1 8 1.6 2-1.5 4.8-2 8-1.6V5c-3.2-.4-6 .1-8 1.6z"/><path d="M12 6.6v13"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></symbol>
+<symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></symbol>
 </svg>
 
 <header class="top">
@@ -394,6 +484,7 @@ addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js
       <a href="#prestamos" data-tab="prestamos">Préstamos</a>
       <a href="#que-leo" data-tab="que-leo">¿Qué leo ahora?</a>
       <a href="#novedades" data-tab="novedades">Novedades</a>
+      <a href="#lector" data-tab="lector">Lector</a>
     </nav>
   </div>
 </header>
@@ -463,6 +554,15 @@ addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js
     <div class="chips" id="ncats"></div>
     <div id="nlist"></div>
   </section>
+
+  <section class="view" id="v-lector" aria-label="Lector" hidden>
+    <div class="lhead">
+      <h2 class="vt">Lector</h2>
+      <span class="sp"></span>
+      <label class="btn pri"><svg class="ic"><use href="#i-up"/></svg>Abrir EPUB o PDF<input type="file" id="ebfile" accept=".epub,.pdf,application/epub+zip,application/pdf" class="vh"></label>
+    </div>
+    <div id="lectorv"></div>
+  </section>
 </main>
 
 <nav class="bnav" aria-label="Secciones">
@@ -470,6 +570,7 @@ addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js
   <a href="#prestamos" data-tab="prestamos"><svg class="ic"><use href="#i-swap"/></svg>Préstamos</a>
   <a href="#que-leo" data-tab="que-leo"><svg class="ic"><use href="#i-dice"/></svg>¿Qué leo?</a>
   <a href="#novedades" data-tab="novedades"><svg class="ic"><use href="#i-news"/></svg>Novedades</a>
+  <a href="#lector" data-tab="lector"><svg class="ic"><use href="#i-reader"/></svg>Lector</a>
 </nav>
 <button class="fab" id="fab" type="button" aria-label="Añadir libro"><svg class="ic"><use href="#i-plus"/></svg></button>
 <div class="scrim" id="scrim" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
@@ -510,9 +611,25 @@ addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js
     </div>
   </div>
 </div>
+<div class="rdr t-claro" id="rdr" hidden role="dialog" aria-modal="true" aria-label="Lector">
+  <div class="rdr-body" id="rdrbody"></div>
+  <div class="rdr-top">
+    <button type="button" class="rb" id="rdrx" aria-label="Cerrar el libro"><svg class="ic"><use href="#i-x"/></svg></button>
+    <div class="rdr-t"><b id="rdrtt"></b><span id="rdrta"></span></div>
+    <button type="button" class="rb" id="rdrtoc" aria-label="Índice"><svg class="ic"><use href="#i-list"/></svg></button>
+    <button type="button" class="rb aa" id="rdraa" aria-label="Ajustes de lectura">Aa</button>
+  </div>
+  <div class="rdr-bot">
+    <button type="button" class="rb" id="rdrprev" aria-label="Página anterior"><svg class="ic"><use href="#i-left"/></svg></button>
+    <div class="rdr-pos"><p><span id="rdrinfo"></span><b id="rdrpct"></b></p><label><span class="vh">Ir a otra parte del libro</span><input type="range" id="rdrpos" min="0" max="1000" value="0"></label></div>
+    <button type="button" class="rb" id="rdrnext" aria-label="Página siguiente"><svg class="ic"><use href="#i-right"/></svg></button>
+  </div>
+  <div class="rdr-pan" id="rdrpan" hidden></div>
+  <div class="rdr-load" id="rdrload" hidden><span class="spin"></span><p id="rdrmsg">Abriendo el libro…</p><span class="rdr-prog" id="rdrprog" hidden><i></i></span></div>
+</div>
 <div class="toast" id="toast" role="status"></div>
 
-<script src="config.js?v=1.4.3"></script>
-<script src="app.js?v=1.4.3"></script>
+<script src="config.js?v=1.5.0"></script>
+<script src="app.js?v=1.5.0"></script>
 </body>
 </html>

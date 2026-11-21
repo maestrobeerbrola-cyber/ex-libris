@@ -1,8 +1,9 @@
 /* Service worker de Ex Libris: funciona sin conexión y guarda las portadas ya vistas.
    La página y su código se piden siempre a la red primero (con la copia guardada solo sin conexión),
    para que nunca se mezcle una página nueva con un código antiguo. */
-const VERSION = 'exlibris-v1.4.3';
+const VERSION = 'exlibris-v1.5.0';
 const IMG = 'exlibris-portadas';
+const VENDOR = 'exlibris-vendor'; // bibliotecas con la versión en el nombre: se guardan una vez y se conservan entre versiones
 const SHELL = ['./', 'index.html', 'app.js', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/favicon.svg', 'icons/favicon-48.png', 'vendor/zxing-0.21.3.min.js'];
 const IMG_HOSTS = ['books.google.com', 'books.googleusercontent.com', 'covers.openlibrary.org', 'archive.org'];
 const FRESH = /(\/|\.html|\/app\.js|\/config\.js|\.webmanifest|\/news\.json)$/;
@@ -15,7 +16,7 @@ self.addEventListener('message', e => { if (e.data === 'skip') self.skipWaiting(
 self.addEventListener('activate', e => {
   e.waitUntil((async () => {
     // Solo borra cachés antiguas de Ex Libris: el dominio es compartido con otras apps (p. ej. Farma·Lab).
-    for (const k of await caches.keys()) if (k.startsWith('exlibris-') && k !== VERSION && k !== IMG) await caches.delete(k);
+    for (const k of await caches.keys()) if (k.startsWith('exlibris-') && k !== VERSION && k !== IMG && k !== VENDOR) await caches.delete(k);
     await self.clients.claim();
   })());
 });
@@ -26,6 +27,7 @@ self.addEventListener('fetch', e => {
   if (url.origin === location.origin) {
     if (req.mode === 'navigate') { e.respondWith(networkFirst(req, new URL('index.html', self.registration.scope).href)); return; }
     if (FRESH.test(url.pathname)) { e.respondWith(networkFirst(req, url.origin + url.pathname)); return; }
+    if (url.pathname.includes('/vendor/')) { e.respondWith(cacheFirstVendor(req)); return; }
     e.respondWith(staleWhileRevalidate(req));
     return;
   }
@@ -52,6 +54,13 @@ async function staleWhileRevalidate(req) {
   const hit = await c.match(req, { ignoreSearch: true });
   const net = fetch(req).then(r => { if (r.ok || r.type === 'opaque') c.put(req, r.clone()); return r; }).catch(() => null);
   return hit || (await net) || Response.error();
+}
+async function cacheFirstVendor(req) {
+  const hit = await caches.match(req, { ignoreSearch: true });
+  if (hit) return hit;
+  const r = await fetch(req);
+  if (r.ok) (await caches.open(VENDOR)).put(req, r.clone());
+  return r;
 }
 async function cacheFirstImg(req) {
   const c = await caches.open(IMG);

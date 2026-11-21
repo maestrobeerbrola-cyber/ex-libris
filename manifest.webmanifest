@@ -55,6 +55,18 @@
           "sizes": "192x192"
         }
       ]
+    },
+    {
+      "name": "Lector",
+      "short_name": "Lector",
+      "description": "Seguir leyendo tus libros electrónicos",
+      "url": "./#lector",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
