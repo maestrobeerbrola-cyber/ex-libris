@@ -1,11 +1,15 @@
 {
-  "_ayuda": "Fuentes de la pestaña Novedades. 'rss' es una web con feed; 'google' es una búsqueda en Google Noticias. 'filtro': 'libros' deja solo noticias literarias; 'musica' solo libros de música. 'categoria' fuerza la categoría.",
+  "_ayuda": "Fuentes de la pestaña Novedades. 'rss' es una web con feed; 'google' es una búsqueda en Google Noticias. 'filtro': 'libros' deja solo noticias literarias; 'musica' solo libros de música. 'categoria' fuerza la categoría. 'dias' cambia cuántos días atrás se buscan noticias (por defecto 10). Una búsqueda 'google' con 'nombre' (p. ej. «site:web.es») se muestra con ese nombre.",
   "fuentes": [
     {"nombre": "Zenda", "rss": "https://www.zendalibros.com/feed/"},
     {"nombre": "Babelia (El País)", "rss": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/babelia/portada"},
-    {"nombre": "Revista de Libros", "rss": "https://www.revistadelibros.com/feed/"},
+    {"nombre": "Revista de Libros", "rss": "https://www.revistadelibros.com/feed/", "dias": 45},
     {"nombre": "Qué Leer", "rss": "https://www.revistaqueleer.com/feed/"},
     {"nombre": "Ahora Qué Leo (laSexta)", "rss": "https://www.lasexta.com/rss/8340916.xml"},
+    {"nombre": "Librotea (elDiario.es)", "google": "site:librotea.eldiario.es", "dias": 14, "filtro": "libros"},
+    {"nombre": "Todoliteratura", "google": "site:todoliteratura.es"},
+    {"nombre": "Lecturalia", "rss": "https://feeds.feedburner.com/lecturalia", "dias": 30},
+    {"nombre": "Biblioteca Virtual Miguel de Cervantes", "rss": "https://blog.cervantesvirtual.com/feed/", "dias": 30},
     {"nombre": "Jot Down", "rss": "https://www.jotdown.es/feed/", "filtro": "libros"},
     {"nombre": "elDiario.es Cultura", "rss": "https://www.eldiario.es/rss/cultura/", "filtro": "libros"},
     {"nombre": "La Vanguardia Cultura", "rss": "https://www.lavanguardia.com/rss/cultura.xml", "filtro": "libros"},
