@@ -8,7 +8,7 @@ let prev = { items: [] };
 try { prev = JSON.parse(await fs.readFile('news.json', 'utf8')); } catch {}
 
 const norm = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-const LIBRO = /\b(libro|libros|novela|novelas|poesia|poemario|ensayo|editorial|editoriales|escritor|escritora|autor|autora|literari|lectura|lector|librer|cuentos?|relatos?|biografia|memorias|comic|novela grafica|traduccion|premio)/;
+const LIBRO = /\b(libro|libros|novela|novelas|poesia|poemario|ensayo|editorial|editoriales|escritor|escritora|autor|autora|literari|literatur|lectura|lector|librer|cuentos?|relatos?|biografia|memorias|comic|novela grafica|traduccion|premio)/;
 const MUSICA = /\b(music|musica|musico|rock|punk|jazz|flamenco|pop\b|banda|cantante|cantautor|disco|guitarr|concierto|rapero|trap|metal|reggaeton|beatles|bowie|dylan)/;
 const PREMIO = /\bpremio|galardon|finalista|jurado/;
 const NOVEDAD = /\b(publica|nueva novela|nuevo libro|llega a las librerias|lanza|presenta|novedad|sale a la venta|edita|reedita)/;
@@ -80,7 +80,8 @@ for (const f of cfg.fuentes) {
         fuente = f.nombre || it.source || (i > 0 ? titulo.slice(i + 3) : 'Google Noticias'); // con 'nombre', una web concreta vía Google Noticias (site:)
         if (i > 0) titulo = titulo.slice(0, i);
       }
-      const texto = norm(titulo + ' ' + it.desc);
+      // En Google Noticias el «resumen» solo repite el titular y el medio (p. ej. «Librotea»), así que se filtra por el titular
+      const texto = norm(titulo + ' ' + (f.google ? '' : it.desc));
       if (f.filtro === 'libros' && !LIBRO.test(texto)) continue;
       if (f.filtro === 'musica' && !(MUSICA.test(texto) && LIBRO.test(texto))) continue;
       // Algunas webs (p. ej. Ahora Qué Leo) meten al principio una ficha del libro pegada sin espacios:
@@ -99,13 +100,18 @@ for (const f of cfg.fuentes) {
 }
 function fuente_unica(f, nombre) { return f.rss || f.nombre ? nombre : 'Google Noticias'; }
 
-const visto = new Set(), out = [];
+const visto = new Set(), todas = [], caduca = ymd(new Date(Date.now() - 60 * 864e5));
 for (const it of [...nuevos, ...(prev.items || [])].sort((a, b) => String(b.fecha).localeCompare(String(a.fecha)))) {
   const k1 = it.url.replace(/[?#].*$/, ''), k2 = norm(it.titulo).replace(/[^a-z0-9]/g, '').slice(0, 70);
-  if (visto.has(k1) || visto.has(k2)) continue;
-  visto.add(k1); visto.add(k2); out.push(it);
-  if (out.length >= MAX_ITEMS) break;
+  if (visto.has(k1) || visto.has(k2) || String(it.fecha) < caduca) continue;
+  visto.add(k1); visto.add(k2); todas.push(it);
 }
+// Cada web elegida conserva al menos sus 3 noticias más recientes, aunque publique poco;
+// el resto de huecos se llena por fecha.
+const propias = new Set(cfg.fuentes.filter(f => f.rss || f.nombre).map(f => f.nombre)), cuenta = {}, elegidas = new Set();
+for (const it of todas) if (propias.has(it.fuente) && (cuenta[it.fuente] = (cuenta[it.fuente] || 0) + 1) <= 3) elegidas.add(it);
+for (const it of todas) { if (elegidas.size >= MAX_ITEMS) break; elegidas.add(it); }
+const out = todas.filter(it => elegidas.has(it));
 const data = { actualizado: new Date().toISOString(), fuentes: [...new Set(usadas)].length ? [...new Set(usadas)] : (prev.fuentes || []), items: out };
 await fs.writeFile('news.json', JSON.stringify(data, null, 1) + '\n');
 console.log(`news.json: ${out.length} noticias (${nuevos.length} recogidas hoy)`);
