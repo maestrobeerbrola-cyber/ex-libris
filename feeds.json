@@ -5,6 +5,7 @@
     {"nombre": "Babelia (El País)", "rss": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/babelia/portada"},
     {"nombre": "Revista de Libros", "rss": "https://www.revistadelibros.com/feed/"},
     {"nombre": "Qué Leer", "rss": "https://www.revistaqueleer.com/feed/"},
+    {"nombre": "Ahora Qué Leo (laSexta)", "rss": "https://www.lasexta.com/rss/8340916.xml"},
     {"nombre": "Jot Down", "rss": "https://www.jotdown.es/feed/", "filtro": "libros"},
     {"nombre": "elDiario.es Cultura", "rss": "https://www.eldiario.es/rss/cultura/", "filtro": "libros"},
     {"nombre": "La Vanguardia Cultura", "rss": "https://www.lavanguardia.com/rss/cultura.xml", "filtro": "libros"},
