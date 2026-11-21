@@ -1,0 +1,28 @@
+name: Sonda temporal (Ahora Qué Leo)
+on:
+  push:
+    branches: [sonda-ahoraqueleo]
+permissions:
+  contents: read
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolver enlace y buscar feed
+        run: |
+          UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36'
+          FINAL=$(curl -sL -A "$UA" -o /tmp/share.html -w '%{url_effective}' 'https://share.google/ye6DsGnTWMWTtrFZw')
+          echo "::notice title=final::$FINAL"
+          TIT=$(grep -oi '<title>[^<]*' /tmp/share.html | head -1 | cut -c8-200); echo "::notice title=titulo::$TIT"
+          for L in $(grep -oiE 'https?://[a-z0-9.-]*ahora[a-z0-9.-]*[^"'"'"' <>]*' /tmp/share.html | sort -u | head -8); do echo "::notice title=enlace::$L"; done
+          for H in "$FINAL" https://ahoraqueleo.com/ https://www.ahoraqueleo.com/ https://ahoraqueleo.es/ https://www.ahoraqueleo.es/; do
+            C=$(curl -sL -A "$UA" -o /tmp/h.html -w '%{http_code} %{url_effective}' "$H" --max-time 20)
+            T=$(grep -oi '<title>[^<]*' /tmp/h.html | head -1 | cut -c8-160)
+            F=$(grep -oiE '<link[^>]+(rss|atom)\+xml[^>]*>' /tmp/h.html | grep -oiE 'href="[^"]+"' | head -3 | tr '\n' ' ')
+            echo "::notice title=web $H::$C | $T | feeds: $F"
+          done
+          for FU in https://ahoraqueleo.com/feed/ https://www.ahoraqueleo.com/feed/ https://ahoraqueleo.es/feed/ https://www.ahoraqueleo.es/feed/; do
+            C=$(curl -sL -A "$UA" -o /tmp/f.xml -w '%{http_code} %{content_type}' "$FU" --max-time 20)
+            N=$(grep -o '<item' /tmp/f.xml | wc -l); T=$(grep -o '<title>[^<]*' /tmp/f.xml | sed -n '2,4p' | cut -c8-90 | tr '\n' '|')
+            echo "::notice title=feed $FU::$C items=$N $T"
+          done
