@@ -1,4 +1,4 @@
-name: Sonda temporal (Ahora Qué Leo)
+name: Sonda temporal (fuentes de noticias)
 on:
   push:
     branches: [sonda-ahoraqueleo]
@@ -8,19 +8,44 @@ jobs:
   sonda:
     runs-on: ubuntu-latest
     steps:
-      - name: Feed de laSexta
+      - name: Buscar feeds
         run: |
-          UA='Mozilla/5.0 (ExLibris; lector de novedades personal)'
-          C=$(curl -sL -A "$UA" -o f.xml -w '%{http_code} %{content_type}' https://www.lasexta.com/rss/8340916.xml)
-          echo "::notice title=estado::$C items=$(grep -o '<item' f.xml | wc -l) bytes=$(wc -c < f.xml)"
-          python3 - <<'PY'
-          import re,html
-          x=open('f.xml',encoding='utf-8',errors='replace').read()
-          items=re.findall(r'<item>(.*?)</item>',x,re.S)
-          for it in items[:4]:
-              g=lambda t:(re.search(rf'<{t}[^>]*>(.*?)</{t}>',it,re.S) or [None,''])[1]
-              t=re.sub(r'<!\[CDATA\[|\]\]>','',g('title')).strip()[:90]
-              tags=sorted(set(re.findall(r'<([a-zA-Z:]+)[\s>/]',it)))
-              img='media' if 'media:' in it else ('enclosure' if '<enclosure' in it else 'none')
-              print(f"::notice title=item::{t} | {g('pubDate')[:31]} | {g('link')[:80]} | img={img} | tags={','.join(tags)[:150]}")
+          cat > s.py <<'PY'
+          import re, urllib.request, urllib.parse, ssl, datetime, email.utils
+          UA={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36','Accept':'*/*'}
+          def get(u):
+              try:
+                  r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=20)
+                  return r.status, r.headers.get('content-type',''), r.read(3_000_000).decode('utf-8','replace'), r.geturl()
+              except Exception as e:
+                  return getattr(e,'code',0), '', str(e)[:80], u
+          def feedinfo(u):
+              st,ct,b,fin=get(u)
+              items=re.findall(r'<(?:item|entry)[\s>][\s\S]*?</(?:item|entry)>',b)
+              if not items: return f'{st} {ct[:30]} sin items'
+              ds=[]
+              for it in items:
+                  m=re.search(r'<(?:pubDate|published|updated|dc:date)>([^<]+)<',it)
+                  if m:
+                      t=m.group(1).strip()
+                      try: d=email.utils.parsedate_to_datetime(t)
+                      except Exception:
+                          try: d=datetime.datetime.fromisoformat(t.replace('Z','+00:00'))
+                          except Exception: d=None
+                      if d: ds.append(d.date().isoformat())
+              tit=[re.sub(r'<!\[CDATA\[|\]\]>','',x).strip()[:60] for x in re.findall(r'<title[^>]*>([\s\S]*?)</title>',b)[1:4]]
+              return f'{st} items={len(items)} recientes={sorted(ds)[-1] if ds else "?"} antiguo={sorted(ds)[0] if ds else "?"} | '+' / '.join(tit)
+          webs=['https://librotea.eldiario.es/','https://www.lecturalia.com/','https://www.todoliteratura.es/','https://www.revistadelibros.com/','https://www.cervantesvirtual.com/areas/literatura/','https://www.cervantesvirtual.com/']
+          for w in webs:
+              st,ct,b,fin=get(w)
+              alts=re.findall(r'<link[^>]+(?:rss|atom)\+xml[^>]*>',b,re.I)
+              hrefs=[urllib.parse.urljoin(fin,h) for a in alts for h in re.findall(r'href=["\']([^"\']+)',a)]
+              rsslinks=sorted(set(urllib.parse.urljoin(fin,h) for h in re.findall(r'href=["\']([^"\']*(?:rss|feed|atom)[^"\']*)["\']',b,re.I)))[:12]
+              print(f'::notice title=WEB {w}::{st} -> {fin} | alt={hrefs[:5]} | enlaces={rsslinks}')
+              cands=list(dict.fromkeys(hrefs+[urllib.parse.urljoin(fin,p) for p in ['feed/','rss/','rss','rss.xml','feed','index.rss','atom.xml']]))
+              for c in cands[:10]:
+                  print(f'::notice title=FEED {c}::{feedinfo(c)}')
+          for c in ['https://www.revistadelibros.com/feed/','https://www.lecturalia.com/rss/','https://www.lecturalia.com/rss/noticias.xml','https://www.todoliteratura.es/rss/','https://www.todoliteratura.es/rss/noticias/','https://librotea.eldiario.es/rss','https://www.eldiario.es/rss/librotea/','https://www.cervantesvirtual.com/rss/','https://www.cervantesvirtual.com/novedades.rss']:
+              print(f'::notice title=EXTRA {c}::{feedinfo(c)}')
           PY
+          python3 s.py
