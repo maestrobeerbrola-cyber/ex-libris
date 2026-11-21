@@ -81,7 +81,10 @@ for (const f of cfg.fuentes) {
       const texto = norm(titulo + ' ' + it.desc);
       if (f.filtro === 'libros' && !LIBRO.test(texto)) continue;
       if (f.filtro === 'musica' && !(MUSICA.test(texto) && LIBRO.test(texto))) continue;
-      let resumen = f.google ? '' : corta(it.desc, 220);
+      // Algunas webs (p. ej. Ahora Qué Leo) meten al principio una ficha del libro pegada sin espacios:
+      // «AutorEditorial: XFecha de publicación original: 2026Texto…». Se quita para dejar solo el resumen.
+      const desc = it.desc.replace(/^[\s\S]{0,200}?Editorial:[\s\S]{0,160}?Fecha de publicaci[oó]n(?: original)?:\s*\d{4}\s*/i, '').trim();
+      let resumen = f.google ? '' : corta(desc, 220);
       if (norm(resumen).startsWith(norm(titulo).slice(0, 40))) resumen = '';
       nuevos.push({ titulo: corta(titulo, 160), fuente: corta(fuente, 60), url: it.url, fecha: ymd(it.fecha && !isNaN(it.fecha) ? it.fecha : new Date()), categoria: categoria(titulo + ' ' + it.desc, f.categoria), resumen });
       if (++n >= MAX_POR_FUENTE) break;
