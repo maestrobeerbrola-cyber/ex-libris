@@ -64,24 +64,29 @@ async function get(url) {
 const limite = Date.now() - MAX_DIAS * 864e5;
 const nuevos = [], usadas = [];
 for (const f of cfg.fuentes) {
-  const url = f.rss || `https://news.google.com/rss/search?q=${encodeURIComponent(f.google + ' when:7d')}&hl=es&gl=ES&ceid=ES:es`;
+  // 'dias' permite a una fuente que publica poco (revistas mensuales) mostrar noticias algo más antiguas
+  const dias = f.dias || MAX_DIAS, lim = Date.now() - dias * 864e5;
+  const url = f.rss || `https://news.google.com/rss/search?q=${encodeURIComponent(f.google + ' when:' + Math.min(dias, 30) + 'd')}&hl=es&gl=ES&ceid=ES:es`;
   const nombre = f.nombre || 'Google Noticias';
   try {
     const items = parse(await get(url));
     let n = 0;
     for (const it of items) {
       if (!it.titulo || !/^https:\/\//.test(it.url)) continue;
-      if (it.fecha && (isNaN(it.fecha) || it.fecha < limite)) continue;
+      if (it.fecha && (isNaN(it.fecha) || it.fecha < lim)) continue;
       let titulo = it.titulo, fuente = nombre;
       if (f.google) { // «Titular - Medio»
         const i = titulo.lastIndexOf(' - ');
-        fuente = it.source || (i > 0 ? titulo.slice(i + 3) : 'Google Noticias');
+        fuente = f.nombre || it.source || (i > 0 ? titulo.slice(i + 3) : 'Google Noticias'); // con 'nombre', una web concreta vía Google Noticias (site:)
         if (i > 0) titulo = titulo.slice(0, i);
       }
       const texto = norm(titulo + ' ' + it.desc);
       if (f.filtro === 'libros' && !LIBRO.test(texto)) continue;
       if (f.filtro === 'musica' && !(MUSICA.test(texto) && LIBRO.test(texto))) continue;
-      let resumen = f.google ? '' : corta(it.desc, 220);
+      // Algunas webs (p. ej. Ahora Qué Leo) meten al principio una ficha del libro pegada sin espacios:
+      // «AutorEditorial: XFecha de publicación original: 2026Texto…». Se quita para dejar solo el resumen.
+      const desc = it.desc.replace(/^[\s\S]{0,200}?Editorial:[\s\S]{0,160}?Fecha de publicaci[oó]n(?: original)?:\s*\d{4}\s*/i, '').trim();
+      let resumen = f.google ? '' : corta(desc, 220);
       if (norm(resumen).startsWith(norm(titulo).slice(0, 40))) resumen = '';
       nuevos.push({ titulo: corta(titulo, 160), fuente: corta(fuente, 60), url: it.url, fecha: ymd(it.fecha && !isNaN(it.fecha) ? it.fecha : new Date()), categoria: categoria(titulo + ' ' + it.desc, f.categoria), resumen });
       if (++n >= MAX_POR_FUENTE) break;
@@ -92,7 +97,7 @@ for (const f of cfg.fuentes) {
     console.log(`✗ ${nombre} (${f.rss || f.google}): ${e.message}`);
   }
 }
-function fuente_unica(f, nombre) { return f.rss ? nombre : 'Google Noticias'; }
+function fuente_unica(f, nombre) { return f.rss || f.nombre ? nombre : 'Google Noticias'; }
 
 const visto = new Set(), out = [];
 for (const it of [...nuevos, ...(prev.items || [])].sort((a, b) => String(b.fecha).localeCompare(String(a.fecha)))) {

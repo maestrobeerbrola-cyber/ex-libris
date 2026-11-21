@@ -8,51 +8,17 @@ jobs:
   sonda:
     runs-on: ubuntu-latest
     steps:
-      - name: Buscar feeds
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Probar la recogida de novedades
         run: |
-          cat > s.py <<'PY'
-          import re, urllib.request, urllib.parse, ssl, datetime, email.utils
-          UA={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36','Accept':'*/*'}
-          def get(u):
-              try:
-                  r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=20)
-                  return r.status, r.headers.get('content-type',''), r.read(3_000_000).decode('utf-8','replace'), r.geturl()
-              except Exception as e:
-                  return getattr(e,'code',0), '', str(e)[:80], u
-          def feedinfo(u):
-              st,ct,b,fin=get(u)
-              items=re.findall(r'<(?:item|entry)[\s>][\s\S]*?</(?:item|entry)>',b)
-              if not items: return f'{st} {ct[:30]} sin items'
-              ds=[]
-              for it in items:
-                  m=re.search(r'<(?:pubDate|published|updated|dc:date)>([^<]+)<',it)
-                  if m:
-                      t=m.group(1).strip()
-                      try: d=email.utils.parsedate_to_datetime(t)
-                      except Exception:
-                          try: d=datetime.datetime.fromisoformat(t.replace('Z','+00:00'))
-                          except Exception: d=None
-                      if d: ds.append(d.date().isoformat())
-              tit=[re.sub(r'<!\[CDATA\[|\]\]>','',x).strip()[:60] for x in re.findall(r'<title[^>]*>([\s\S]*?)</title>',b)[1:4]]
-              return f'{st} items={len(items)} recientes={sorted(ds)[-1] if ds else "?"} antiguo={sorted(ds)[0] if ds else "?"} | '+' / '.join(tit)
-          import urllib.parse as up
-          def site(w,extra):
-              out=[]
-              st,ct,b,fin=get(w)
-              alts=re.findall(r'<link[^>]+(?:rss|atom)\+xml[^>]*>',b,re.I)
-              hrefs=[up.urljoin(fin,h) for a in alts for h in re.findall(r'href=["\']([^"\']+)',a)]
-              links=sorted(set(up.urljoin(fin,h) for h in re.findall(r'href=["\']([^"\']*(?:rss|feed|atom|xml)[^"\']*)["\']',b,re.I)))[:15]
-              out.append(f'WEB {st} {fin} alt={hrefs[:4]} enlaces={links}')
-              for c in list(dict.fromkeys(hrefs[:4]+[up.urljoin(fin,x) for x in ['feed/','rss/','rss.xml']]+extra)):
-                  out.append(f'{c} => {feedinfo(c)}')
-              return ' || '.join(out)
-          g=lambda q:'https://news.google.com/rss/search?'+up.urlencode({'q':q+' when:30d','hl':'es','gl':'ES','ceid':'ES:es'})
-          tests={'todoliteratura':('https://www.todoliteratura.es/',['https://www.todoliteratura.es/rss/','https://www.todoliteratura.es/rss/noticias.xml','https://www.todoliteratura.es/rss/portada.xml']),
-                 'revistadelibros':('https://www.revistadelibros.com/',['https://www.revistadelibros.com/feed/','https://www.revistadelibros.com/?feed=rss2']),
-                 'cervantes':('https://www.cervantesvirtual.com/areas/literatura/',['https://www.cervantesvirtual.com/rss/','https://www.cervantesvirtual.com/feed/','https://www.cervantesvirtual.com/novedades/rss/']),
-                 'lecturalia':('https://www.lecturalia.com/',['https://www.lecturalia.com/rss/','https://www.lecturalia.com/blog/feed/'])}
-          for k,(w,ex) in tests.items(): print(f'::notice title={k}::'+site(w,ex))
-          for k,q in {'gn-librotea':'site:librotea.eldiario.es','gn-lecturalia':'site:lecturalia.com','gn-todoliteratura':'site:todoliteratura.es','gn-cervantes':'site:cervantesvirtual.com','gn-revistadelibros':'site:revistadelibros.com'}.items():
-              print(f'::notice title={k}::'+feedinfo(g(q)))
+          node scripts/fetch-news.mjs > log.txt 2>&1 || true
+          echo "::notice title=log::$(grep -E '✓|✗' log.txt | tr '\n' '|' )"
+          python3 - <<'PY'
+          import json
+          d=json.load(open('news.json'))
+          for src in ['Librotea (elDiario.es)','Todoliteratura','Lecturalia','Biblioteca Virtual Miguel de Cervantes','Revista de Libros','Ahora Qué Leo (laSexta)']:
+              xs=[x for x in d['items'] if x['fuente']==src]
+              print(f"::notice title={src} ({len(xs)})::"+' || '.join(f"{x['fecha']} {x['categoria']} | {x['titulo'][:70]} | {x['url'][:60]} | {x['resumen'][:60]}" for x in xs[:4]))
           PY
-          python3 s.py
