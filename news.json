@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-21T23:02:59.178Z",
+ "actualizado": "2026-11-22T13:23:38.037Z",
  "fuentes": [
   "Zenda",
   "Babelia (El País)",
@@ -15,6 +15,102 @@
   "Google Noticias"
  ],
  "items": [
+  {
+   "titulo": "John Belushi, que prefirió arder antes que desvanecerse",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/john-belushi-que-prefirio-arder-antes-que-desvanecerse/",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Y convertido el verso referido en sentencia, el cinco de abril de 1994, que se sepa, señaló el primer camino sin regreso cuando Kurt Cobain lo citó textualmente en la nota de despedida que dejó escrita antes de quitarse…"
+  },
+  {
+   "titulo": "5 poemas de Porque se domina el oleaje, de Francisco Ferrer Lerín",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/5-poemas-de-porque-se-domina-el-oleaje-de-francisco-ferrer-lerin/",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Esta antología reúne algunos de los poemas menos conocidos de Francisco Ferrer Lerín, figura de culto de la poesía española. Antologado por Joaquín Fabrellas, el volumen recorre las obsesiones del autor, desde el mundo…"
+  },
+  {
+   "titulo": "La semana en Zenda, en 10 tuits",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/la-semana-en-zenda-en-10-tuits-noviembre-2026-4/",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Noviembre va capitulando sus esfuerzos lentamente, con el frío ya encaramado a nuestras paredes. No perdemos la perspectiva, eso sí: seguimos leyendo, leyendo y leyendo. Como cada domingo, te proponemos un resumen de…"
+  },
+  {
+   "titulo": "¿Qué le pasa al lenguaje cuando el dinero se devalúa?",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/que-le-pasa-al-lenguaje-cuando-el-dinero-se-devalua/",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Mientras el dinero perdía su valor y las palabras dejaban de obedecer a las cosas, los autores del siglo XVII encontraron en la alquimia un cauce para nombrar el desconcierto de todo un siglo. Este libro desvela el…"
+  },
+  {
+   "titulo": "Antes de que existiese un nombre, de Noor Ammar Lamarty",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/antes-de-que-existiese-un-nombre-de-noor-ammar-lamarty/",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Esta es la historia de un amor atravesado por una herida. Un relato sobre la memoria y la necesidad de encontrar sentido allí donde la guerra, el exilio y las fronteras han transformado la manera de mirarse y…"
+  },
+  {
+   "titulo": "Zenda recomienda: Cosamala, de Alana S. Portero",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/zenda-recomienda-cosamala-de-alana-s-portero/",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "La editorial apunta, a propósito del libro: “Andalucía, 1937. La columna Carranza, formada por caballistas, toreros, falangistas, terratenientes y guar­dias civiles, avanza por la sierra norte de Sevilla sub­yugando…"
+  },
+  {
+   "titulo": "Análisis literario de «Pepín y las vagonetas» de Arturo del Hoyo",
+   "fuente": "Todoliteratura",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNR0pWb3NNdmc1WUlVYWdFNzA1MmhyR1lhZDh1S2hiUC1rU2p6b2puY3E3eXhzazR6MFB1UXFRdm81VDJNZUE2UFdzcVlDTV9aVENVaGgzZnRndU00eV9XMzRMMzRMRkNQRG1ER0ZKc29xdW1CWEhwdVk5ckx6bE1BRjNxaXVJWEtqWWF0ZTJpbUNZMDNGcVpIa2s0MFZkdS1FY0N6ZF9HT3o1d05KNC1HZnlKNkNMdktZSk1jN1dmWUVPTjdBVGc?oc=5",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": ""
+  },
+  {
+   "titulo": "La armenia Lyana Ulikhanyan se alza con el galardón Pau Casals para jóvenes cellistas",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261122/11690448/armenia-lyana-ulikhanyan-alza-galardon-pau-casals-jovenes-cellistas.html",
+   "fecha": "2026-11-22",
+   "categoria": "Premios",
+   "resumen": "El premio especial AENA recae en el estadounidense Miles Levine y el tercer premio, en el chino Ziyang Xhao"
+  },
+  {
+   "titulo": "Pinto rechaza las acusaciones de censura por eliminar cinco obras de su programación",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261122/11690360/pinto-rechaza-acusaciones-censura-eliminar-cinco-obras-programacion.html",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Se trata de los montajes 'El hijo de la cómica', de José Sacristán; 'Libre', de Teatro del Barrio; 'El Verdugo', de El espejo negro; 'La Reina Brava', de Las niñas de Cádiz, y 'Poeta Perdido en Nueva York' de El Aedo…"
+  },
+  {
+   "titulo": "Andrea Abreu: “Perdemos léxico y me duele ver como no nos importa ser cada vez más pobres”",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261122/11690038/andrea-abreu-pajaritos-prenados-tenerife-segunda-novela-cathaysa.html",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": "Tras el éxito de su debut literario, 'Panza de burro', la escritora canaria vuelve a poner en alza la oralidad con 'Pajaritos preñados', una novela inspirada en personajes reales, donde el pasado nunca deja de filtrarse"
+  },
+  {
+   "titulo": "Las solistas jóvenes dominan cada vez más las principales categorías de los Grammy",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261122/11689809/solistas-jovenes-dominan-principales-categorias-grammy.html",
+   "fecha": "2026-11-22",
+   "categoria": "Premios",
+   "resumen": "Beyoncé, Adele, Taylor Swift, Billie Eilish o Lady Gaga han liderado los premios en los últimos años"
+  },
+  {
+   "titulo": "22 de noviembre de 1936: El entierro de Durruti",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/22-de-noviembre-de-1936-el-entierro-de-durruti/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "Para conmemorar el 90º aniversario de la Guerra Civil, José Ángel Mañas recrea en Zenda, día por día en esta sección, lo que aconteció en 1936, quizá el año más trascendental de toda la historia reciente de España. La…"
+  },
   {
    "titulo": "Nerea Pérez de las Heras: «A todo el mundo le faltan trozos»",
    "fuente": "Zenda",
@@ -38,62 +134,6 @@
    "fecha": "2026-11-21",
    "categoria": "Noticias",
    "resumen": "Me preguntaba: ¿Cómo afecta a nuestra sensación de verdad una relación a distancia sostenida y fomentada a través de la pantalla? ¿Somos conscientes del sutil juego de ficción que se desliza en la amistad o en el amor?…"
-  },
-  {
-   "titulo": "Soy mar",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/soy-mar/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "El arrullo de las olas al estrellarse contra las rocas del espigón hace que me recorra un escalofrío helado por la base de la espalda. Me arrebujo en la chaqueta y me abrazo mientras mi mirada se hunde en las…"
-  },
-  {
-   "titulo": "Gabi Martínez: “Solo algunos jóvenes levantan la voz porque en general la sociedad aún está demasiado aburguesada”",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/gabi-martinez-solo-algunos-jovenes-levantan-la-voz-porque-en-general-la-sociedad-aun-esta-demasiado-aburguesada/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "Las protagonistas de la última novela del escritor, tras Delta, son dos mujeres de clases sociales muy distintas que se conocen en una montaña rusa entre chillidos y excitación. Esa alianza da origen a una comunidad…"
-  },
-  {
-   "titulo": "¿Desiertos propios o ajenos?",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/desiertos-propios-o-ajenos/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "“Escribiré esos libros. Es lo que vislumbro más allá del instante en el gran desierto, bajo cuyos trazos se me aparece la amplitud de la vida”. Marguerite Duras A propósito de este tema, me he topado con un magnífico…"
-  },
-  {
-   "titulo": "Javier Castillo: “Hoy cada estímulo es una distracción que nos aleja de la lectura”",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/javier-castillo-hoy-cada-estimulo-es-una-distraccion-que-nos-aleja-de-la-lectura/",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": "“Parece que fue ayer cuando publiqué El día que se perdió la cordura. Han sido nueve novelas en nueve años, tengo la sensación de que en cada libro me lo juego todo y mantengo ese cosquilleo”, afirma en una entrevista…"
-  },
-  {
-   "titulo": "Artes de hacer, de Sofía López King",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/artes-de-hacer-de-sofia-lopez-king/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "Este libro es el resultado de un proyecto de investigación y creación editorial que explora el patrimonio cultural inmaterial a través de los oficios, los saberes manuales y las prácticas cotidianas. Su origen se…"
-  },
-  {
-   "titulo": "Zenda recomienda: El genio griego, de Simone Weil",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/zenda-recomienda-el-genio-griego-de-simone-weil/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "La propia editorial apunta, acerca del libro: “Con su célebre lectura de la epopeya homérica como eje, esta antología reúne los textos en los que Simone Weil se adentra en la cultura griega para indagar en una misma…"
-  },
-  {
-   "titulo": "Anatomía de una casa: memoria y tiempo en Zapote",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/anatomia-de-una-casa-memoria-y-tiempo-en-zapote/",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": "Esa casa es el centro gravitacional de su nueva obra, tras la publicación de Vamos a tocar el agua (Los Tres Editores, 2021), en la que cuenta su experiencia alemana de un año en Berlín. En torno a la casa de Zapote…"
   },
   {
    "titulo": "América Latina: un continente en constante construcción",
@@ -312,17 +352,17 @@
    "resumen": ""
   },
   {
-   "titulo": "Arranca en Salamanca el VII Salón del Libro Infantil y Juvenil",
-   "fuente": "SALAMANCArtv AL DÍA",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZkw1aGQ2d2pNS1Nmd3hnQ2U0UFB6RVp0SFUzd3hYSmtDMVNkTDYwTUdoYXRtMjJrVGlEckppZjBVQUVGbnBpMHM4RjZVZ3ViWDlwSDJMczVZSWdSQ1dmWFFtbHN0WFJzUG92eVZzMEJ5b3ZBNk9zdGJqYmdZMlhyeWlFQnB0SkFiSFVZVjBRc0R4R0tFQzlFRkl6R0FiWEdsWHZfS3dPS3lZQXJLM05QVDdSX0lhMHAz?oc=5",
+   "titulo": "Novedades editoriales",
+   "fuente": "Hoy",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPQnlXWURXVjJfMkYxSEJVdTZOV3dxR25qVDBXQ2ZEa3dIWFVmWk1IM2JQQzQ1ZnRCXzBxaGdFMFVQUTRub1kxS0xmZ3MzUVhLTkhLc2szTnBISjFYMVhfREl6LTBBbkxad3RLVm9meTlMcG0ybG9EQW91aU9KVVplemExNFJxekpnanJOc21nOXBObjU2UWfSAZsBQVVfeXFMT0JKc0VuejZ2V2lXUGNGZmxUVG5ULWExUjBLUUZTUGs5elEybHhpYjJOYkZ2Y2hVOG5KbkF0dDFZVS1CQnBKbXFpSkNaM0VGaEJkZWxkUmRqWWNwYlJfb0VSR3RTWF9WOUllaDhPWE1ac1FNU05vc2pYOEFxdjFtVVlQLTMxbjIwbklHNGhmNWhhYkRvTFhIM2hURTQ?oc=5",
    "fecha": "2026-11-21",
    "categoria": "Novedades editoriales",
    "resumen": ""
   },
   {
-   "titulo": "Dolores Redondo vuelve con ‘Todas las noches, todas las ciudades’ una novela sobre los límites entre ficción y realidad",
-   "fuente": "Infobae",
-   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPUFk2VlhPMDRoMjgwM0QxdEdya3FvNG5FNzNkUW9MSmlwXzRhZm51bmZ3aDRfOVY0SUxjckthU0lQMTRRY3hIVk13MnRqYWxGdUNGNzdDX2FPMXBReXg3cnJBMWxWUkpyT2pFanRmUTV4aHVrelBZT2FIRmU1OENhTmxpNG9WYnVlZ0o4ZFJacEZGNVJRM1pYY0ZtOXZsUFA3X3BlUVVrVmJvU3lRaW0yaVhWTnFvNmV0Ui1sZUtWWlhHZUlaRkttTEUwMFE1ZElaaWZ4aUlCWWN6SzQ2NmU0UEZEeGwyNmZDZ3VEeVp4X0xRQdIBjAJBVV95cUxPVTVWb2dLWGNuc01aNGF4bUEwdmluXzdSNDRjYWxqckF4SW9MQ3c5WlBnbHBFdDZ0VndCTkwwZDZidGMyWGctNm56aGZXYnJmY0NZMk51d09FSnVKbHVlSFVlb2V6VGdxak1fLUxyaklLNXZGN0g4TUk1d3Y2MENaQU5sMnA1TnQxV2h1ZERkZDFjeXZ4OGI5aHRxVHFRN2UxbGtHMVB1N2k3QktqWE0xZXZHR1RZc1hKRlNtX3RvN0dNb19JcC1EbVZPMkpMSHJUamstMlBNTHFsQ1IyRmNaSmJqQWY2MHpuQnlNazJ4ejBBNlIya2hMekxETHkyU1QxbFFBLTJfb1U2NjN1?oc=5",
+   "titulo": "Arranca en Salamanca el VII Salón del Libro Infantil y Juvenil",
+   "fuente": "SALAMANCArtv AL DÍA",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZkw1aGQ2d2pNS1Nmd3hnQ2U0UFB6RVp0SFUzd3hYSmtDMVNkTDYwTUdoYXRtMjJrVGlEckppZjBVQUVGbnBpMHM4RjZVZ3ViWDlwSDJMczVZSWdSQ1dmWFFtbHN0WFJzUG92eVZzMEJ5b3ZBNk9zdGJqYmdZMlhyeWlFQnB0SkFiSFVZVjBRc0R4R0tFQzlFRkl6R0FiWEdsWHZfS3dPS3lZQXJLM05QVDdSX0lhMHAz?oc=5",
    "fecha": "2026-11-21",
    "categoria": "Novedades editoriales",
    "resumen": ""
@@ -336,9 +376,73 @@
    "resumen": ""
   },
   {
-   "titulo": "Novedades editoriales",
-   "fuente": "Hoy",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQkpzRW56NnZXaVdQY0ZmbFRUblQtYTFSMEtRRlNQazl6UTJseGliMk5iRnZjaFU4bkpuQXR0MVlVLUJCcEptcWlKQ1ozRUZoQmRlbGRSZGpZY3BiUl9vRVJHdFNYX1Y5SWVoOE9YTVpzUU1TTm9zalg4QXF2MW1VWVAtMzFuMjBuSUc0aGY1aGFiRG9MWEgzaFRFNNIBmwFBVV95cUxPQkpzRW56NnZXaVdQY0ZmbFRUblQtYTFSMEtRRlNQazl6UTJseGliMk5iRnZjaFU4bkpuQXR0MVlVLUJCcEptcWlKQ1ozRUZoQmRlbGRSZGpZY3BiUl9vRVJHdFNYX1Y5SWVoOE9YTVpzUU1TTm9zalg4QXF2MW1VWVAtMzFuMjBuSUc0aGY1aGFiRG9MWEgzaFRFNA?oc=5",
+   "titulo": "Vicente Luis Mora, primer español en lograr el premio literario más importante de EEUU: \"A veces uso una calculadora para escribir, con el fin de crear efectos\"",
+   "fuente": "La Razón",
+   "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPUXZkYjJTSTFpWWpPeTUzT3gxbWI0Yl9hSG12RGlMeXdnQXR5TkFTWHNCdE5IU2xROUZtaHY4ZXFRYnA1bkctaWRGY2RKOUNpNUZkbGdjOE5qOGM2YkNLNnBXdWFNWTlNNkE4a0tuTlF6Z1prbFFGYThSSVdTbzBkR2hOZzBkQXdHaWY4ekYwWGtaNVJhc0JFWjdRM0xLc1EzMFRsMlJyaHRYVDZRQnBWYW45X2dQaGU3OWNPSVhaczQ5Mmdoc0dFSXd3RE5PenVsN2JTSkZQc2RaWW5wQ2J0dTBvSVp5eDFicUVZNFpVV1htQWVpcnRJMEVzc0s3TFJVQW5iUDNlLVdTRjROM2lhZS1aU1pSaG1XQnRWTGJkNFdSbzViMWRLa2ZYWkFwUdIBwgJBVV95cUxNb3dKVFh0ZTVlUV8ta2VkdzhaY3o2TGxRS2stY0xodkFZR3JUd0hmbU80eWxkU1dYX2J2X2p1cUxHSDVOcHk0MW1LTzJaektoSTNQNTJuM0JoUTF5QXRCWXdocVBEX3I2dnZmTnFOMWdXSmNrTjRGRjZ1LWk5Wlp0OU5oUWNmSU9pbl92QmxUSVRRcWRlLVhaWkI2UjE0ZUg2X1ZjTUFjbWlyeFFfbHpkME8yRFJyVWRTTkU5UEYwUVdKY1dEczNmZmZDUEFZUjJSLU5ybFVOMkZNaU51eUU2ZGU3a2J0ZVNlcnI5Sy1ndTRHZ0t4ZVFjUllHQmZCWkx5UXZmcmQ0VlQ0eWNoRUtXX05aNVNQR3R1c0JFb2tROHVfTE9HNG9DNTNKRlp5TS1vTkpKSEU4bk1kWnJzdHNCTVlR?oc=5",
+   "fecha": "2026-11-21",
+   "categoria": "Premios",
+   "resumen": ""
+  },
+  {
+   "titulo": "Soy mar",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/soy-mar/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "El arrullo de las olas al estrellarse contra las rocas del espigón hace que me recorra un escalofrío helado por la base de la espalda. Me arrebujo en la chaqueta y me abrazo mientras mi mirada se hunde en las…"
+  },
+  {
+   "titulo": "Gabi Martínez: “Solo algunos jóvenes levantan la voz porque en general la sociedad aún está demasiado aburguesada”",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/gabi-martinez-solo-algunos-jovenes-levantan-la-voz-porque-en-general-la-sociedad-aun-esta-demasiado-aburguesada/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "Las protagonistas de la última novela del escritor, tras Delta, son dos mujeres de clases sociales muy distintas que se conocen en una montaña rusa entre chillidos y excitación. Esa alianza da origen a una comunidad…"
+  },
+  {
+   "titulo": "¿Desiertos propios o ajenos?",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/desiertos-propios-o-ajenos/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "“Escribiré esos libros. Es lo que vislumbro más allá del instante en el gran desierto, bajo cuyos trazos se me aparece la amplitud de la vida”. Marguerite Duras A propósito de este tema, me he topado con un magnífico…"
+  },
+  {
+   "titulo": "Javier Castillo: “Hoy cada estímulo es una distracción que nos aleja de la lectura”",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/javier-castillo-hoy-cada-estimulo-es-una-distraccion-que-nos-aleja-de-la-lectura/",
+   "fecha": "2026-11-21",
+   "categoria": "Novedades editoriales",
+   "resumen": "“Parece que fue ayer cuando publiqué El día que se perdió la cordura. Han sido nueve novelas en nueve años, tengo la sensación de que en cada libro me lo juego todo y mantengo ese cosquilleo”, afirma en una entrevista…"
+  },
+  {
+   "titulo": "Artes de hacer, de Sofía López King",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/artes-de-hacer-de-sofia-lopez-king/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "Este libro es el resultado de un proyecto de investigación y creación editorial que explora el patrimonio cultural inmaterial a través de los oficios, los saberes manuales y las prácticas cotidianas. Su origen se…"
+  },
+  {
+   "titulo": "Zenda recomienda: El genio griego, de Simone Weil",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/zenda-recomienda-el-genio-griego-de-simone-weil/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "La propia editorial apunta, acerca del libro: “Con su célebre lectura de la epopeya homérica como eje, esta antología reúne los textos en los que Simone Weil se adentra en la cultura griega para indagar en una misma…"
+  },
+  {
+   "titulo": "Anatomía de una casa: memoria y tiempo en Zapote",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/anatomia-de-una-casa-memoria-y-tiempo-en-zapote/",
+   "fecha": "2026-11-21",
+   "categoria": "Novedades editoriales",
+   "resumen": "Esa casa es el centro gravitacional de su nueva obra, tras la publicación de Vamos a tocar el agua (Los Tres Editores, 2021), en la que cuenta su experiencia alemana de un año en Berlín. En torno a la casa de Zapote…"
+  },
+  {
+   "titulo": "Dolores Redondo vuelve con ‘Todas las noches, todas las ciudades’ una novela sobre los límites entre ficción y realidad",
+   "fuente": "Infobae",
+   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPUFk2VlhPMDRoMjgwM0QxdEdya3FvNG5FNzNkUW9MSmlwXzRhZm51bmZ3aDRfOVY0SUxjckthU0lQMTRRY3hIVk13MnRqYWxGdUNGNzdDX2FPMXBReXg3cnJBMWxWUkpyT2pFanRmUTV4aHVrelBZT2FIRmU1OENhTmxpNG9WYnVlZ0o4ZFJacEZGNVJRM1pYY0ZtOXZsUFA3X3BlUVVrVmJvU3lRaW0yaVhWTnFvNmV0Ui1sZUtWWlhHZUlaRkttTEUwMFE1ZElaaWZ4aUlCWWN6SzQ2NmU0UEZEeGwyNmZDZ3VEeVp4X0xRQdIBjAJBVV95cUxPVTVWb2dLWGNuc01aNGF4bUEwdmluXzdSNDRjYWxqckF4SW9MQ3c5WlBnbHBFdDZ0VndCTkwwZDZidGMyWGctNm56aGZXYnJmY0NZMk51d09FSnVKbHVlSFVlb2V6VGdxak1fLUxyaklLNXZGN0g4TUk1d3Y2MENaQU5sMnA1TnQxV2h1ZERkZDFjeXZ4OGI5aHRxVHFRN2UxbGtHMVB1N2k3QktqWE0xZXZHR1RZc1hKRlNtX3RvN0dNb19JcC1EbVZPMkpMSHJUamstMlBNTHFsQ1IyRmNaSmJqQWY2MHpuQnlNazJ4ejBBNlIya2hMekxETHkyU1QxbFFBLTJfb1U2NjN1?oc=5",
    "fecha": "2026-11-21",
    "categoria": "Novedades editoriales",
    "resumen": ""
@@ -357,14 +461,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWmYwd09IVk93LXR5Nkk3SVFDMWVVdC01aE5DRFpzODk0NDB2NWRVR2tWZ3JMeG8yOTdzamg1cXNpZnFnNkRnOEhjRFZnVmxOWk5rQ1A3aXFSQVpyME9nTnR5ZEFicDl2MDlmTEFoM3R1aTJBNUEzMUR1QVdXRVlRUnBhUHNpdm0xYUhNX2xFbGY5YnFRbWlnVmlEdDhhLWZFQ1FqWFp4cHVvdGR4OF93Q1FDaEVXSHo1Q2dCcnVR0gHSAUFVX3lxTE9OY0p5dmt0VFlrN2UwblFCeVAwYVNhWGhZbU1NMk9wTTdabXRYaGtYR2Y4bUZiLS1mbXUzLU5odC1HZ0IyZ2UxR1VqSzhfSXR6dVJUZUdZTW92ZnMtT0tzeGlvb1pOZFVUOG5YaEF3ZXZCMEp4MVdiaF9NckJqRFRBSG5RV3k0LTdZYk9rX0I1Ry1teURqaHduWE9rOGJTVGNGdEdldVNhMnZqMnRhWnpWWmo5a0xjMUhYZG1fbVVKNXktSld4c0Q4LTNkenNlZC0yQQ?oc=5",
    "fecha": "2026-11-21",
    "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Vicente Luis Mora, primer español en lograr el premio literario más importante de EEUU: \"A veces uso una calculadora para escribir, con el fin de crear efectos\"",
-   "fuente": "La Razón",
-   "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPUXZkYjJTSTFpWWpPeTUzT3gxbWI0Yl9hSG12RGlMeXdnQXR5TkFTWHNCdE5IU2xROUZtaHY4ZXFRYnA1bkctaWRGY2RKOUNpNUZkbGdjOE5qOGM2YkNLNnBXdWFNWTlNNkE4a0tuTlF6Z1prbFFGYThSSVdTbzBkR2hOZzBkQXdHaWY4ekYwWGtaNVJhc0JFWjdRM0xLc1EzMFRsMlJyaHRYVDZRQnBWYW45X2dQaGU3OWNPSVhaczQ5Mmdoc0dFSXd3RE5PenVsN2JTSkZQc2RaWW5wQ2J0dTBvSVp5eDFicUVZNFpVV1htQWVpcnRJMEVzc0s3TFJVQW5iUDNlLVdTRjROM2lhZS1aU1pSaG1XQnRWTGJkNFdSbzViMWRLa2ZYWkFwUdIBwgJBVV95cUxNb3dKVFh0ZTVlUV8ta2VkdzhaY3o2TGxRS2stY0xodkFZR3JUd0hmbU80eWxkU1dYX2J2X2p1cUxHSDVOcHk0MW1LTzJaektoSTNQNTJuM0JoUTF5QXRCWXdocVBEX3I2dnZmTnFOMWdXSmNrTjRGRjZ1LWk5Wlp0OU5oUWNmSU9pbl92QmxUSVRRcWRlLVhaWkI2UjE0ZUg2X1ZjTUFjbWlyeFFfbHpkME8yRFJyVWRTTkU5UEYwUVdKY1dEczNmZmZDUEFZUjJSLU5ybFVOMkZNaU51eUU2ZGU3a2J0ZVNlcnI5Sy1ndTRHZ0t4ZVFjUllHQmZCWkx5UXZmcmQ0VlQ0eWNoRUtXX05aNVNQR3R1c0JFb2tROHVfTE9HNG9DNTNKRlp5TS1vTkpKSEU4bk1kWnJzdHNCTVlR?oc=5",
-   "fecha": "2026-11-21",
-   "categoria": "Premios",
    "resumen": ""
   },
   {
@@ -512,14 +608,6 @@
    "resumen": "Llega a las librerías la traducción al castellano de 'Medea y sus hijas', que la escritora rusa publicó en 1996"
   },
   {
-   "titulo": "‘El director’: un caramelo envenenado",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/cine/20261120/11686576/director-caramelo-envenenado.html",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "Dani de la Orden se consolida con esta entretenida adaptación del libro del periodista David Jiménez"
-  },
-  {
    "titulo": "Delallama, la única editorial de Ribadesella, cumple diez años con un nuevo libro de recetas",
    "fuente": "Cope Ribadesella",
    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTWwtZnFtd0plY3M1NldVdDJfQnV1TkF3aUZJWkNENHpCd3h4bC1IeFpQNF9nU3JiY3hNMHEyLUpFY29KV0w2RXJFeGVmZF9QS1F0MHZTQWV3N1pnNzJ1cldhNTR4M2U2VHFsRnNBbHNfMW9fVG5sbjNMUGFIZVZJMGpodDlQWmVaUnRpNzZrZjlHYjhYTk5UVEFZZkp1eUt5bnVGdFktTlZRci1mclVMei1ZVDVJb0gxY0w1Mm1tdDhMVTdremdjSGVn?oc=5",
@@ -606,6 +694,14 @@
    "fecha": "2026-11-20",
    "categoria": "Libros de música",
    "resumen": ""
+  },
+  {
+   "titulo": "‘El director’: un caramelo envenenado",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/cine/20261120/11686576/director-caramelo-envenenado.html",
+   "fecha": "2026-11-20",
+   "categoria": "Noticias",
+   "resumen": "Dani de la Orden se consolida con esta entretenida adaptación del libro del periodista David Jiménez"
   },
   {
    "titulo": "La sombra del viento, edición interactiva",
@@ -792,14 +888,6 @@
    "resumen": ""
   },
   {
-   "titulo": "Mario Meléndez gana por unanimidad el Premio Antonio Bouza – Poeta de América con \"Hotel Duchamp\"",
-   "fuente": "Todoliteratura",
-   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQS3ViRVZQVFgwMy1ncXRXdEg2OHZjN0RlRWYtc1Rra1RCTFFXWWxQWXM5QlN2V1ZCZkV5c3hpYW01bU1YTE9qNmhYcVNIVXJ2RHhidHNvY2lqZWRsaUpVM0lYZXFsZmdBWm5mbnNLUmZDTU8xRnJ2WFRoVUhPby0zUHBMT2swTGxnbTRHanpTOGg3aWplaVJLQ3FkQnBPTDlFYktHTDNvUmdlU3R0QzhtcG5vZUhuWmQ1TE5vZnAzUW5kTmtOSENVSmRkb19XbEFDa3lPVjlkQlVINnMwc3BqemR3dlc?oc=5",
-   "fecha": "2026-11-19",
-   "categoria": "Premios",
-   "resumen": ""
-  },
-  {
    "titulo": "César Calvo",
    "fuente": "Biblioteca Virtual Miguel de Cervantes",
    "url": "https://blog.cervantesvirtual.com/cesar-calvo/",
@@ -830,38 +918,6 @@
    "fecha": "2026-11-19",
    "categoria": "Premios",
    "resumen": "Una selección de propuestas para aquellos que no quieren quedarse todo el fin de semana en casa jugando al 'GTA VI' (y son muchas personas las que sí lo harán) Recíbelo por mail - Esta agenda cultural forma parte del…"
-  },
-  {
-   "titulo": "Vicente Luis Mora, primer español en ganar el National Book",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261119/11688501/vicente-luis-mora-primer-espanol-ganar-national-book.html",
-   "fecha": "2026-11-19",
-   "categoria": "Noticias",
-   "resumen": "La novela ‘Centroeuropa’ vence como mejor obra traducida en EE.UU."
-  },
-  {
-   "titulo": "Bernhard quiere convertir a un grupo de artistas de circo en músicos virtuosos en 'La força del costum'",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261119/11688466/berhard-farro-temporada-alta-ramon-simo.html",
-   "fecha": "2026-11-19",
-   "categoria": "Libros de música",
-   "resumen": "La obra, que contrasta la farsa cómica con el discurso intelectual, se estrena en La Fàbrica de los Teatres del Farró"
-  },
-  {
-   "titulo": "Jordi Dausà publica en castellano su 'Manual de supervivencia', una novela “gafe” en catalán",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261119/11688437/jordi-dausa-publica-castellano-manual-supervivencia-novela-gafe-catalan.html",
-   "fecha": "2026-11-19",
-   "categoria": "Premios",
-   "resumen": "El autor gerundense presenta en Madrid la traducción de su primera obra, ganadora del premio Montflorit"
-  },
-  {
-   "titulo": "Samuel Martínez presentará su nueva novela en ciudades como Santiago y Lugo",
-   "fuente": "Diario de Bergantiños",
-   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOcy1za0lYY2xaam55WncyOWN4N1d3TWpLS2N6Vzg4dERjRG1ySnU5WnZtLWNXNVBHMW1JaGtHVUd0WVBHdUFoQ2JHWmVJc2pEcHYwRlQ5QXZhYmt5Q0FRUUNpMnp1eC14N0hNVEl2SmVCdHJRSVg0VHZhRXA3LUdEQzRLMnJGVkNOV3dDWFRuQU5RSWh6TURELTQxaXRNcU1PUzFXa1gzNHZvQTRRSWdXdWhuUmdvdC1WSjNCQ0VqZTAzWVc5elk3el9GeXVOaC1ycWtmd1V4WnAxenBXLWxFaFUwXzViSUxmMlYzVUZfbXUwSkNj?oc=5",
-   "fecha": "2026-11-19",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
   },
   {
    "titulo": "Vicente Luis Mora, primer español en lograr el National Book Award, el premio literario más importante de EEUU",
@@ -901,6 +957,46 @@
    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS0ZqZ09EZHB0a21mNkJvN05OOE1lVzhTZ1ZHaThraTMyamw2aTV2dkMtbnk5VnNLVHFkTGNoSlZPRVpSZTQ5QkxjanJkZW9OVGhuejA5Rzc2NWhXbjd5UUtPWnF0Z3RZMm41SlRoSVdELXdQaFVLWXlPMlN0TnRNYi1Yd3hBT2tCcmxRSFNNOXZkdVo1Qkl0NElDb0tHZGhmUTFVZzdwbzNlNmdraFE3V2lnREw4T21UWHpZNkc4V2Z1OG5ERlo4dFFfWXRBTVU?oc=5",
    "fecha": "2026-11-19",
    "categoria": "Libros de música",
+   "resumen": ""
+  },
+  {
+   "titulo": "Mario Meléndez gana por unanimidad el Premio Antonio Bouza – Poeta de América con \"Hotel Duchamp\"",
+   "fuente": "Todoliteratura",
+   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQS3ViRVZQVFgwMy1ncXRXdEg2OHZjN0RlRWYtc1Rra1RCTFFXWWxQWXM5QlN2V1ZCZkV5c3hpYW01bU1YTE9qNmhYcVNIVXJ2RHhidHNvY2lqZWRsaUpVM0lYZXFsZmdBWm5mbnNLUmZDTU8xRnJ2WFRoVUhPby0zUHBMT2swTGxnbTRHanpTOGg3aWplaVJLQ3FkQnBPTDlFYktHTDNvUmdlU3R0QzhtcG5vZUhuWmQ1TE5vZnAzUW5kTmtOSENVSmRkb19XbEFDa3lPVjlkQlVINnMwc3BqemR3dlc?oc=5",
+   "fecha": "2026-11-19",
+   "categoria": "Premios",
+   "resumen": ""
+  },
+  {
+   "titulo": "Vicente Luis Mora, primer español en ganar el National Book",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261119/11688501/vicente-luis-mora-primer-espanol-ganar-national-book.html",
+   "fecha": "2026-11-19",
+   "categoria": "Noticias",
+   "resumen": "La novela ‘Centroeuropa’ vence como mejor obra traducida en EE.UU."
+  },
+  {
+   "titulo": "Bernhard quiere convertir a un grupo de artistas de circo en músicos virtuosos en 'La força del costum'",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261119/11688466/berhard-farro-temporada-alta-ramon-simo.html",
+   "fecha": "2026-11-19",
+   "categoria": "Libros de música",
+   "resumen": "La obra, que contrasta la farsa cómica con el discurso intelectual, se estrena en La Fàbrica de los Teatres del Farró"
+  },
+  {
+   "titulo": "Jordi Dausà publica en castellano su 'Manual de supervivencia', una novela “gafe” en catalán",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261119/11688437/jordi-dausa-publica-castellano-manual-supervivencia-novela-gafe-catalan.html",
+   "fecha": "2026-11-19",
+   "categoria": "Premios",
+   "resumen": "El autor gerundense presenta en Madrid la traducción de su primera obra, ganadora del premio Montflorit"
+  },
+  {
+   "titulo": "Samuel Martínez presentará su nueva novela en ciudades como Santiago y Lugo",
+   "fuente": "Diario de Bergantiños",
+   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOcy1za0lYY2xaam55WncyOWN4N1d3TWpLS2N6Vzg4dERjRG1ySnU5WnZtLWNXNVBHMW1JaGtHVUd0WVBHdUFoQ2JHWmVJc2pEcHYwRlQ5QXZhYmt5Q0FRUUNpMnp1eC14N0hNVEl2SmVCdHJRSVg0VHZhRXA3LUdEQzRLMnJGVkNOV3dDWFRuQU5RSWh6TURELTQxaXRNcU1PUzFXa1gzNHZvQTRRSWdXdWhuUmdvdC1WSjNCQ0VqZTAzWVc5elk3el9GeXVOaC1ycWtmd1V4WnAxenBXLWxFaFUwXzViSUxmMlYzVUZfbXUwSkNj?oc=5",
+   "fecha": "2026-11-19",
+   "categoria": "Novedades editoriales",
    "resumen": ""
   },
   {
@@ -1040,11 +1136,19 @@
    "resumen": ""
   },
   {
-   "titulo": "XLVI EDICIÓN DEL PREMIO LITERARIO FELIPE TRIGO DE NOVELA",
-   "fuente": "Ayuntamiento de Villanueva de la Serena",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWjNvSHkzX2V1VkZvckRlcHgySWczU2x2eG1HUnlTcFpqWUFkb3RrbE5yN3hrSHdVN1ZrRFFjNzlWQ3VKLUx0d3RVcGFMTWpQa1dSbk1hVi1EYUZaRUNROGZESkJFUTNsZGZWbktFZy12b1I0aklOLVRMeWNwUHVhN0ZIWHVENDF4MG5ESHJjYmp4d1JtRGtoTEZpY1hjZUpiVWZDMDgxRGY?oc=5",
+   "titulo": "Élmer Mendoza, padre de la narcoliteratura, llega a Zaragoza con su nueva novela: \"El mundo del narco no se va a acabar\"",
+   "fuente": "El Periódico de Aragón",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOckVuMnp0MW11UTJTTzBsd3A3UFpUOE15R25JamRuOEk4TzlzSWduUFUxbzRjNG1RdDdFeEtEckNyQ240UlBnNHozZndPd2JnNkk2MTZDNFJhWjZKLW5yWkdxSzJmTFhvMi1ZV1ItWjBoV2Vibld5a0JmeXVBZGhhdUFQSjZKU1ZsRlJ0dUFYV3RMUGFyZE81WkZRVERVYWVTdEtlWkljQmxFYW11UGNSZNIBtgFBVV95cUxPMGhkN0M3MC1YeDFjcU1lSGsyUVBKU3BHMHNWMzFPa0kwNW1VN2NGX2pvN096YjZOZWJWMlJIQ1lTYm1NVU5XTW50YWdCSGgyQ3R0X2Uta0NQal9udDlXQkV2Y01VbXEyUTY4YW9INndNLVNWUjFLSzhkbTZVb2IzMjJmRXJlRjl2RHV4SDRNRTRRSTFkREwwUlBFblA5UXZ2ZmNMVWhtWjI4Z1gtLVpJcE5DeEliQQ?oc=5",
    "fecha": "2026-11-18",
-   "categoria": "Premios",
+   "categoria": "Novedades editoriales",
+   "resumen": ""
+  },
+  {
+   "titulo": "María Ángeles Gómez Ortigosa presenta su nueva novela, Viaje a Cabo de Palos T07C053",
+   "fuente": "Onda Regional de Murcia | ORM",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeEd3SWpoaGNuMzZ5Zk41UERIaXJMX2dJYW02VkZGc0EwbG9BTDRDT3RSYXBfaTZ0cU5vSEI1bGRNTi1wWWZjWjhhUC1iUkU5WlVjTmtMWTlGRC1rTlpmbFh6bFJacUlMeWd3SUlJM0dOTVR3bUFwTU1aZFhyTUlsQnF3NWdqYnV5LWZ5Yk1QbUdsbTI0TGVQQ0hPaEx5VU1oMlFPYjN0dUVDOHdYQVZwbUt5ZXpYbWc?oc=5",
+   "fecha": "2026-11-18",
+   "categoria": "Novedades editoriales",
    "resumen": ""
   },
   {
@@ -1072,124 +1176,20 @@
    "resumen": ""
   },
   {
+   "titulo": "XLVI EDICIÓN DEL PREMIO LITERARIO FELIPE TRIGO DE NOVELA",
+   "fuente": "Ayuntamiento de Villanueva de la Serena",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWjNvSHkzX2V1VkZvckRlcHgySWczU2x2eG1HUnlTcFpqWUFkb3RrbE5yN3hrSHdVN1ZrRFFjNzlWQ3VKLUx0d3RVcGFMTWpQa1dSbk1hVi1EYUZaRUNROGZESkJFUTNsZGZWbktFZy12b1I0aklOLVRMeWNwUHVhN0ZIWHVENDF4MG5ESHJjYmp4d1JtRGtoTEZpY1hjZUpiVWZDMDgxRGY?oc=5",
+   "fecha": "2026-11-18",
+   "categoria": "Premios",
+   "resumen": ""
+  },
+  {
    "titulo": "Actualidad Universitaria - La Facultad de Ciencias del Trabajo acoge la publicación de un nuevo libro sobre los retos del turismo patrimonial y la…",
    "fuente": "Universidad de Córdoba (UCO)",
    "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxOSUtsdlJzQWcydFF5eWp5VTFUeGt0Tzc2bnhsMzdPbl81c1JLTXQyeEZ0WUlGOVNONk5ObUplTDBxemJFYU8tVWhOMDZIcEhIbjJDM3RRMGtNQTREc2NtQW1IT1h5SDRTc05HM09MN2lmcVZjX2xHbUl5NTcwTnFLVXN2RXlocXlrQl9KWWFrQl9MNk5GS3BacGRvTEVaaE5Nd2NQczRJcUpuZ2htdXk1TG5NNnpseUNpMzFWRWhFS2VuWUtNalA5VnZMRzFoam5FUW1IQXJDbXdlQkxGU2NxQ2ZEaDA3Vm1abVBpbGNKVElGNng2dHNjelIzM1R5TUVuUG5wdEJlWG1mR1JwU0dCM1h1dENYcjNxRzRrdXRxb3Q1MHZ3V0ZiUWZHU1VuZURWeFhDVDdn?oc=5",
    "fecha": "2026-11-18",
    "categoria": "Novedades editoriales",
    "resumen": ""
-  },
-  {
-   "titulo": "Élmer Mendoza, padre de la narcoliteratura, llega a Zaragoza con su nueva novela: \"El mundo del narco no se va a acabar\"",
-   "fuente": "El Periódico de Aragón",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOckVuMnp0MW11UTJTTzBsd3A3UFpUOE15R25JamRuOEk4TzlzSWduUFUxbzRjNG1RdDdFeEtEckNyQ240UlBnNHozZndPd2JnNkk2MTZDNFJhWjZKLW5yWkdxSzJmTFhvMi1ZV1ItWjBoV2Vibld5a0JmeXVBZGhhdUFQSjZKU1ZsRlJ0dUFYV3RMUGFyZE81WkZRVERVYWVTdEtlWkljQmxFYW11UGNSZNIBtgFBVV95cUxPMGhkN0M3MC1YeDFjcU1lSGsyUVBKU3BHMHNWMzFPa0kwNW1VN2NGX2pvN096YjZOZWJWMlJIQ1lTYm1NVU5XTW50YWdCSGgyQ3R0X2Uta0NQal9udDlXQkV2Y01VbXEyUTY4YW9INndNLVNWUjFLSzhkbTZVb2IzMjJmRXJlRjl2RHV4SDRNRTRRSTFkREwwUlBFblA5UXZ2ZmNMVWhtWjI4Z1gtLVpJcE5DeEliQQ?oc=5",
-   "fecha": "2026-11-18",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Ya hemos visto 'You can see everything', el sorprendente y provocador documental sobre Elizabeth Holmes que quiere hacer historia en los Oscar",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/cine/hemos-visto-you-can-see-everything-sorprendente-provocador-documental-elizabeth-holmes-quiere-historia-oscar_129_13674602.html",
-   "fecha": "2026-11-18",
-   "categoria": "Premios",
-   "resumen": "La película de Nathan Fiedler y Lance Oppenheim destroza las fronteras entre ficción y no ficción con una propuesta que plantea más dudas que respuestas sobre la moralidad de las imágenes en época de posverdad Por qué…"
-  },
-  {
-   "titulo": "Alana S. Portero: \"España no se entenderá a sí misma como democracia hasta que no mire de frente a la dictadura y, sobre todo, a la guerra\"",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/libros/alana-s-portero-espana-no-entendera-si-democracia-no-mire-frente-dictadura-guerra_1_13673311.html",
-   "fecha": "2026-11-18",
-   "categoria": "Premios",
-   "resumen": "La escritora rinde homenaje en su nueva novela, 'Cosamala', a las mujeres que fueron asesinadas durante la contienda: \"Es normal que se frivolice con la Guerra Civil cuando está tan manoseada\" ‘La nieve’ y la banda…"
-  },
-  {
-   "titulo": "Javier Bardem rompe su miedo al teatro para homenajear a su maestro: “Me hubiera gustado que mi madre viera la obra”",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/teatro/javier-bardem-rompe-miedo-teatro-homenajear-maestro-hubiera-gustado-madre-viera-obra_1_13673406.html",
-   "fecha": "2026-11-18",
-   "categoria": "Premios",
-   "resumen": "El actor estrena '¡Chéjov, Chéjov!', obra dirigida por Juan Carlos Corazza sobre textos del autor ruso, Antón Chejov y junto a otros alumnos del mítico maestro de la interpretación Javier Bardem: “En los jóvenes hay un…"
-  },
-  {
-   "titulo": "Vicent Enric Belda y Josep Maria Fulquet, premios literarios de Gandia con una mirada compartida",
-   "fuente": "La Vanguardia",
-   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNTkxLUnE3eExiQ2FMNGduM3BsbTJJNTNORE9WYk8xZ2xnZ2JFTG9LQjYydERUU3lvSUpiSldEOUozQ0hJMlRxSy1uempoeUFNV3FKaUdIV25TcE4taE9XTW5DbVFhRWliWW5nVmRYY2x1M1pXWHRYUzRfNUQ0ZDhUUGdIOTZZZnlGNFdrNVNaa1hydW1nZzJmVE5td29KU3owZmwxRWlIZWJtR0YwNzdCblhySEdPSXBBRGVYd1gxQXJiSHZKZXUtVU9qdmJpWXd4Y19zNHhOWHdMdzcxelBN0gHfAUFVX3lxTE1OTEtScTd4TGJDYUw0Z24zcGxtMkk1M05ET1ZiTzFnbGdnYkVMb0tCNjJ0RFRTeW9JSmJKV0Q5SjNDSEkyVHFLLW56amh5QU1XcUppR0hXblNwTi1oT1dNbkNtUWFFaWJZbmdWZFhjbHUzWldYdFhTNF81RDRkOFRQZ0g5NllmeUY0V2s1U1prWHJ1bWdnMmZUTm13b0pTejBmbDFFaUhlYm1HRjA3N0JuWHJIR09JcEFEZVh3WDFBcmJIdkpldS1VT2p2YmlZd3hjX3M0eE5Yd0x3NzF6UE0?oc=5",
-   "fecha": "2026-11-18",
-   "categoria": "Premios",
-   "resumen": ""
-  },
-  {
-   "titulo": "Editorial Trillas prepara más de 160 novedades editoriales para la FIL Guadalajara 2026",
-   "fuente": "UDG TV",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPUllwZnoxT2JJUU5wa0JJdkxsVFIycW9EQW9pcng0dGhBM3FyNlVUN204SkFmQzZyVVFNVVMwdGlkMmxaQTNaeWN5a25VRnJaWmNlUVF1YmlidkUtUTk2WnBfVk9qYmM1b2hyYlJEZl9mekdPdTdjMWkycDZka3dhTWRISHV4RGM?oc=5",
-   "fecha": "2026-11-18",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "María Ángeles Gómez Ortigosa presenta su nueva novela, Viaje a Cabo de Palos T07C053",
-   "fuente": "Onda Regional de Murcia | ORM",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeEd3SWpoaGNuMzZ5Zk41UERIaXJMX2dJYW02VkZGc0EwbG9BTDRDT3RSYXBfaTZ0cU5vSEI1bGRNTi1wWWZjWjhhUC1iUkU5WlVjTmtMWTlGRC1rTlpmbFh6bFJacUlMeWd3SUlJM0dOTVR3bUFwTU1aZFhyTUlsQnF3NWdqYnV5LWZ5Yk1QbUdsbTI0TGVQQ0hPaEx5VU1oMlFPYjN0dUVDOHdYQVZwbUt5ZXpYbWc?oc=5",
-   "fecha": "2026-11-18",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "El polígono de As Gándaras y la época franquista, protagonistas de la nueva novela que presenta Évame Oroza",
-   "fuente": "VigoÉ",
-   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNNXRIUDYwNTBpUWlQNVRsQlF4V3RKQ2xGUUktemptYlJnZkgtLWlveThGZUY0amNjanBVSU9mX2pCSDg1LWFNRFNJazRXNnU1LXByb2Y4T240ZlY5Ynh5MVoyUjg3dEpCUXdiZVIyQW1yS1JJN3ZFQ0MySVpxYVU4UlNRdElIN3UwZGxOcHZCemJIMzhqS2xmbDZtSUFkY0s3STl2ZWRfMjlNcjB5eWN1U0x6THBrNmZVM2M3dWFiYUpvWW1kWVM2MGtkeDF6UXF4NkgwR1J3Vi1SbGM?oc=5",
-   "fecha": "2026-11-18",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Cuatro libros para ir a votar el 29-N",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-18/cuatro-libros-para-ir-a-votar-el-29-n.html",
-   "fecha": "2026-11-18",
-   "categoria": "Noticias",
-   "resumen": "Un reportaje de Miguel González sobre las nuevas derechas radicales; la crónica de Ernesto Ekaizer sobre las luchas en las instituciones del Estado; la polarización en España diseccionada por Mariano Torcal y el…"
-  },
-  {
-   "titulo": "‘Tracking’",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-18/tracking.html",
-   "fecha": "2026-11-18",
-   "categoria": "Noticias",
-   "resumen": "Muchos redactores lo han copiado sin traducir, quizás porque les gusta más el lenguaje de sus fuentes que el de sus lectores"
-  },
-  {
-   "titulo": "“A veces, las personas que tenemos cerca son las que están más lejos”. Anne Berest sobre ‘El linaje de Pierre’ y el poder sanador de la literatura",
-   "fuente": "Librotea (elDiario.es)",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUmZ5OW4ydTlIdXV3blpBMFNmV2ZRVTdqRmEzQ29YOFM2RUZkUlhOOGUtRFRQOG5abUY3Y1lPLUtqa2pMLTNVTEhUZnozWVZUTDFrYVVuWlB1Z3dYZ2xPX0hxZGpiOHJOZ0NWTlJWZHV2WlVBajA3LUE3XzNyVndEdWtHSjJrc1NGc01VdXFxdkdHeGZXaUVPNk53?oc=5",
-   "fecha": "2026-11-17",
-   "categoria": "Noticias",
-   "resumen": ""
-  },
-  {
-   "titulo": "Cuentos de terror",
-   "fuente": "Librotea (elDiario.es)",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBDWmRYU2VFX1dQenJ6WnZhRU84QjFZQThTblhtcUtWWmFKbVl4c2djUWFLTDNIdlZKVVNrMUpWNFBaM2hOLVQ2Z0VwN25yZUFvd0lrU0U3cFgxcWt4cWZjS042aDlVZw?oc=5",
-   "fecha": "2026-11-17",
-   "categoria": "Noticias",
-   "resumen": ""
-  },
-  {
-   "titulo": "Begoña Ameztoy critica los premios y el enchufismo",
-   "fuente": "Todoliteratura",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOY3pmQkFzTDI1V2FBNFZVdE85TWNxRFhZWkdLcEZFYXFlUG5weHhxYWY1Zy1CVUJUY1FacEVEQUdldlB4ZkxvWC11bkk3NW5zSDlRcHhUVVdHQi1MOTBSbnBST0lqd0NwczNFdUJYN0xTWkpkbW9QVUtXOGRRMDVWaDIxM2NNeUs0XzhnREtB?oc=5",
-   "fecha": "2026-11-17",
-   "categoria": "Premios",
-   "resumen": ""
-  },
-  {
-   "titulo": "Congreso Generación del 27. Un siglo de luz",
-   "fuente": "Biblioteca Virtual Miguel de Cervantes",
-   "url": "https://blog.cervantesvirtual.com/congreso-generacion-del-27-un-siglo-de-luz-falta/",
-   "fecha": "2026-11-17",
-   "categoria": "Noticias",
-   "resumen": "Las letras españolas, siempre inundadas de euforia creativa, conmemoran en 2027 el centenario de uno de los grupos de escritores más representativos de nuestra literatura:"
   },
   {
    "titulo": "Poesía contra los templos de la poesía",
