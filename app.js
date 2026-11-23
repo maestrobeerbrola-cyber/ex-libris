@@ -3,7 +3,7 @@
    fichas desde Google Books y Open Library, novedades desde news.json (GitHub Actions). */
 'use strict';
 {
-const VERSION='1.5.0';
+const VERSION='1.5.1';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
@@ -178,7 +178,7 @@ async function decodePhoto(file){const im=await loadImg(file);
   return null}
 const Scan={stream:null,reader:null,timer:0,on:false,multi:false,onCode:null,seen:new Map(),
   async open(onCode,multi=false){this.onCode=onCode;this.multi=multi;this.seen.clear();this.on=true;
-    const el=$('#scan');el.hidden=false;document.body.classList.add('lock');$('#sclist').innerHTML='';$('#scdone').hidden=!multi;$('#sctorch').hidden=true;
+    const el=$('#scan');el.hidden=false;document.body.classList.add('lock');Nav.sync();$('#sclist').innerHTML='';$('#scdone').hidden=!multi;$('#sctorch').hidden=true;
     this.msg(multi?'Escanea los libros uno tras otro; los voy añadiendo a tu biblioteca':'Apunta al código de barras del libro');
     if(!navigator.mediaDevices?.getUserMedia){this.msg('Este navegador no deja usar la cámara en directo. Usa una foto.');return}
     try{this.stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false})}
@@ -195,7 +195,7 @@ const Scan={stream:null,reader:null,timer:0,on:false,multi:false,onCode:null,see
   msg(t){$('#scmsg').textContent=t},
   item(html,cls=''){const d=document.createElement('div');d.className='scitem '+cls;d.innerHTML=html;$('#sclist').prepend(d);return d},
   stop(){clearTimeout(this.timer);try{this.reader?.reset()}catch(e){}this.reader=null;this.stream?.getTracks().forEach(t=>t.stop());this.stream=null;const v=$('#scv');v.srcObject=null},
-  close(){this.on=false;this.stop();$('#scan').hidden=true;if($('#scrim').hidden)document.body.classList.remove('lock')}};
+  close(){this.on=false;this.stop();$('#scan').hidden=true;if($('#scrim').hidden&&$('#rdr').hidden)document.body.classList.remove('lock');Nav.sync()}};
 $('#scx').addEventListener('click',()=>Scan.close());
 $('#scdone').addEventListener('click',()=>Scan.close());
 $('#sctorch').addEventListener('click',async e=>{const tr=Scan.stream?.getVideoTracks()[0];if(!tr)return;const on=!e.currentTarget.classList.contains('on');try{await tr.applyConstraints({advanced:[{torch:on}]});e.currentTarget.classList.toggle('on',on)}catch(x){}});
@@ -216,7 +216,7 @@ const Cover={stream:null,src:null,iw:0,ih:0,s:1,min:1,x:0,y:0,W:0,H:0,onDone:nul
   el:k=>$('#cam'+k),
   mode(m){$('#cam').dataset.m=m;$('#camv').hidden=m!=='camera';$('#camf').hidden=m!=='camera';$('#crop').hidden=m!=='crop';$('#camrow1').hidden=m!=='camera';$('#camrow2').hidden=m!=='crop'},
   msg(t){$('#cammsg').textContent=t},
-  show(onDone){this.onDone=onDone;$('#cam').hidden=false;document.body.classList.add('lock')},
+  show(onDone){this.onDone=onDone;$('#cam').hidden=false;document.body.classList.add('lock');Nav.sync()},
   async camera(onDone){if(onDone)this.show(onDone);this.from='camera';this.mode('camera');$('#camtorch').hidden=true;$('#camshot').disabled=true;
     this.msg('Encaja la portada en el marco y pulsa el botón');
     if(!navigator.mediaDevices?.getUserMedia){this.msg('Este navegador no deja usar la cámara aquí. Sube una foto desde archivo.');return}
@@ -244,7 +244,7 @@ const Cover={stream:null,src:null,iw:0,ih:0,s:1,min:1,x:0,y:0,W:0,H:0,onDone:nul
   use(){if(!this.src)return;const out=document.createElement('canvas');out.width=300;out.height=450;const g=out.getContext('2d');g.imageSmoothingQuality='high';
     g.drawImage(this.src,-this.x/this.s,-this.y/this.s,this.W/this.s,this.H/this.s,0,0,300,450);const url=out.toDataURL('image/jpeg',.76);const cb=this.onDone;this.close();cb&&cb(url)},
   stop(){this.stream?.getTracks().forEach(t=>t.stop());this.stream=null;const v=$('#camv');if(v)v.srcObject=null},
-  close(){this.stop();$('#cam').hidden=true;this.src=null;$('#cropbox').replaceChildren();this.ptrs.clear();if($('#scrim').hidden&&$('#scan').hidden)document.body.classList.remove('lock')}};
+  close(){this.stop();$('#cam').hidden=true;this.src=null;$('#cropbox').replaceChildren();this.ptrs.clear();if($('#scrim').hidden&&$('#scan').hidden&&$('#rdr').hidden)document.body.classList.remove('lock');Nav.sync()}};
 {const box=$('#cropbox');const pt=(e)=>{const r=box.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top}};
   box.addEventListener('pointerdown',e=>{box.setPointerCapture(e.pointerId);Cover.ptrs.set(e.pointerId,pt(e));Cover.pinch=null});
   box.addEventListener('pointermove',e=>{if(!Cover.ptrs.has(e.pointerId))return;const p=pt(e),prev=Cover.ptrs.get(e.pointerId);Cover.ptrs.set(e.pointerId,p);
@@ -264,10 +264,23 @@ const Cover={stream:null,src:null,iw:0,ih:0,s:1,min:1,x:0,y:0,W:0,H:0,onDone:nul
   addEventListener('resize',()=>{if(!$('#cam').hidden&&Cover.src){const b=$('#cropbox');const ow=Cover.W;Cover.W=b.clientWidth;Cover.H=b.clientHeight;if(ow){const f=Cover.W/ow;Cover.x*=f;Cover.y*=f;Cover.s*=f}Cover.min=Math.max(Cover.W/Cover.iw,Cover.H/Cover.ih);Cover.clamp();Cover.render()}})}
 
 
+/* ================= botón Atrás: cierra la capa abierta (ficha, escáner, cámara, lector) ================= */
+// Cada capa abierta añade una entrada al historial; al pulsar Atrás se cierra la de arriba en vez de salir de la pantalla.
+// sync() se ejecuta un instante después para que «cerrar una ficha y abrir otra» no toque el historial.
+const Nav={depth:0,ignore:0,t:0,
+  layers(){return ['#rdr','#scrim','#scan','#cam'].filter(s=>!$(s).hidden).length},
+  sync(){clearTimeout(this.t);this.t=setTimeout(()=>{const L=this.layers();
+    while(this.depth<L){try{history.pushState({exl:1},'',location.href)}catch(e){return}this.depth++}
+    if(this.depth>L){const k=this.depth-L;this.depth=L;if(history.state&&history.state.exl){this.ignore++;setTimeout(()=>{this.ignore=0},1000);history.go(-k)}}},0)}};
+addEventListener('popstate',()=>{if(Nav.ignore>0){Nav.ignore--;return}if(Nav.depth<=0)return;Nav.depth--;
+  if(!$('#cam').hidden)Cover.close();else if(!$('#scan').hidden)Scan.close();else if(!$('#scrim').hidden)closeSheet();
+  else if(!$('#rdr').hidden){if(!$('#rdrpan').hidden)$('#rdrpan').hidden=true;else Reader.close()}
+  Nav.sync()});
+
 /* ================= hoja modal ================= */
 let sheetBusy=false;
-function openSheet(html,mount){const sc=$('#scrim'),sh=$('#sheet');sh.innerHTML=html;sh.scrollTop=0;sc.hidden=false;document.body.classList.add('lock');requestAnimationFrame(()=>sc.classList.add('on'));mount&&mount(sh)}
-function closeSheet(force){if(sheetBusy&&!force)return;sheetBusy=false;const sc=$('#scrim');sc.classList.remove('on');sc.hidden=true;$('#sheet').innerHTML='';if($('#scan').hidden&&$('#cam').hidden&&$('#rdr').hidden)document.body.classList.remove('lock')}
+function openSheet(html,mount){const sc=$('#scrim'),sh=$('#sheet');sh.innerHTML=html;sh.scrollTop=0;sc.hidden=false;document.body.classList.add('lock');requestAnimationFrame(()=>sc.classList.add('on'));Nav.sync();mount&&mount(sh)}
+function closeSheet(force){if(sheetBusy&&!force){Nav.sync();return}sheetBusy=false;const sc=$('#scrim');sc.classList.remove('on');sc.hidden=true;$('#sheet').innerHTML='';if($('#scan').hidden&&$('#cam').hidden&&$('#rdr').hidden)document.body.classList.remove('lock');Nav.sync()}
 $('#scrim').addEventListener('click',e=>{if(e.target.id==='scrim'||e.target.closest('[data-close]'))closeSheet()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#scrim').hidden&&$('#scan').hidden&&$('#cam').hidden)closeSheet()});
 const head=t=>`<div class="sh-head"><h2>${esc(t)}</h2><button type="button" class="x" data-close aria-label="Cerrar">${ic('x')}</button></div>`;
@@ -324,20 +337,35 @@ $('#shelf').addEventListener('click',e=>{const d=e.target.closest('[data-do]');i
 $('#addtop').addEventListener('click',()=>bookForm());
 
 /* ================= ficha ================= */
+const fullOpen=()=>{try{return localStorage.getItem('exlibris-ficha-completa')==='1'}catch(e){return false}};
+const dayOf=ts=>{const d=new Date(+ts||ts);return isNaN(d)?'':ymd(d)};
+// Todos los campos de la ficha, también los vacíos, para ver de un vistazo qué falta por completar
+function fullFicha(b,lent){const v=x=>x!=null&&String(x).trim()!==''?esc(String(x)):'<span class="nd">—</span>';
+  const ls=S.loans.filter(l=>l.bookId===b.id);const pres=ls.filter(l=>l.tipo==='prestado'),rec=ls.find(l=>l.tipo==='recibido'&&l.adquirido);
+  const prest=lent?`Prestado a ${esc(lent.persona)} desde el ${fmtD(lent.fechaPrestamo)}`:pres.length?`Prestado ${plural(pres.length,'vez','veces')}; la última, a ${esc(pres.sort((a,c)=>String(c.fechaPrestamo).localeCompare(String(a.fechaPrestamo)))[0].persona)}`:'Nunca prestado';
+  const r=b.ebook?.sha?readOf(b.id):null;
+  const rows=[['Título',v(b.titulo)],['Autor',v(b.autor)],['Año de publicación',v(b.anio)],['Editorial',v(b.editorial)],['Número de edición',v(b.edicion)],['ISBN',v(b.isbn)],['Género',v(b.genero)],['Tipo de edición',v(b.formato)],
+    ['Fecha de adquisición',v(fmtD(b.fechaAdq))],['Valoración',+b.valoracion?`${'★'.repeat(+b.valoracion)}${'☆'.repeat(5-b.valoracion)} <span class="nd">(${b.valoracion} de 5)</span>`:'<span class="nd">Sin valorar</span>'],
+    ['Estado',b.leido?'Leído':'Por leer'],['Préstamos',prest+(rec?`. Te lo prestó ${esc(rec.persona)} y se quedó en tu colección el ${fmtD(rec.adquirido)}`:'')],
+    ['Libro electrónico',b.ebook?.sha?`${b.ebook.tipo.toUpperCase()} · ${fmtSize(b.ebook.tam)}${r?` · ${Math.round((r.pct||0)*100)} % leído`:''}`:'<span class="nd">No</span>'],
+    ['Notas',b.notas?`<span class="pre">${esc(b.notas)}</span>`:'<span class="nd">—</span>'],['Registrado',v(fmtD(dayOf(b.creado)))],['Última modificación',v(fmtD(dayOf(b.actualizado)))]];
+  return `<dl class="meta fullmeta">${rows.map(([k,x])=>`<dt>${k}</dt><dd>${x}</dd>`).join('')}</dl>${['anio','editorial','edicion','isbn','genero','formato','fechaAdq'].some(k=>!b[k])?'<p class="note-s">Lo que sale con «—» se completa con <b>Editar</b>.</p>':''}`}
 function openDetail(id){
   const b=store.books[id];if(!b||b.deleted)return;const lent=lentMap().get(b.id);
   const row=(k,v)=>v?`<dt>${k}</dt><dd>${esc(v)}</dd>`:'';
   openSheet(head(b.titulo||'Sin título')+`<div class="det">${cover(b,'',lent)}<div>
     <p class="det-a">${esc(b.autor||'Autor desconocido')}</p>
-    <dl class="meta">${row('Año',b.anio)}${row('Editorial',b.editorial)}${row('Edición',b.edicion)}${row('ISBN',b.isbn)}${row('Género',b.genero)}${row('Tipo',b.formato)}${row('Adquirido',fmtD(b.fechaAdq))}</dl>
+    <dl class="meta">${row('Año',b.anio)}${row('Editorial',b.editorial)}${row('Género',b.genero)}${row('Tipo',b.formato)}</dl>
     <span class="lbl">Tu valoración</span><div class="sin" id="dsin">${[1,2,3,4,5].map(v=>`<button type="button" data-v="${v}" class="${v<=(+b.valoracion||0)?'on':''}" aria-label="${v} de 5">★</button>`).join('')}</div>
     <label class="sw"><input type="checkbox" id="dleido" ${b.leido?'checked':''}> Leído</label>
     ${lent?`<p class="lentnote">Prestado a ${esc(lent.persona)} desde el ${fmtD(lent.fechaPrestamo)}</p>`:''}
-    ${b.notas?`<p class="notes">${esc(b.notas)}</p>`:''}</div></div>
+    ${b.notas?`<p class="notes clamp">${esc(b.notas)}</p>`:''}</div></div>
+    <details class="full" id="dfull" ${fullOpen()?'open':''}><summary><span class="mas">Ver ficha completa</span><span class="menos">Ocultar ficha completa</span>${ic('right')}</summary>${fullFicha(b,lent)}</details>
     <div class="ebrow">${b.ebook?.sha?(()=>{const r=readOf(b.id);return `${ic('reader')}<span><b>Libro electrónico</b><span>${b.ebook.tipo.toUpperCase()} · ${fmtSize(b.ebook.tam)}${r?` · ${Math.round((r.pct||0)*100)} % leído`:''}</span></span><span class="sp"></span><button type="button" class="link" data-a="ebrm">Quitar</button><button type="button" class="btn pri sm" data-a="leer">${ic('reader')}Leer</button>`})()
       :`${ic('reader')}<span><b>¿Lo tienes en digital?</b><span>Añade su EPUB o PDF para leerlo aquí.</span></span><span class="sp"></span><button type="button" class="btn sm" data-a="ebadd">${ic('up')}Añadir EPUB o PDF</button>`}</div>
     <div class="sh-foot" id="dfoot"><button type="button" class="btn" data-a="del">Eliminar</button><span class="sp"></span>${lent?'':'<button type="button" class="btn" data-a="lend">Prestar</button>'}<button type="button" class="btn pri" data-a="edit">${ic('book')}Editar</button></div>`,sh=>{
     let rating=+b.valoracion||0;
+    sh.querySelector('#dfull').addEventListener('toggle',e=>{try{localStorage.setItem('exlibris-ficha-completa',e.target.open?'1':'0')}catch(x){}});
     sh.querySelector('#dsin').addEventListener('click',e=>{const x=e.target.closest('button');if(!x)return;const v=+x.dataset.v;rating=v===rating?0:v;$$('#dsin button',sh).forEach(s=>s.classList.toggle('on',+s.dataset.v<=rating));patchRec('books',b.id,{valoracion:rating})});
     sh.querySelector('#dleido').addEventListener('change',e=>{patchRec('books',b.id,{leido:e.target.checked});toast(e.target.checked?'Marcado como leído':'Marcado como por leer')});
     sh.querySelector('.ebrow').addEventListener('click',e=>{const a=e.target.closest('[data-a]')?.dataset.a;if(a==='leer'){closeSheet(true);EB.open(b.id)}else if(a==='ebadd'){closeSheet(true);EB.pick(b.id)}else if(a==='ebrm'){closeSheet(true);EB.remove(b.id)}});
@@ -747,7 +775,7 @@ const Reader={b:null,kind:null,book:null,rend:null,pdf:null,page:1,locReady:fals
   setPrefs(p){const n={...this.prefs(),...p};try{localStorage.setItem('exlibris-lector',JSON.stringify(n))}catch(e){}this.theme();return n},
   theme(){const t=this.prefs().tema;$('#rdr').className='rdr t-'+t+($('#rdr').classList.contains('nobars')?' nobars':'');const meta=document.querySelector('meta[name=theme-color]');if(meta&&!$('#rdr').hidden){meta.dataset.prev=meta.dataset.prev||meta.content;meta.content={claro:'#ffffff',sepia:'#f4ecd8',oscuro:'#14161d'}[t]}},
   show(b){$('#rdrtt').textContent=b.titulo||'Sin título';$('#rdrta').textContent=b.autor||'';$('#rdrpan').hidden=true;$('#rdrinfo').textContent='';$('#rdrpct').textContent='';$('#rdrpos').value=0;
-    if($('#rdr').hidden){$('#rdr').hidden=false;document.body.classList.add('lock');try{history.pushState({rdr:1},'',location.href);this.pushed=true}catch(e){}}
+    if($('#rdr').hidden){$('#rdr').hidden=false;document.body.classList.add('lock');Nav.sync()}
     $('#toast').classList.remove('on');this.theme();this.bars(true)},
   loading(b,msg){if(this.b&&this.b.id!==b.id)this.teardown();this.show(b);$('#rdrload').hidden=false;$('#rdrmsg').textContent=msg;$('#rdrprog').hidden=true},
   progress(p){$('#rdrprog').hidden=false;$('#rdrprog i').style.width=Math.round(p*100)+'%';$('#rdrmsg').textContent=`Descargando de Google Drive… ${Math.round(p*100)} %`},
@@ -836,7 +864,7 @@ const Reader={b:null,kind:null,book:null,rend:null,pdf:null,page:1,locReady:fals
   close(){if($('#rdr').hidden)return;this.flush();this.teardown();$('#rdr').hidden=true;$('#rdr').classList.remove('nobars');
     const meta=document.querySelector('meta[name=theme-color]');if(meta?.dataset.prev){meta.content=meta.dataset.prev;delete meta.dataset.prev}
     if($('#scrim').hidden&&$('#scan').hidden&&$('#cam').hidden)document.body.classList.remove('lock');
-    if(this.pushed){this.pushed=false;if(history.state&&history.state.rdr)history.back()}
+    Nav.sync();
     if(store.meta.dirty)Sync.schedule();render()},
   teardown(){clearTimeout(this.saveT);clearTimeout(this.barT);try{this.rend?.destroy()}catch(e){}try{this.book?.destroy()}catch(e){}try{this.pdf?.destroy()}catch(e){}this.io?.disconnect();
     this.rend=this.book=this.pdf=this.io=null;this.b=null;this.kind=null;this.locReady=false;this.toc=[];this.outline=[];const body=$('#rdrbody');body.onscroll=null;body.innerHTML='';body.className='rdr-body';$('#rdrpan').hidden=true;$('#rdrload').hidden=true}};
@@ -857,7 +885,6 @@ $('#rdrpan').addEventListener('click',async e=>{const b=e.target.closest('button
   if(b.dataset.step==='tam'){const v=Math.max(70,Math.min(220,Reader.prefs().tam+(+b.dataset.d)));Reader.setPrefs({tam:v});$('#ptam').textContent=v+' %';Reader.restyle()}
   if(b.dataset.step==='zoom'){const z=Reader.prefs().zoom;let i=ZOOMS.findIndex(x=>x>=z-0.001);if(i<0)i=2;i=Math.max(0,Math.min(ZOOMS.length-1,i+(+b.dataset.d)));Reader.setPrefs({zoom:ZOOMS[i]});$('#pzoom').textContent=Math.round(ZOOMS[i]*100)+' %';Reader.restyle()}});
 document.addEventListener('keydown',e=>Reader.key(e));
-addEventListener('popstate',()=>{if(!$('#rdr').hidden){Reader.pushed=false;Reader.close()}});
 let rdrRs;addEventListener('resize',()=>{if(Reader.kind!=='pdf')return;clearTimeout(rdrRs);rdrRs=setTimeout(()=>Reader.restyle(),250)});
 
 /* ================= sincronización con Google Drive ================= */

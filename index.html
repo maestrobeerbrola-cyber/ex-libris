@@ -428,6 +428,19 @@ a.btn{color:var(--ink)}a.btn.pri{color:#fff}
 .rdr-prog{display:block;width:min(260px,70vw);height:6px;border-radius:3px;background:var(--rln);overflow:hidden}
 .rdr-prog i{display:block;height:100%;width:0;background:#3a4fb8;transition:width .2s}
 @media(min-width:760px){.bnav a{font-size:13px}.rdr-body.epub{left:max(48px,8vw);right:max(48px,8vw)}}
+
+/* ficha completa */
+.notes.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.full{margin-top:16px;border:1px solid var(--line);border-radius:14px}
+.full>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:0 14px;cursor:pointer;font-weight:600;color:var(--accent)}
+.full>summary::-webkit-details-marker{display:none}
+.full>summary .ic{transition:transform .2s;transform:rotate(90deg)}
+.full[open]>summary .ic{transform:rotate(-90deg)}
+.full .menos,.full[open] .mas{display:none}.full[open] .menos{display:inline}
+.full .fullmeta{margin:0;padding:4px 14px 14px;border-top:1px solid var(--line);padding-top:12px}
+.full .note-s{margin:-6px 14px 14px}
+.fullmeta .nd{color:var(--mute)}
+.fullmeta .pre{white-space:pre-wrap}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 <script>
@@ -629,7 +642,7 @@ addEventListener('error',function(e){if(!boot||!e.filename||!/\/(app|config)\.js
 </div>
 <div class="toast" id="toast" role="status"></div>
 
-<script src="config.js?v=1.5.0"></script>
-<script src="app.js?v=1.5.0"></script>
+<script src="config.js?v=1.5.1"></script>
+<script src="app.js?v=1.5.1"></script>
 </body>
 </html>

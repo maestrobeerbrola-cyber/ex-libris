@@ -1,7 +1,7 @@
 /* Service worker de Ex Libris: funciona sin conexión y guarda las portadas ya vistas.
    La página y su código se piden siempre a la red primero (con la copia guardada solo sin conexión),
    para que nunca se mezcle una página nueva con un código antiguo. */
-const VERSION = 'exlibris-v1.5.0';
+const VERSION = 'exlibris-v1.5.1';
 const IMG = 'exlibris-portadas';
 const VENDOR = 'exlibris-vendor'; // bibliotecas con la versión en el nombre: se guardan una vez y se conservan entre versiones
 const SHELL = ['./', 'index.html', 'app.js', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/favicon.svg', 'icons/favicon-48.png', 'vendor/zxing-0.21.3.min.js'];
