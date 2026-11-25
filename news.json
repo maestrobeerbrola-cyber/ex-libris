@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-24T15:55:37.674Z",
+ "actualizado": "2026-11-25T15:38:44.013Z",
  "fuentes": [
   "Zenda",
   "Babelia (El País)",
@@ -11,9 +11,306 @@
   "Jot Down",
   "elDiario.es Cultura",
   "La Vanguardia Cultura",
+  "Efe Eme",
   "Google Noticias"
  ],
  "items": [
+  {
+   "titulo": "Mapa de las lenguas 2027, el español como territorio compartido",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/mapa-de-las-lenguas-2027-el-espanol-como-territorio-compartido/",
+   "fecha": "2026-11-25",
+   "categoria": "Novedades editoriales",
+   "resumen": "Alfaguara y Random House presentan la nueva edición de Mapa de las lenguas, una iniciativa en la que se sirven del español para trazar la cartografía de la mejor narrativa escrita en nuestro idioma. Son ya 2026 títulos…"
+  },
+  {
+   "titulo": "La trampa de la escritura de mujeres",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/la-trampa-de-la-escritura-de-mujeres/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "La tesis de este ensayo, literario y político, se sostiene en una paradoja: aquello que en apariencia debería favorecer la visibilidad de las escritoras —su pertenencia a una comunidad— se ha convertido en un mecanismo…"
+  },
+  {
+   "titulo": "Un baño en una laguna mientras llueve, de George Saunders",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/un-bano-en-una-laguna-mientras-llueve-de-george-saunders/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "Acompañados de relatos de Chéjov, Turguénev, Tolstói y Gógol, los siete ensayos de este libro están dirigidos a cualquiera que esté interesado en cómo funciona la ficción y por qué es más relevante que nunca en estos…"
+  },
+  {
+   "titulo": "Yukio Mishima: el hombre que lloraba por la desmilitarización de su país",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/yukio-mishima-el-hombre-que-lloraba-por-la-desmilitarizacion-de-su-pais/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "Sin embargo, el suicidio de Yukio Mishima, el autor nipón más celebrado de aquellos días, mereció un espacio infrecuente en la prensa de un país que no daba noticia de los asesinos de sí mismos: aquella España era un…"
+  },
+  {
+   "titulo": "5 poemas de Eduardo Padilla",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/5-poemas-de-eduardo-padilla/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "*** ¿Es honesto, un hipnotista? Bernays baja por Coppelius haciendo sonar la madera de sus tacones en el empedrado. Sus pasos se ajustan a los faroles que bailan como ahorcados bajo una lluvia métrica que ayuda al mundo…"
+  },
+  {
+   "titulo": "Tres meses de eternidad",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/tres-meses-de-eternidad/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "Los recuerdos poseen ese misterio cuántico del gato de Schrödinger, muerto y vivo a la vez mientras nadie mire el interior. Se encuentran en una superposición de dos estados: existen y no existen mientras no sean…"
+  },
+  {
+   "titulo": "Zenda recomienda: La primera casa, de Avni Doshi",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/zenda-recomienda-la-primera-casa-de-avni-doshi/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "La propia editorial apunta, acerca de la obra: “Una noche, su marido entra en el dormitorio y le dice que quiere divorciarse. Ella no da crédito. Creía que eran un matrimonio feliz, casi perfecto. Desde ese instante,…"
+  },
+  {
+   "titulo": "Gramática electoral",
+   "fuente": "Babelia (El País)",
+   "url": "https://elpais.com/babelia/2026-11-25/gramatica-electoral.html",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "La oración “son a mí a quien insultan” muestra un error de concordancia en la carta de Sánchez a los votantes"
+  },
+  {
+   "titulo": "Un año para dibujar el horror: así nació el cómic de 'Sacamantecas' mientras se rodaba la película",
+   "fuente": "Ahora Qué Leo (laSexta)",
+   "url": "https://www.lasexta.com/ahoraqueleo/virales/ano-dibujar-horror-asi-nacio-comic-sacamantecas-mientras-rodaba-pelicula_202611256b06a41ac0d5c85b96c6b8c5.html",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "La novela gráfica de Ángel Abellán y Miguel Herráiz se creó a partir del guion cinematográfico. Sus autores explican cómo afrontaron la contrarreloj, construyeron una atmósfera opresiva con el color y encontraron un…"
+  },
+  {
+   "titulo": "Mónica Carrillo escribe sobre el desamor y el olvido a través de un viaje por Madrid, Formentera y México",
+   "fuente": "Ahora Qué Leo (laSexta)",
+   "url": "https://www.lasexta.com/ahoraqueleo/libros/monica-carrillo-escribe-desamor-olvido-traves-viaje-madrid-formentera-mexico_202611256b06a82ec0d5c85b96c6bbe4.html",
+   "fecha": "2026-11-25",
+   "categoria": "Novedades editoriales",
+   "resumen": "Mónica CarrilloEditorial: PlanetaAño de publicación original: 2026La periodista y escritora regresa a la novela con El día menos pensado, una historia sobre la dependencia emocional y el largo camino que supone volver a…"
+  },
+  {
+   "titulo": "La camisa y la virgen, y otros relatos",
+   "fuente": "Librotea (elDiario.es)",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE01T3dGRXk4UTJ6NTRNQlpEc3d3clFxdFl2b1Q3ampWNlZWbDVhUTFjMXpITFJCUWZHM0FqaDdoRGwtTHZNSUNxZFo3WVhFT3lkclRPaDY2SHBiaTB2V0ozRGV6QUZLUTZsTzZsdFpmOF9feHluazgyTmQ3bU1XUQ?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": ""
+  },
+  {
+   "titulo": "ALMERÍA Y LOS LIBROS (RELATOS I)",
+   "fuente": "Librotea (elDiario.es)",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1kaGcybkp5RG5DVkJsYm1GME5ZTTc3M1VWZVlTcERaVHVULWgtVktqVmg1Yy1tcHZ4c2laZVI1WWVHdk15RHpGTGVQNkhyYnA0X1dPQmNNNURKVzA2NUpHMl9paGxxRlE?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": ""
+  },
+  {
+   "titulo": "Libros que nos plantean un dilema moral y ponen a prueba nuestras convicciones",
+   "fuente": "Librotea (elDiario.es)",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQT0NxMXRqRUREd0VhNDI4TUhERnVldGJsRzQ5a2I4UnF6UHhpY0lIcjNRSlJqd1JFWUg2N2x0amhkekd5NzJtdm8zU2VHLXJEYmlwWlAyNkhicGd4REkyaVE5QldyNk1PNEU0V3huZnpLelV3eEwtTDhrV19hRzJNNG1GaFZ5QTJyM3c2WVRTLU54amx4Yk1MbDlWWQ?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": ""
+  },
+  {
+   "titulo": "El ángel contemporáneo: poesía de Alberto Boco",
+   "fuente": "Todoliteratura",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZVBNVVBRUGItVk53a29OYTZKQm1TT24wbnhMNTJ4bVpScng5MkhwNWJGQzlhOXRVU1piSGlJWUVFUVM4a011eWxlX2ZuQlFsR09mSklLWE9hY0s3M3lyWE9laTc2VGtCVm81OWRaTHdKQmRQVDgxREY5eHFScEdJeFBmMnFUcnFOSFk2VFB3?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": ""
+  },
+  {
+   "titulo": "Carmen de Burgos «Colombine»",
+   "fuente": "Biblioteca Virtual Miguel de Cervantes",
+   "url": "https://blog.cervantesvirtual.com/carmen-de-burgos-colombine/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "Biblioteca de Autor de la almeriense Carmen de Burgos Seguí, conocida como «Colombine», dirigida por Roberto Cermeño Peña (presidente de la Agrupación Especial Carmen de Burgos"
+  },
+  {
+   "titulo": "Matías Battistón: «Muchas editoriales pretenden que los derechos de la traducción se den a perpetuidad, con lo cual los traductores perdemos cualquier tipo de…",
+   "fuente": "Jot Down",
+   "url": "https://www.jotdown.es/2026/11/matias-battiston-entrevista/",
+   "fecha": "2026-11-25",
+   "categoria": "Noticias",
+   "resumen": "Matías Battistón (Buenos Aires, 1986) es traductor y profesor de grado y posgrado en traducción literaria. Es la firma y la pluma detrás de versiones al castellano de autores como John Cage, Roland Barthes, Virginia…"
+  },
+  {
+   "titulo": "Cómo el cine contó la Guerra Civil Española, la primera contienda \"mediática\" de la historia",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/cine/cine-conto-guerra-civil-espanola-primera-contienda-mediatica-historia_1_13692989.html",
+   "fecha": "2026-11-25",
+   "categoria": "Novedades editoriales",
+   "resumen": "Filmoteca inaugura la exposición 'Escenas de fuego y llanto. El cine y la guerra civil española' que se podrá ver hasta el 27 de junio de 2027 y que se completa con material audiovisual desde la plataforma pública y…"
+  },
+  {
+   "titulo": "Lo que pasa cuando le pides una canción a una cantante de mentira",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/musica/pasa-le-pides-cancion-cantante-mentira_129_13688166.html",
+   "fecha": "2026-11-25",
+   "categoria": "Libros de música",
+   "resumen": "La artista virtual Hatsune Miku convierte el Palacio Vistalegre de Madrid en la celebración de un fenómeno nacido en internet mucho antes del auge de la inteligencia artificial El tour de los cantantes muertos: el…"
+  },
+  {
+   "titulo": "Los proyectos ‘De boca en boca’ y ‘Butaca secreta’, premios Lluís Carulla 2026",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261125/11692572/carulla-fundacio-premios-emprendeduria.html",
+   "fecha": "2026-11-25",
+   "categoria": "Premios",
+   "resumen": "Los galardones de la Fundació Carulla promueven la lengua catalana y la cultura como espacio de cohesión social"
+  },
+  {
+   "titulo": "Barça, tiros y hockey patines en la última novela de Edgar Cantero",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261125/11692473/edgar-cantero-barca-tiros-hockey-patines-novela.html",
+   "fecha": "2026-11-25",
+   "categoria": "Novedades editoriales",
+   "resumen": "El escritor residente en Los Ángeles publica ‘Canyardo’, la tercera entrega del Cegador de Verri"
+  },
+  {
+   "titulo": "Eduardo Izquierdo se interna en la creación del primer LP de Stray Cats",
+   "fuente": "Efe Eme",
+   "url": "https://www.efeeme.com/la-creacion-del-primer-lp-de-stray-cats/",
+   "fecha": "2026-11-25",
+   "categoria": "Libros de música",
+   "resumen": "La colección Elepé, de Efe Eme, presenta Stray Cats. Reinventando el rock and roll, el nuevo libro de Eduardo Izquierdo, en el que se interna en el explosivo, influyente y decisivo primer elepé de los Stray Cats. —Stray…"
+  },
+  {
+   "titulo": "La voz de Rosendo vuelve a sonar con su libro de memorias: de la infancia en Carabanchel al rock como 'maneras de vivir'",
+   "fuente": "El Economista",
+   "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxQYUxtRDlBVXI1QV83UXZsTE5JRHQ2cDgxT0lOR2pkMTd1ZjVqMmdpWm1Zb2pzMjJIVjQ1RlpKQ1dEM3lqZWE3aUg3cVptZEt4YjFKZHBtX0FQMENIZjZnY2FNQmN2QkVrQVNUNUV0SnhMemxmUHhUM2Q0WkF3R0paU1JqWVp2TFN4YkpTcGF2dHhrQXF3dGx1aTlrTTJCYXVMV1BZLU96ZFdtaXVqWldDbW55NXdXMC04TzBPNXFMMXVHbkV1bGY1QnhWWGpyTExsVnhKeHBXblk4cjRPellQNHVWOXVrczJveEFxbzZIREhOU3VuTW1rUE1fUUNtTnVMMFl0QnZmVFN3Nm5wTGgw0gH6AUFVX3lxTE1BR1ByLUlmVHM0N3drejZjOHVjMFZFaVZvV256RnNlc3VXYlVsUFVFYTBUUW81U1NEZVphREJXYmN5a2ozOXRqWmZCWkd0Sm1WZV9uaVNwaTEzTkJfY2EwWkVtcWRSbXJSQzN6WFVLcVNiTUhpVzZXUTVNUEVmcVBRaWN2Q19sQlQ1NDYyblB2NWplN0JzQS1BdU9IVVUwZDdyRlNuS0NPZ2JhYnJ4cUlJTnUwU2M4ZnVYUWNPd19ITC1ZU3pCa0NtVWxZZXp1WklFZ1I4ak5VaXdDSU9yMDdmUW9ZUFZRXzROSDdNdVJObzBaRXc2NDVFeXc?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Libros de música",
+   "resumen": ""
+  },
+  {
+   "titulo": "Con Steve Wynn y sus memorias + Pablo Solo en Loco Club. Crónica conciertos 24-11-2026",
+   "fuente": "Exile SH Magazine",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQakR6NU85cWJhcnRfRXVMTFlyQzlDTUlVdlVxRWZ1VXlLTC1wSnZfM2VyQk1Pa2pHY2RHaWVvSXV4RXhTdmwtUFdaQkQwV3NGNk1LUHRIRkxGaGNTazNGUUdjM1RRaV9YT216UGhKX3c0ZzJZYXRKSDZBZUpCdXBPRA?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Libros de música",
+   "resumen": ""
+  },
+  {
+   "titulo": "Rosendo, mucho curro y poco glamur: las memorias de un obrero del rock",
+   "fuente": "El Español",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNRjNiWEZrMnZ1QUZlcnk4V19YUUJreXFlYlhydXEtOWZKcUZiVE5yTkFpZy1NcTN2cU9WUDRnZ1ZtOHZDTlE4Nmk5Zll5UVh2emZYN180SkhBdXc4WGd6WmtJNGljMF9hTXJ1MmZ0Y1c5U0sxM2toQzd0WjJHQlJZSlRFeEhRZ0tXQXhrWHVtOTN1cDZlS1J3MExGN0FDQlVnRTRQNF84ZmMzYXlUY2Jsem1lUEsyY1pYVXJtZmlHXzkzd29SWXJjTkoxSdIBywFBVV95cUxNRjNiWEZrMnZ1QUZlcnk4V19YUUJreXFlYlhydXEtOWZKcUZiVE5yTkFpZy1NcTN2cU9WUDRnZ1ZtOHZDTlE4Nmk5Zll5UVh2emZYN180SkhBdXc4WGd6WmtJNGljMF9hTXJ1MmZ0Y1c5U0sxM2toQzd0WjJHQlJZSlRFeEhRZ0tXQXhrWHVtOTN1cDZlS1J3MExGN0FDQlVnRTRQNF84ZmMzYXlUY2Jsem1lUEsyY1pYVXJtZmlHXzkzd29SWXJjTkoxSQ?oc=5",
+   "fecha": "2026-11-25",
+   "categoria": "Libros de música",
+   "resumen": ""
+  },
+  {
+   "titulo": "25 de noviembre de 1936: Carta a Stalin",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/25-noviembre-1936-carta-a-stalin/",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "Para conmemorar el 90º aniversario de la Guerra Civil, José Ángel Mañas recrea en Zenda, día por día en esta sección, lo que aconteció en 1936, quizá el año más trascendental de toda la historia reciente de España. La…"
+  },
+  {
+   "titulo": "La universalidad de Juan, el nuestro",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/la-universalidad-de-juan-el-nuestro/",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "La acción de este drama en doce cuadros transcurre en diversos lugares de Gran Canaria entre 1936 y 1959, una acción con la propuesta de analepsis, esto es, escenas retrospectivas que nos muestran diversos ángulos y…"
+  },
+  {
+   "titulo": "Ghassan Kanafani, el silencio de la cisterna",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/ghassan-kanafani-el-silencio-de-la-cisterna/",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "Ghassan Kanafani (1936-1972) fue un destacado autor palestino cuyas obras literarias han dejado una huella profunda en la narrativa de la Palestina ocupada. Nacido en Acre, una ciudad costera en lo que hoy es Israel,…"
+  },
+  {
+   "titulo": "Está pasando, lo está escribiendo: Josep Pla fuma y cuenta su infarto",
+   "fuente": "Babelia (El País)",
+   "url": "https://elpais.com/babelia/2026-11-24/esta-pasando-lo-esta-escribiendo-josep-pla-fuma-y-cuenta-su-infarto.html",
+   "fecha": "2026-11-24",
+   "categoria": "Novedades editoriales",
+   "resumen": "Se publica por primera vez en un único volumen la serie de artículos en las que el escritor catalán describió con magistral minuciosidad el ataque al corazón que sufrió en agosto de 1972"
+  },
+  {
+   "titulo": "¡No es una homilía woke! Margarita García Robayo invoca el sufrimiento secular de las mujeres",
+   "fuente": "Babelia (El País)",
+   "url": "https://elpais.com/babelia/2026-11-24/no-es-una-homilia-woke-margarita-garcia-robayo-invoca-el-sufrimiento-secular-de-las-mujeres.html",
+   "fecha": "2026-11-24",
+   "categoria": "Premios",
+   "resumen": "La novela ganadora del Premio Herralde, titulada ‘Querida Sharik’ y escrita con una voz poderosa y con humor, la protagoniza una mujer que rastrea su ancestralidad carta tras carta"
+  },
+  {
+   "titulo": "\"En 'Cosamala', lo sobrenatural es casi un alivio al terror real\": Alana S. Portero sobre memoria, brujas y Lorca en su nueva novela",
+   "fuente": "Librotea (elDiario.es)",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSmdNSHEzOXg4QnVHYndlUVJnalhKTExNY3B3ZTlMNUZvV21tdlRqSk5iSWU3WlBJZnpOYmJIQVJFbTFaQmFvR1NQaHpvbjZEZVlLeGZwY01vYTY0a0xraWMxZGd5ZHhCdzlvMlFPNlVBYUVtbFN4QVNmOGlpS2tLT3YxWEZScUdHZG1vWVFtM2ZVclRGQkpBSmp5Y3lIV290MFBobFpRRmRiZjlpRkhGMWJIQnowcEJoNWlHMGtyWWw?oc=5",
+   "fecha": "2026-11-24",
+   "categoria": "Novedades editoriales",
+   "resumen": ""
+  },
+  {
+   "titulo": "Cuadernos de Humo",
+   "fuente": "Biblioteca Virtual Miguel de Cervantes",
+   "url": "https://blog.cervantesvirtual.com/cuadernos-de-humo/",
+   "fecha": "2026-11-24",
+   "categoria": "Novedades editoriales",
+   "resumen": "Biblioteca Virtual Miguel de Cervantes publica revista Cuadernos de Humo Desde Brooklyn y en español: la Biblioteca Virtual incorpora los 42 números de Cuadernos de"
+  },
+  {
+   "titulo": "Miguel Alcázar, el escritor de la verdad y la ficción que decide salvar la vida a Pedro Sánchez en su última novela",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/libros/miguel-alcazar-escritor-ficcion-decide-salvar-vida-pedro-sanchez-ultima-novela_1_13688045.html",
+   "fecha": "2026-11-24",
+   "categoria": "Libros de música",
+   "resumen": "El autor publica el último de los conocidos como Episodios Nacionales modernos, donde a través de numerosos personajes que acaban convergiendo en algunas escenas retrata la sociedad española y satiriza con un humor…"
+  },
+  {
+   "titulo": "Quentin Tarantino y David Fincher se juntan y diluyen su talento en 'Las nuevas desventuras de Cliff Booth', una descafeinada secuela de ‘Érase una vez en…",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/cine/quentin-tarantino-david-fincher-juntan-diluyen-talento-nuevas-desventuras-cliff-booth-descafeinada-secuela-erase-vez-hollywood_129_13688751.html",
+   "fecha": "2026-11-24",
+   "categoria": "Libros de música",
+   "resumen": "Tarantino escribe y Fincher dirige una continuación del filme que homenajeaba el cine de finales de los años 60 en una película desigual y a la que le falta el estilo desvergonzado del director de 'Pulp Fiction' Rodrigo…"
+  },
+  {
+   "titulo": "Spielberg dirigirá un western romántico protagonizado por Cillian Murphy y Jessie Buckley",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261124/11692025/spielberg-dirigira-western-romantico-protagonizado-cillian-murphy-jessie-buckley.html",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "Paul Thomas Anderson se encargará de escribir el guion de una historia que adapta la novela 'The Heart in Winter', del irlandés Kevin Barry"
+  },
+  {
+   "titulo": "Garriga Vela y su detectivesco regreso a Muntaner, 38",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261124/11691609/garriga-vela-detectivesco-regreso-muntaner-38.html",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "Candaya celebra el aniversario del clásico con una nueva reedición y el autor intenta visitar de nuevo (sin éxito) su casa de infancia"
+  },
+  {
+   "titulo": "Los traductores, el arma secreta de la literatura catalana",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261124/11691583/traductores-arma-secreta-literatura-catalana.html",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "¿Cómo suena el catalán en las traducciones a 35 lenguas de casi 150 traductores?"
+  },
+  {
+   "titulo": "Blai Bonet regresa al escenario con ‘La casa en obres’, de Pep Tosar",
+   "fuente": "La Vanguardia Cultura",
+   "url": "https://www.lavanguardia.com/cultura/20261124/11691548/blai-bonet-tosar-raval-teatre.html",
+   "fecha": "2026-11-24",
+   "categoria": "Noticias",
+   "resumen": "El teatro Raval celebra el centenario del escritor mallorquín con un nuevo montaje"
+  },
   {
    "titulo": "Beatrice Bergamín, Celso Varela y Yoel Peña, ganadores en el XX Premio Paco Rabal de periodismo cultural",
    "fuente": "Zenda",
@@ -71,22 +368,6 @@
    "resumen": "El emisario nos presenta a Japón en algún momento indeterminado del futuro. Nunca se nos van a dar fechas concretas. Me ha gustado la forma en la que Tawada nos va introduciendo en el mundo que ha creado. El lector…"
   },
   {
-   "titulo": "Está pasando, lo está escribiendo: Josep Pla fuma y cuenta su infarto",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-24/esta-pasando-lo-esta-escribiendo-josep-pla-fuma-y-cuenta-su-infarto.html",
-   "fecha": "2026-11-24",
-   "categoria": "Novedades editoriales",
-   "resumen": "Se publica por primera vez en un único volumen la serie de artículos en las que el escritor catalán describió con magistral minuciosidad el ataque al corazón que sufrió en agosto de 1972"
-  },
-  {
-   "titulo": "¡No es una homilía woke! Margarita García Robayo invoca el sufrimiento secular de las mujeres",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-24/no-es-una-homilia-woke-margarita-garcia-robayo-invoca-el-sufrimiento-secular-de-las-mujeres.html",
-   "fecha": "2026-11-24",
-   "categoria": "Premios",
-   "resumen": "La novela ganadora del Premio Herralde, titulada ‘Querida Sharik’ y escrita con una voz poderosa y con humor, la protagoniza una mujer que rastrea su ancestralidad carta tras carta"
-  },
-  {
    "titulo": "'Sacamantecas' convierte en cómic al primer asesino en serie de España: el hombre del saco de Álava",
    "fuente": "Ahora Qué Leo (laSexta)",
    "url": "https://www.lasexta.com/ahoraqueleo/libros/este-comic-hace-brillar-mujer-que-enfrento-sacamantecas-primer-asesino-serie-espana_202611246afc4b3a21e74551e81cbb4c.html",
@@ -95,92 +376,12 @@
    "resumen": "Ángel AbellánIlustraciones: Miguel HerráizEditorial: Planeta CómicAño de publicación editorial: 2026Esta novela novela gráfica, basada en la película del mismo nombre, reconstruye uno de los episodios más truculentos de…"
   },
   {
-   "titulo": "\"En 'Cosamala', lo sobrenatural es casi un alivio al terror real\": Alana S. Portero sobre memoria, brujas y Lorca en su nueva novela",
-   "fuente": "Librotea (elDiario.es)",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSmdNSHEzOXg4QnVHYndlUVJnalhKTExNY3B3ZTlMNUZvV21tdlRqSk5iSWU3WlBJZnpOYmJIQVJFbTFaQmFvR1NQaHpvbjZEZVlLeGZwY01vYTY0a0xraWMxZGd5ZHhCdzlvMlFPNlVBYUVtbFN4QVNmOGlpS2tLT3YxWEZScUdHZG1vWVFtM2ZVclRGQkpBSmp5Y3lIV290MFBobFpRRmRiZjlpRkhGMWJIQnowcEJoNWlHMGtyWWw?oc=5",
-   "fecha": "2026-11-24",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Cuadernos de Humo",
-   "fuente": "Biblioteca Virtual Miguel de Cervantes",
-   "url": "https://blog.cervantesvirtual.com/cuadernos-de-humo/",
-   "fecha": "2026-11-24",
-   "categoria": "Novedades editoriales",
-   "resumen": "Biblioteca Virtual Miguel de Cervantes publica revista Cuadernos de Humo Desde Brooklyn y en español: la Biblioteca Virtual incorpora los 42 números de Cuadernos de"
-  },
-  {
-   "titulo": "Quentin Tarantino y David Fincher se juntan y diluyen su talento en 'Las nuevas desventuras de Cliff Booth', una descafeinada secuela de ‘Érase una vez en…",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/cine/quentin-tarantino-david-fincher-juntan-diluyen-talento-nuevas-desventuras-cliff-booth-descafeinada-secuela-erase-vez-hollywood_129_13688751.html",
-   "fecha": "2026-11-24",
-   "categoria": "Libros de música",
-   "resumen": "Tarantino escribe y Fincher dirige una continuación del filme que homenajeaba el cine de finales de los años 60 en una película desigual y a la que le falta el estilo desvergonzado del director de 'Pulp Fiction' Rodrigo…"
-  },
-  {
-   "titulo": "Spielberg dirigirá un western romántico protagonizado por Cillian Murphy y Jessie Buckley",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261124/11692025/spielberg-dirigira-western-romantico-protagonizado-cillian-murphy-jessie-buckley.html",
-   "fecha": "2026-11-24",
-   "categoria": "Noticias",
-   "resumen": "Paul Thomas Anderson se encargará de escribir el guion de una historia que adapta la novela 'The Heart in Winter', del irlandés Kevin Barry"
-  },
-  {
-   "titulo": "Garriga Vela y su detectivesco regreso a Muntaner, 38",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261124/11691609/garriga-vela-detectivesco-regreso-muntaner-38.html",
-   "fecha": "2026-11-24",
-   "categoria": "Noticias",
-   "resumen": "Candaya celebra el aniversario del clásico con una nueva reedición y el autor intenta visitar de nuevo (sin éxito) su casa de infancia"
-  },
-  {
-   "titulo": "Los traductores, el arma secreta de la literatura catalana",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261124/11691583/traductores-arma-secreta-literatura-catalana.html",
-   "fecha": "2026-11-24",
-   "categoria": "Noticias",
-   "resumen": "¿Cómo suena el catalán en las traducciones a 35 lenguas de casi 150 traductores?"
-  },
-  {
-   "titulo": "Blai Bonet regresa al escenario con ‘La casa en obres’, de Pep Tosar",
-   "fuente": "La Vanguardia Cultura",
-   "url": "https://www.lavanguardia.com/cultura/20261124/11691548/blai-bonet-tosar-raval-teatre.html",
-   "fecha": "2026-11-24",
-   "categoria": "Noticias",
-   "resumen": "El teatro Raval celebra el centenario del escritor mallorquín con un nuevo montaje"
-  },
-  {
    "titulo": "Penguin Random House lleva el universo de Javier Castillo a Málaga en una acción de marketing experiencial",
    "fuente": "MarketingNews",
    "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNRmhVNnNtOGxaczZxVDQ2YTlDQzk3VlRrVndRLTZrVFdRT1hsUE00REk0azhKUWFtYlJGWUdqamZPd3B6WGh2dlduVkRlSjNJbm9QRi1yYVBXNXBLblV5NkRyUGs4Vi01eHZFZzZZeDJqNEZZNDdwWGVIY2dMNUswS25BNjZmN1E2dllrdjFEUEJpYlhReUNBY2I2QkVsWXpQWGR4ajIyLUVPMlB3anNSWllUcHlweE9kY25abGNSemJ6SVh0OXp6SzN4WXlZSkRUSnJ0S2MzRXp4VXptelNpMXZCbnNRQ3R5UjNOOGV2T2xJeWxONmFjZWFqR2g5RVpu?oc=5",
    "fecha": "2026-11-24",
    "categoria": "Novedades editoriales",
    "resumen": ""
-  },
-  {
-   "titulo": "24 de noviembre de 1936: La arenga de García Oliver",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/24-de-noviembre-de-1936-la-arenga-de-garcia-oliver/",
-   "fecha": "2026-11-23",
-   "categoria": "Noticias",
-   "resumen": "Para conmemorar el 90º aniversario de la Guerra Civil, José Ángel Mañas recrea en Zenda, día por día en esta sección, lo que aconteció en 1936, quizá el año más trascendental de toda la historia reciente de España. La…"
-  },
-  {
-   "titulo": "Detrás de la herida, leyendo a Vicent en Buenos Aires",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/detras-de-la-herida-leyendo-a-vicent-en-buenos-aires/",
-   "fecha": "2026-11-23",
-   "categoria": "Noticias",
-   "resumen": "Claro, después, es decir, ya, vienen la realidad y sus detritus, porque es evidente que aquí, en este mundo, no se salva ni dios, lo asesinaron, como decía Gabriel Celaya cuando aún no se había muerto Franco. Así que…"
-  },
-  {
-   "titulo": "Lo que nos ronda",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/lo-que-nos-ronda/",
-   "fecha": "2026-11-23",
-   "categoria": "Noticias",
-   "resumen": "Foto de portada: El ángel de la muerte, de Morelli, Domenico (Museo de Bellas Artes de Buenos Aires) Quizá formo parte de tu lista. Una más. Quizá llegas sin avisar y me pillas desprevenida, sin preparar. Sé que no me…"
   },
   {
    "titulo": "Ángeles Lucas, periodista: “Hay niños explotados para que otros puedan maquillar sus carencias personales”",
@@ -287,20 +488,20 @@
    "resumen": "Acometemos el tercer trimestre comiquero de 2026 con la firme convicción de que este año va a ser también uno interesante para el medio. A las habituales recuperaciones de obras de trimestres pasados, para el que quizás…"
   },
   {
-   "titulo": "El coreógrafo español que más ha triunfado en el mundo descarga una tormenta íntima de tormentos",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/teatro/coreografo-espanol-triunfado-mundo-descarga-tormenta-intima-tormentos_129_13686782.html",
-   "fecha": "2026-11-23",
-   "categoria": "Libros de música",
-   "resumen": "Marcos Morau presenta la nueva obra de La Veronal, 'Living and Leaving', en el festival Temporada Alta Los distribuidores de obras teatrales denuncian “injerencia política” en la programación cultural de Pinto Marcos…"
-  },
-  {
    "titulo": "George Saunders te cuenta por qué leer a Tolstói no acabará con el trumpismo, pero sí ayudará con una visión moral de la vida",
    "fuente": "elDiario.es Cultura",
    "url": "https://www.eldiario.es/cultura/libros/george-saunders-cuenta-leer-tolstoi-no-acabara-trumpismo-si-ayudara-vision-moral-vida_1_13685257.html",
    "fecha": "2026-11-23",
    "categoria": "Premios",
    "resumen": "'Un baño en la laguna mientras llueve. En el que cuatro autores rusos dan una clase magistral de lectura y escritura, y de la vida' es el aprendizaje de 20 años dando un taller sobre el cuento ruso del siglo XIX De la…"
+  },
+  {
+   "titulo": "El coreógrafo español que más ha triunfado en el mundo descarga una tormenta íntima de tormentos",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/teatro/coreografo-espanol-triunfado-mundo-descarga-tormenta-intima-tormentos_129_13686782.html",
+   "fecha": "2026-11-23",
+   "categoria": "Libros de música",
+   "resumen": "Marcos Morau presenta la nueva obra de La Veronal, 'Living and Leaving', en el festival Temporada Alta Los distribuidores de obras teatrales denuncian “injerencia política” en la programación cultural de Pinto Marcos…"
   },
   {
    "titulo": "Rodrigo Sorogoyen, Javier Bardem y más de 200 firmas de la Cultura piden el voto para Frente Amplio",
@@ -351,9 +552,25 @@
    "resumen": "El autor bávaro narra la utilización del cine como propaganda por el III Reich en su última obra, 'El director'"
   },
   {
+   "titulo": "Los 14 mejores libros para leer este verano de 2026.",
+   "fuente": "Time Out Worldwide",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQS1dJQ2ZlbFoybUIxU2FDV0FPM01sQ1RLWXFWZ3dEUjUzQXFMcGJ2cmE1cjFEY3dMR0MtS25zOC1qUHcwWUJCVUpBV1NCc1BzMVZTa3Q4RG5FN0M2U0YxZTVQc3JJYnZZSkFiM183ZUdiNE45Wmk2bXBfYjVHUHJQVTZfbko5b05NOXlzRW1McUgtOHFFZ3Uw?oc=5",
+   "fecha": "2026-11-23",
+   "categoria": "Novedades editoriales",
+   "resumen": ""
+  },
+  {
    "titulo": "La UdeG llevará más de 60 novedades editoriales y 85 actividades a la FIL",
    "fuente": "UDG TV",
    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNdHIxdzdzc01LX25NOF94ZFpodXNwUlU4Y1JEYUJUU21WeWwwN1BhTHZDNmRwWDZVYmo1SmJaOGdLcjI5S3l1cDlELWhySTdJU2lvNnBKWUV0bXpOX19OUG9qaDFETVBGa2tIdGdrZU1pdzJfZ0stZ0NIaGVfZUktMFQybGlyM3pBY19UczBvZk8?oc=5",
+   "fecha": "2026-11-23",
+   "categoria": "Novedades editoriales",
+   "resumen": ""
+  },
+  {
+   "titulo": "Cinco libros para leer lo que el pasado deja abierto",
+   "fuente": "EscribiendoCine",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcEVicmNfRmFZbHFlYUdkRGF0Y1ZmTjdRVUxnWU1EWUxlaV9UWjRPUU1xZy1TcUtaZ1g4QVJnM2hWWHpWQjFTcTZKMWxscV9GWlBqQ1VTQUtFMHM4cXVGSGVLdzE0Z0FnSTlQMzNPMzJEY3B5YWhmSjdYU19fUDlIczUtLWlTaERHbGE4R2FQUVM2YjJwZ21tb29vdi1MX0cxOXlnbkR1QVdMaGJXR2ZOMGNIbUHSAbQBQVVfeXFMTnBFYnJjX0ZhWWxxZWFHZERhdGNWZk43UVVMZ1lNRFlMZWlfVFo0T1FNcWctU3FLWmdYOEFSZzNoVlh6VkIxU3E2SjFsbHFfRlpQakNVU0FLRTBzOHF1RkhlS3cxNGdBZ0k5UDMzTzMyRGNweWFoZko3WFNfX1A5SHM1LS1pU2hER2xhOEdhUFFTNmIycGdtbW9vb3YtTF9HMTl5Z25EdUFXTGhiV0dmTjBjSG1B?oc=5",
    "fecha": "2026-11-23",
    "categoria": "Novedades editoriales",
    "resumen": ""
@@ -367,9 +584,9 @@
    "resumen": ""
   },
   {
-   "titulo": "Cinco libros para leer lo que el pasado deja abierto",
-   "fuente": "EscribiendoCine",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQalNLVXIyZWVFWWJoYmNoVEs0SXRDRVpXdmxxRjNBSlVMZ2hSNk5SdDA5SE5mbDJOUlZUQ1lpYUo3dkV0ZS1NUnFPRkhYTVdhdllTb1dBaWVrSFFJdTItSnRfS3I3YWdqMG5TUXRXQ1pwVW1RWldzVnJJZnNqYkNJWXRsQWoxQ3JnMG84NlN3bHppTm1DcHJ1ZlFPUmRfWVdfRU1WOEdKb2pZWlZYY2JV0gG0AUFVX3lxTE5wRWJyY19GYVlscWVhR2REYXRjVmZON1FVTGdZTURZTGVpX1RaNE9RTXFnLVNxS1pnWDhBUmczaFZYelZCMVNxNkoxbGxxX0ZaUGpDVVNBS0UwczhxdUZIZUt3MTRnQWdJOVAzM08zMkRjcHlhaGZKN1hTX19QOUhzNS0taVNoREdsYThHYVBRUzZiMnBnbW1vb292LUxfRzE5eWduRHVBV0xoYldHZk4wY0htQQ?oc=5",
+   "titulo": "El universo de 'Los Juegos del Hambre' se hace realidad en un nuevo libro de más de 280 páginas que revela la historia de Panem",
+   "fuente": "Vandal",
+   "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPU0l1bnBZZUZwamJFZW81bnRhS3o4SjBWSUNhakVoZUVEX045aWY0ZGxaVUNzU05QX1ZYdUdsM01hY0xhQzRTR2lLb3M0d3VjTVM3VWpHLUw1LU0wTlBmOXlydE9LdzhvakpDb0NTZlFjVWdUTFJmWTZDd2dscmVOUWtSTFZHTUpBVFBYWkszSVVhX3U2YS1wczc5QXRNNmIzZVFfUkxoV0lmVnJMbktzWkFUOWo5a1YxMTJkOU04RWtjdWMtMHl5S1NXaDRhN2ZneGtjXzFLU0kyUkkzbzdRdmcyTXdETXNnOEhWWHpfck5tOTJ4M1dNR3pZTFBITzJOdEI3aXZzMNIBhwJBVV95cUxPU0l1bnBZZUZwamJFZW81bnRhS3o4SjBWSUNhakVoZUVEX045aWY0ZGxaVUNzU05QX1ZYdUdsM01hY0xhQzRTR2lLb3M0d3VjTVM3VWpHLUw1LU0wTlBmOXlydE9LdzhvakpDb0NTZlFjVWdUTFJmWTZDd2dscmVOUWtSTFZHTUpBVFBYWkszSVVhX3U2YS1wczc5QXRNNmIzZVFfUkxoV0lmVnJMbktzWkFUOWo5a1YxMTJkOU04RWtjdWMtMHl5S1NXaDRhN2ZneGtjXzFLU0kyUkkzbzdRdmcyTXdETXNnOEhWWHpfck5tOTJ4M1dNR3pZTFBITzJOdEI3aXZzMA?oc=5",
    "fecha": "2026-11-23",
    "categoria": "Novedades editoriales",
    "resumen": ""
@@ -378,14 +595,6 @@
    "titulo": "Javier Fernández recorre más de mil años de Historia en su nueva novela, 'Uno, el todo'",
    "fuente": "Diario de Sevilla",
    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQMi02WjdGQ185eWtzMTdobERNSTMxaXRiRW4yR3FITEpqeWRXRllhYVdULTNrYXd2MF9jeTNzZ1Rab0V5XzNQRzBtQmpSaXQtaUV4VkdDYmtydENYNVhuYlNFX05oSUt3cEVfM0F3OVB1S0xZd2hsZl92cHZpVTA5alZGNW5BTmN3SWFmaEM3ONIBlAFBVV95cUxOTkl2aTU1NVBud0NVdWhPVDByb1RsTnNmUUtxb0wtQkFJWEpRR3hGT0ZkcWhXZzU0TDF1ZDk0eHlxbFpYY3FhLXhzU0d4YjNkZmlIR1NOdVFOTGlVUlJMT1d5YUxHYWNKRDE1VWxuZl9SbF9JeDFlRTVkN3EtZzdrZWpFc1BmN28wM3RQRGFwbjJVU0Vr?oc=5",
-   "fecha": "2026-11-23",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "El universo de 'Los Juegos del Hambre' se hace realidad en un nuevo libro de más de 280 páginas que revela la historia de Panem",
-   "fuente": "Vandal",
-   "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPU0l1bnBZZUZwamJFZW81bnRhS3o4SjBWSUNhakVoZUVEX045aWY0ZGxaVUNzU05QX1ZYdUdsM01hY0xhQzRTR2lLb3M0d3VjTVM3VWpHLUw1LU0wTlBmOXlydE9LdzhvakpDb0NTZlFjVWdUTFJmWTZDd2dscmVOUWtSTFZHTUpBVFBYWkszSVVhX3U2YS1wczc5QXRNNmIzZVFfUkxoV0lmVnJMbktzWkFUOWo5a1YxMTJkOU04RWtjdWMtMHl5S1NXaDRhN2ZneGtjXzFLU0kyUkkzbzdRdmcyTXdETXNnOEhWWHpfck5tOTJ4M1dNR3pZTFBITzJOdEI3aXZzMNIBhwJBVV95cUxPU0l1bnBZZUZwamJFZW81bnRhS3o4SjBWSUNhakVoZUVEX045aWY0ZGxaVUNzU05QX1ZYdUdsM01hY0xhQzRTR2lLb3M0d3VjTVM3VWpHLUw1LU0wTlBmOXlydE9LdzhvakpDb0NTZlFjVWdUTFJmWTZDd2dscmVOUWtSTFZHTUpBVFBYWkszSVVhX3U2YS1wczc5QXRNNmIzZVFfUkxoV0lmVnJMbktzWkFUOWo5a1YxMTJkOU04RWtjdWMtMHl5S1NXaDRhN2ZneGtjXzFLU0kyUkkzbzdRdmcyTXdETXNnOEhWWHpfck5tOTJ4M1dNR3pZTFBITzJOdEI3aXZzMA?oc=5",
    "fecha": "2026-11-23",
    "categoria": "Novedades editoriales",
    "resumen": ""
@@ -421,6 +630,30 @@
    "fecha": "2026-11-23",
    "categoria": "Libros de música",
    "resumen": ""
+  },
+  {
+   "titulo": "24 de noviembre de 1936: La arenga de García Oliver",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/24-de-noviembre-de-1936-la-arenga-de-garcia-oliver/",
+   "fecha": "2026-11-23",
+   "categoria": "Noticias",
+   "resumen": "Para conmemorar el 90º aniversario de la Guerra Civil, José Ángel Mañas recrea en Zenda, día por día en esta sección, lo que aconteció en 1936, quizá el año más trascendental de toda la historia reciente de España. La…"
+  },
+  {
+   "titulo": "Detrás de la herida, leyendo a Vicent en Buenos Aires",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/detras-de-la-herida-leyendo-a-vicent-en-buenos-aires/",
+   "fecha": "2026-11-23",
+   "categoria": "Noticias",
+   "resumen": "Claro, después, es decir, ya, vienen la realidad y sus detritus, porque es evidente que aquí, en este mundo, no se salva ni dios, lo asesinaron, como decía Gabriel Celaya cuando aún no se había muerto Franco. Así que…"
+  },
+  {
+   "titulo": "Lo que nos ronda",
+   "fuente": "Zenda",
+   "url": "https://www.zendalibros.com/lo-que-nos-ronda/",
+   "fecha": "2026-11-23",
+   "categoria": "Noticias",
+   "resumen": "Foto de portada: El ángel de la muerte, de Morelli, Domenico (Museo de Bellas Artes de Buenos Aires) Quizá formo parte de tu lista. Una más. Quizá llegas sin avisar y me pillas desprevenida, sin preparar. Sé que no me…"
   },
   {
    "titulo": "Los Premios Zenda 2025-2026 se entregarán el 25 de febrero en Madrid",
@@ -503,14 +736,6 @@
    "resumen": ""
   },
   {
-   "titulo": "El pequeño libro del huerto",
-   "fuente": "Librotea (elDiario.es)",
-   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1vZmx0MDM5a0NCUGg2Z1B3bmIwd25qRHJGNFVQazlseWJXZGdxNTlZNmFoS2RpMmlKRjFJQkhHZlZvQ2V0VVZGXzJXN29OMkJxb2o5RFZrZHBRSDlnQ001SFFLWG9yMUhjMkhnaGl4NmY?oc=5",
-   "fecha": "2026-11-22",
-   "categoria": "Noticias",
-   "resumen": ""
-  },
-  {
    "titulo": "Cinco relatos clásicos que inspiraron películas",
    "fuente": "Todoliteratura",
    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNNl9lVWVOX0plallGUFdHQl9BMkVLTlRqSUE1SGozUDgzT0xOb3g3Ul9YelpaQi1aQ2FraTdaSTN5UWM4YWcxQjJlUW9PTFVnZGlmQ0ZzTlh5T3g1ZWFGU0pfVXNVWi0ydlJ0Q0kwbnlMT2dQZi1yRjBrU1BnNWlwblVqZUVjZHVOaC1neXpOeUtETDdxMnE4U0x5ejNUdTJtTDQxVE1tcVZVYTRrY1BpZFdkbHBDaFRFZVoxaGtGNGNtTzJHNDlfeHZxQTM3czhsdkdmdThJREY?oc=5",
@@ -559,6 +784,22 @@
    "resumen": "Se trata de los montajes 'El hijo de la cómica', de José Sacristán; 'Libre', de Teatro del Barrio; 'El Verdugo', de El espejo negro; 'La Reina Brava', de Las niñas de Cádiz, y 'Poeta Perdido en Nueva York' de El Aedo…"
   },
   {
+   "titulo": "El misterio de los antiguos reyes canarios cobra vida en «El canto del Guayre», la nueva novela de Daniel Montelongo Martín",
+   "fuente": "InfonorteDigital",
+   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNdUwwSno2MnZmZTVJMXFVRXlTSjlUTGo2TjVjcjBlWlQ1OHZzdUV5RkNYS2RjRGFDNXF6MVVNSEVHbGdWVDMxa0MzOWd6aktiMXNvMnhuaF9sQ3ppeWdQSVBDb3NNaUdaaWowUDFDdS1KSS1fNTVpVUpKejZUNVB5QWhyZ3ZtSVR0ZC1HMm5wVGFJTExkNkRhNW41YUNUN09fSUdtbWdhMVVwNUM2WnhLU3U3d3F6RDI2MldiSXdLMnV3Yk1DVFdBeUxTSGhQWU03VTFPUkg4NktjTjFwWVpGc1Y5U0txYjlod3MtRjdWX1VFdw?oc=5",
+   "fecha": "2026-11-22",
+   "categoria": "Novedades editoriales",
+   "resumen": ""
+  },
+  {
+   "titulo": "El pequeño libro del huerto",
+   "fuente": "Librotea (elDiario.es)",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1vZmx0MDM5a0NCUGg2Z1B3bmIwd25qRHJGNFVQazlseWJXZGdxNTlZNmFoS2RpMmlKRjFJQkhHZlZvQ2V0VVZGXzJXN29OMkJxb2o5RFZrZHBRSDlnQ001SFFLWG9yMUhjMkhnaGl4NmY?oc=5",
+   "fecha": "2026-11-22",
+   "categoria": "Noticias",
+   "resumen": ""
+  },
+  {
    "titulo": "Andrea Abreu: “Perdemos léxico y me duele ver como no nos importa ser cada vez más pobres”",
    "fuente": "La Vanguardia Cultura",
    "url": "https://www.lavanguardia.com/cultura/20261122/11690038/andrea-abreu-pajaritos-prenados-tenerife-segunda-novela-cathaysa.html",
@@ -573,14 +814,6 @@
    "fecha": "2026-11-22",
    "categoria": "Premios",
    "resumen": "Beyoncé, Adele, Taylor Swift, Billie Eilish o Lady Gaga han liderado los premios en los últimos años"
-  },
-  {
-   "titulo": "El misterio de los antiguos reyes canarios cobra vida en «El canto del Guayre», la nueva novela de Daniel Montelongo Martín",
-   "fuente": "InfonorteDigital",
-   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNdUwwSno2MnZmZTVJMXFVRXlTSjlUTGo2TjVjcjBlWlQ1OHZzdUV5RkNYS2RjRGFDNXF6MVVNSEVHbGdWVDMxa0MzOWd6aktiMXNvMnhuaF9sQ3ppeWdQSVBDb3NNaUdaaWowUDFDdS1KSS1fNTVpVUpKejZUNVB5QWhyZ3ZtSVR0ZC1HMm5wVGFJTExkNkRhNW41YUNUN09fSUdtbWdhMVVwNUM2WnhLU3U3d3F6RDI2MldiSXdLMnV3Yk1DVFdBeUxTSGhQWU03VTFPUkg4NktjTjFwWVpGc1Y5U0txYjlod3MtRjdWX1VFdw?oc=5",
-   "fecha": "2026-11-22",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
   },
   {
    "titulo": "23 de noviembre de 1936: En la Facultad de Filosofía y Letras",
@@ -727,14 +960,6 @@
    "resumen": "Nunca he sabido muy bien qué pensar de los libros protagonizados por animales. La causa de mis sentimientos contradictorios hacia este tipo de obras se debe más a motivos personales que a un problema con la…"
   },
   {
-   "titulo": "La cara de José Mourinho",
-   "fuente": "Jot Down",
-   "url": "https://www.jotdown.es/2026/11/la-cara-de-jose-mourinho/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "Nota del autor: para escribir este artículo se requiere, primero, no ser ni del Madrid ni del Barcelona —hablo de fútbol—; segundo, que te guste mucho el deporte del balompié y, sobre todas las cosas, que seas…"
-  },
-  {
    "titulo": "Máquinas extrañas entre cortinas de humo",
    "fuente": "elDiario.es Cultura",
    "url": "https://www.eldiario.es/cultura/maquinas-extranas-cortinas-humo_129_13683287.html",
@@ -749,30 +974,6 @@
    "fecha": "2026-11-21",
    "categoria": "Premios",
    "resumen": "El escritor Gabi Martínez publica el libro 'Gritadero', un libro que concibe como \"una propuesta para la acción\" ante la \"necesidad de disidencias creativas\" Juan Diego Botto y Penélope Cruz comienzan el rodaje de…"
-  },
-  {
-   "titulo": "Jane Schoenbrun, la directora que destroza los géneros: \"La generación Z no tiene sexo como respuesta a la fealdad y la violencia del mundo\"",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/cine/jane-schoenbrun-directora-destroza-generos-generacion-z-no-sexo-respuesta-fealdad-violencia-mundo_1_13679964.html",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "La cineasta deslumbra con 'Adolescencia, sexo y muerte en Campamento Miasma', una revisión del slasher con mirada queer para reflexionar sobre el deseo sexual y cómo el cine los configura Juan Diego Botto y Penélope…"
-  },
-  {
-   "titulo": "Lucy Vincent, neurobióloga: “El amor es algo que tiene una duración limitada por su papel biológico”",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/libros/lucy-vincent-neurobiologa-amor-duracion-limitada-papel-biologico-cat_128_13633308.html",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": "La científica francesa analiza cómo el cerebro configura nuestras relaciones afectivas y cómo el amor es un factor fundamental en los mecanismos de supervivencia de la especie humana El último Rincón de pensar - El…"
-  },
-  {
-   "titulo": "El Ayuntamiento del PP en Pinto cancela cinco obras de teatro apalabradas sobre Lorca, mujeres anarquistas o el monólogo de José Sacristán",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/teatro/ayuntamiento-pinto-cancela-cinco-obras-teatro-apalabradas-lorca-mujeres-anarquistas-monologo-jose-sacristan_1_13682971.html",
-   "fecha": "2026-11-21",
-   "categoria": "Premios",
-   "resumen": "La asociación que representa a los distribuidores teatrales explica que es una práctica habitual fijar una fecha antes de firmar el contrato, y que todas las obras coinciden \"casualmente\" en compartir \"un contenido…"
   },
   {
    "titulo": "Novedades editoriales",
@@ -799,19 +1000,59 @@
    "resumen": ""
   },
   {
-   "titulo": "400 libros y un sinfín de historias toman Salamanca",
-   "fuente": "Tribuna de Salamanca.",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQXhvT25iS0JlX0N6R1JYYlN5cG1NeHkydVRweEJhLVVZaWxGZlNQZS1jNHZ1eTZrVXNwSlUxY1pISEN0dXNENWJBeDJXc0xoRnZwd1cyMGk2QkxFbkItdFF3LWxsVWhjVWIzcU4tQlZMMXR4SS1rQ3hiNVdDVXhwU2hMLUxRMk9JV3NTZzUwWW11LUpTTXhSeHhsQzUyaUdYUHc?oc=5",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
    "titulo": "Fernando Martínez López gana el 46 Premio Literario Felipe Trigo con la novela 'Doce firmamentos'",
    "fuente": "Nuestra Comarca",
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPN3RTeUc2dkdZUmJhVm51a1QtQ05vY09oNGdyVXFySDliMkdjLXR2OFFXYzFkR25jSHVrLVJLSGlLUzlXa3NDUFc1N0tFVndXeHhjVXI1aW13aXNPcDU4Q1B1c01xNm1zUjhGa2VsS3hZUWp0U01lcDFoQk1TOWZyNGFGX0NjeUR1WjdHZVpvNTJ5OWtVd0RjY09SWXZ4UFdpdWdTaXRfRUNnWTQtc3FNLWdaVVlWSm9DU2VPUnF4eGNTUDBIRnEtNnNIekJCNVZR?oc=5",
    "fecha": "2026-11-21",
    "categoria": "Premios",
+   "resumen": ""
+  },
+  {
+   "titulo": "Vicente Luis Mora, primer español en lograr el premio literario más importante de EEUU: \"A veces uso una calculadora para escribir, con el fin de crear efectos\"",
+   "fuente": "La Razón",
+   "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPUXZkYjJTSTFpWWpPeTUzT3gxbWI0Yl9hSG12RGlMeXdnQXR5TkFTWHNCdE5IU2xROUZtaHY4ZXFRYnA1bkctaWRGY2RKOUNpNUZkbGdjOE5qOGM2YkNLNnBXdWFNWTlNNkE4a0tuTlF6Z1prbFFGYThSSVdTbzBkR2hOZzBkQXdHaWY4ekYwWGtaNVJhc0JFWjdRM0xLc1EzMFRsMlJyaHRYVDZRQnBWYW45X2dQaGU3OWNPSVhaczQ5Mmdoc0dFSXd3RE5PenVsN2JTSkZQc2RaWW5wQ2J0dTBvSVp5eDFicUVZNFpVV1htQWVpcnRJMEVzc0s3TFJVQW5iUDNlLVdTRjROM2lhZS1aU1pSaG1XQnRWTGJkNFdSbzViMWRLa2ZYWkFwUdIBwgJBVV95cUxNb3dKVFh0ZTVlUV8ta2VkdzhaY3o2TGxRS2stY0xodkFZR3JUd0hmbU80eWxkU1dYX2J2X2p1cUxHSDVOcHk0MW1LTzJaektoSTNQNTJuM0JoUTF5QXRCWXdocVBEX3I2dnZmTnFOMWdXSmNrTjRGRjZ1LWk5Wlp0OU5oUWNmSU9pbl92QmxUSVRRcWRlLVhaWkI2UjE0ZUg2X1ZjTUFjbWlyeFFfbHpkME8yRFJyVWRTTkU5UEYwUVdKY1dEczNmZmZDUEFZUjJSLU5ybFVOMkZNaU51eUU2ZGU3a2J0ZVNlcnI5Sy1ndTRHZ0t4ZVFjUllHQmZCWkx5UXZmcmQ0VlQ0eWNoRUtXX05aNVNQR3R1c0JFb2tROHVfTE9HNG9DNTNKRlp5TS1vTkpKSEU4bk1kWnJzdHNCTVlR?oc=5",
+   "fecha": "2026-11-21",
+   "categoria": "Premios",
+   "resumen": ""
+  },
+  {
+   "titulo": "La cara de José Mourinho",
+   "fuente": "Jot Down",
+   "url": "https://www.jotdown.es/2026/11/la-cara-de-jose-mourinho/",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "Nota del autor: para escribir este artículo se requiere, primero, no ser ni del Madrid ni del Barcelona —hablo de fútbol—; segundo, que te guste mucho el deporte del balompié y, sobre todas las cosas, que seas…"
+  },
+  {
+   "titulo": "Jane Schoenbrun, la directora que destroza los géneros: \"La generación Z no tiene sexo como respuesta a la fealdad y la violencia del mundo\"",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/cine/jane-schoenbrun-directora-destroza-generos-generacion-z-no-sexo-respuesta-fealdad-violencia-mundo_1_13679964.html",
+   "fecha": "2026-11-21",
+   "categoria": "Noticias",
+   "resumen": "La cineasta deslumbra con 'Adolescencia, sexo y muerte en Campamento Miasma', una revisión del slasher con mirada queer para reflexionar sobre el deseo sexual y cómo el cine los configura Juan Diego Botto y Penélope…"
+  },
+  {
+   "titulo": "Lucy Vincent, neurobióloga: “El amor es algo que tiene una duración limitada por su papel biológico”",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/libros/lucy-vincent-neurobiologa-amor-duracion-limitada-papel-biologico-cat_128_13633308.html",
+   "fecha": "2026-11-21",
+   "categoria": "Novedades editoriales",
+   "resumen": "La científica francesa analiza cómo el cerebro configura nuestras relaciones afectivas y cómo el amor es un factor fundamental en los mecanismos de supervivencia de la especie humana El último Rincón de pensar - El…"
+  },
+  {
+   "titulo": "El Ayuntamiento del PP en Pinto cancela cinco obras de teatro apalabradas sobre Lorca, mujeres anarquistas o el monólogo de José Sacristán",
+   "fuente": "elDiario.es Cultura",
+   "url": "https://www.eldiario.es/cultura/teatro/ayuntamiento-pinto-cancela-cinco-obras-teatro-apalabradas-lorca-mujeres-anarquistas-monologo-jose-sacristan_1_13682971.html",
+   "fecha": "2026-11-21",
+   "categoria": "Premios",
+   "resumen": "La asociación que representa a los distribuidores teatrales explica que es una práctica habitual fijar una fecha antes de firmar el contrato, y que todas las obras coinciden \"casualmente\" en compartir \"un contenido…"
+  },
+  {
+   "titulo": "400 libros y un sinfín de historias toman Salamanca",
+   "fuente": "Tribuna de Salamanca.",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQXhvT25iS0JlX0N6R1JYYlN5cG1NeHkydVRweEJhLVVZaWxGZlNQZS1jNHZ1eTZrVXNwSlUxY1pISEN0dXNENWJBeDJXc0xoRnZwd1cyMGk2QkxFbkItdFF3LWxsVWhjVWIzcU4tQlZMMXR4SS1rQ3hiNVdDVXhwU2hMLUxRMk9JV3NTZzUwWW11LUpTTXhSeHhsQzUyaUdYUHc?oc=5",
+   "fecha": "2026-11-21",
+   "categoria": "Novedades editoriales",
    "resumen": ""
   },
   {
@@ -895,14 +1136,6 @@
    "resumen": "Chencho Fernández ha publicado un nuevo disco, B my baby. Inspirado por el nacimiento de su hijo Bruno, reúne doce canciones sobre «la paternidad, la memoria y el asombro de mirar el mundo de nuevo, entre el rock de…"
   },
   {
-   "titulo": "Vicente Luis Mora, primer español en lograr el premio literario más importante de EEUU: \"A veces uso una calculadora para escribir, con el fin de crear efectos\"",
-   "fuente": "La Razón",
-   "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPUXZkYjJTSTFpWWpPeTUzT3gxbWI0Yl9hSG12RGlMeXdnQXR5TkFTWHNCdE5IU2xROUZtaHY4ZXFRYnA1bkctaWRGY2RKOUNpNUZkbGdjOE5qOGM2YkNLNnBXdWFNWTlNNkE4a0tuTlF6Z1prbFFGYThSSVdTbzBkR2hOZzBkQXdHaWY4ekYwWGtaNVJhc0JFWjdRM0xLc1EzMFRsMlJyaHRYVDZRQnBWYW45X2dQaGU3OWNPSVhaczQ5Mmdoc0dFSXd3RE5PenVsN2JTSkZQc2RaWW5wQ2J0dTBvSVp5eDFicUVZNFpVV1htQWVpcnRJMEVzc0s3TFJVQW5iUDNlLVdTRjROM2lhZS1aU1pSaG1XQnRWTGJkNFdSbzViMWRLa2ZYWkFwUdIBwgJBVV95cUxNb3dKVFh0ZTVlUV8ta2VkdzhaY3o2TGxRS2stY0xodkFZR3JUd0hmbU80eWxkU1dYX2J2X2p1cUxHSDVOcHk0MW1LTzJaektoSTNQNTJuM0JoUTF5QXRCWXdocVBEX3I2dnZmTnFOMWdXSmNrTjRGRjZ1LWk5Wlp0OU5oUWNmSU9pbl92QmxUSVRRcWRlLVhaWkI2UjE0ZUg2X1ZjTUFjbWlyeFFfbHpkME8yRFJyVWRTTkU5UEYwUVdKY1dEczNmZmZDUEFZUjJSLU5ybFVOMkZNaU51eUU2ZGU3a2J0ZVNlcnI5Sy1ndTRHZ0t4ZVFjUllHQmZCWkx5UXZmcmQ0VlQ0eWNoRUtXX05aNVNQR3R1c0JFb2tROHVfTE9HNG9DNTNKRlp5TS1vTkpKSEU4bk1kWnJzdHNCTVlR?oc=5",
-   "fecha": "2026-11-21",
-   "categoria": "Premios",
-   "resumen": ""
-  },
-  {
    "titulo": "22 de noviembre de 1936: El entierro de Durruti",
    "fuente": "Zenda",
    "url": "https://www.zendalibros.com/22-de-noviembre-de-1936-el-entierro-de-durruti/",
@@ -981,238 +1214,6 @@
    "fecha": "2026-11-21",
    "categoria": "Noticias",
    "resumen": "La propia editorial apunta, acerca del libro: “Con su célebre lectura de la epopeya homérica como eje, esta antología reúne los textos en los que Simone Weil se adentra en la cultura griega para indagar en una misma…"
-  },
-  {
-   "titulo": "Anatomía de una casa: memoria y tiempo en Zapote",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/anatomia-de-una-casa-memoria-y-tiempo-en-zapote/",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": "Esa casa es el centro gravitacional de su nueva obra, tras la publicación de Vamos a tocar el agua (Los Tres Editores, 2021), en la que cuenta su experiencia alemana de un año en Berlín. En torno a la casa de Zapote…"
-  },
-  {
-   "titulo": "Dolores Redondo vuelve con ‘Todas las noches, todas las ciudades’ una novela sobre los límites entre ficción y realidad",
-   "fuente": "Infobae",
-   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPUFk2VlhPMDRoMjgwM0QxdEdya3FvNG5FNzNkUW9MSmlwXzRhZm51bmZ3aDRfOVY0SUxjckthU0lQMTRRY3hIVk13MnRqYWxGdUNGNzdDX2FPMXBReXg3cnJBMWxWUkpyT2pFanRmUTV4aHVrelBZT2FIRmU1OENhTmxpNG9WYnVlZ0o4ZFJacEZGNVJRM1pYY0ZtOXZsUFA3X3BlUVVrVmJvU3lRaW0yaVhWTnFvNmV0Ui1sZUtWWlhHZUlaRkttTEUwMFE1ZElaaWZ4aUlCWWN6SzQ2NmU0UEZEeGwyNmZDZ3VEeVp4X0xRQdIBjAJBVV95cUxPVTVWb2dLWGNuc01aNGF4bUEwdmluXzdSNDRjYWxqckF4SW9MQ3c5WlBnbHBFdDZ0VndCTkwwZDZidGMyWGctNm56aGZXYnJmY0NZMk51d09FSnVKbHVlSFVlb2V6VGdxak1fLUxyaklLNXZGN0g4TUk1d3Y2MENaQU5sMnA1TnQxV2h1ZERkZDFjeXZ4OGI5aHRxVHFRN2UxbGtHMVB1N2k3QktqWE0xZXZHR1RZc1hKRlNtX3RvN0dNb19JcC1EbVZPMkpMSHJUamstMlBNTHFsQ1IyRmNaSmJqQWY2MHpuQnlNazJ4ejBBNlIya2hMekxETHkyU1QxbFFBLTJfb1U2NjN1?oc=5",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "«¡Viva el amor libro!» abre sus puertas en Salamanca",
-   "fuente": "La Crónica de Salamanca",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNX1BfM1Axa2VwSDc0WG1vUnVuelB1ckVOeDZydVlCZi1oWnMtZlpxM2o2U1hRWXpqTEp2elJ2VzVBNFdQcWFBUzhQMFgxZFlYMFdCT01mcERNaXJBaEtwNWpIX2NQS0ttTy1wdEpNUC1jb0ZsYnp4YVZlUjZTb3IwREo3SlhNa1pYRnNXU3FWbw?oc=5",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Los libros de historia y pensamiento de la semana",
-   "fuente": "La Razón",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWmYwd09IVk93LXR5Nkk3SVFDMWVVdC01aE5DRFpzODk0NDB2NWRVR2tWZ3JMeG8yOTdzamg1cXNpZnFnNkRnOEhjRFZnVmxOWk5rQ1A3aXFSQVpyME9nTnR5ZEFicDl2MDlmTEFoM3R1aTJBNUEzMUR1QVdXRVlRUnBhUHNpdm0xYUhNX2xFbGY5YnFRbWlnVmlEdDhhLWZFQ1FqWFp4cHVvdGR4OF93Q1FDaEVXSHo1Q2dCcnVR0gHSAUFVX3lxTE9OY0p5dmt0VFlrN2UwblFCeVAwYVNhWGhZbU1NMk9wTTdabXRYaGtYR2Y4bUZiLS1mbXUzLU5odC1HZ0IyZ2UxR1VqSzhfSXR6dVJUZUdZTW92ZnMtT0tzeGlvb1pOZFVUOG5YaEF3ZXZCMEp4MVdiaF9NckJqRFRBSG5RV3k0LTdZYk9rX0I1Ry1teURqaHduWE9rOGJTVGNGdEdldVNhMnZqMnRhWnpWWmo5a0xjMUhYZG1fbVVKNXktSld4c0Q4LTNkenNlZC0yQQ?oc=5",
-   "fecha": "2026-11-21",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Sé que seré traicionado, pero espero que sea con talento",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/se-que-sere-traicionado-pero-espero-que-sea-con-talento/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "No en vano, Hergé hizo lo mismo. Tal como expliqué en su momento, como cónsul de Syldavia utilicé una adaptación de un pelícano para crear mi sello diplomático, inspirado en el histórico animal heráldico que podemos…"
-  },
-  {
-   "titulo": "5 poemas de Una dimensión narrativa, de Alberto Santamaría",
-   "fuente": "Zenda",
-   "url": "https://www.zendalibros.com/5-poemas-de-una-dimension-narrativa-de-alberto-santamaria/",
-   "fecha": "2026-11-21",
-   "categoria": "Noticias",
-   "resumen": "Esta antología reúne veinticinco años de poesía de Alberto Santamaría en una particular cartografía cultural y estética del primer cuarto del siglo XXI. Con una mirada irónica y desplazada, el autor explora los…"
-  },
-  {
-   "titulo": "Las críticas de teatro de la semana: la represión de los estudiantes no normativos, el amor filial de Gary y el mejor Cirque du Soleil",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-20/las-criticas-de-teatro-de-la-semana-la-represion-de-los-estudiantes-no-normativos-el-amor-filial-de-gary-y-el-mejor-cirque-du-soleil.html",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "Los críticos de ‘Babelia’ reseñan lo nuevo de María Velasco, Josep Maria Flotats y el Circo del Sol"
-  },
-  {
-   "titulo": "‘Mantener fuera del alcance de los niños’: una venganza sin furia",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-20/mantener-fuera-del-alcance-de-los-ninos-una-venganza-sin-furia.html",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "La autora y directora María Velasco se sube al escenario para reivindicar la diferencia en un montaje tibio a pesar de su potente lenguaje escénico"
-  },
-  {
-   "titulo": "Me llamo Antígona González y busco a 130.000 hermanos",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-20/me-llamo-antigona-gonzalez-y-busco-a-130000-hermanos.html",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "Sara Uribe publicó en 2012 un texto poético basado en hechos reales sobre los desaparecidos en México, concebido para ser declamado. Catorce años después llega a España con la misma vigencia"
-  },
-  {
-   "titulo": "8 libros que dan miedo sin ser de terror: obras inquietantes que no se olvidan",
-   "fuente": "Librotea (elDiario.es)",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRXkxQ0lzVzctWXczdWhzLUxmTG91U1AtZzNWTGRKQXRid1QyTDkwZ0ViVk9OYTdEQWJCM3o4VUpLd0pHQ1pscG05Y2ZUVTdSQ0F1a1Y1M25ET1p4TG1aR085dVB3VUNOZEN0NHpWVEcyckZ5VmN2VzRvS1RRelFsMUFIMjJfY1g0eTljZ081YUhiUm8?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": ""
-  },
-  {
-   "titulo": "Los 3 libros que recomienda Sara Torres: «Hay cosas que sin lo poético no se pueden contar»",
-   "fuente": "Librotea (elDiario.es)",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOakhqMGloeEV1d0FIRWRwcGdkbTY5bjFrTGVWQnlPOWdCdGFkOFFqMG01aWpfTi1GV0g3VENxZkh3N3FlaENsUkVCaklHWF9ZWWQwckJDRDU2RVVvQ1VfYjZzMkdVdlFPQ3hOdmV3ZnNScGh2MWJGdHJYeEZlQzdwYTJESWdfZUhtZC1sT05oZWE?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": ""
-  },
-  {
-   "titulo": "Una España mejor: derechos, respeto y cuentas",
-   "fuente": "Todoliteratura",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWHJIaDhkSml6eTN5SEQ2c1VWTDM4Ti1RQkEzZGxkMmpuNHJLNWw2QjJpanhjRlFGOU9PNFlhNllvX3dMNEE4ckg1ZGY2SEdUaC1WZUh1NDlqVWJaMXB4MUllWmpvU2Z3Nmc2N3JKRC12Zkl6RGNHdUU2b0pVQlQ4NkxZT1VmZldj?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": ""
-  },
-  {
-   "titulo": "Dia del llibre en valencià: Tirant lo Blanch",
-   "fuente": "Biblioteca Virtual Miguel de Cervantes",
-   "url": "https://blog.cervantesvirtual.com/tirant-lo-blanch/",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "El Tirant lo Blanc és l’obra més representativa de les lletres valencianes, una novel·la que transcendeix de la simple narració de cavalleries per oferir-nos l’univers i la"
-  },
-  {
-   "titulo": "Oz Editorial presenta su catálogo de novedades para el primer semestre de 2027 y alguna sorpresa escondida para el segundo – Distópolis",
-   "fuente": "Distópolis",
-   "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOSVRucnRaT09XZ245MHJYRnNRSnM0dzd0aU5CR1pFOXJqZTRBQjFEdzY2R0RVUXpDVXdDN0RQbVozWElsUVdUYkxzUTlpbDJYTGUzSWl2cTZJVGRMd2xnX1dUQ0JrZFc2X1I3ZVVnMXN1S3ctS1pzZ0N3NG1qeW9JekJpYmxlNFhKWjdSRVI1UVQ3dGNabGI1cE90NEtMWC1BRk1BcV9QWE1BNFdEOElFM3JVelV0MndfUUtndjZCRGJkY08zTUJxc0dnanJKdnFSQy1pZXZHR0lIMlF5aUE?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Delallama, la única editorial de Ribadesella, cumple diez años con un nuevo libro de recetas",
-   "fuente": "Cope Ribadesella",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTWwtZnFtd0plY3M1NldVdDJfQnV1TkF3aUZJWkNENHpCd3h4bC1IeFpQNF9nU3JiY3hNMHEyLUpFY29KV0w2RXJFeGVmZF9QS1F0MHZTQWV3N1pnNzJ1cldhNTR4M2U2VHFsRnNBbHNfMW9fVG5sbjNMUGFIZVZJMGpodDlQWmVaUnRpNzZrZjlHYjhYTk5UVEFZZkp1eUt5bnVGdFktTlZRci1mclVMei1ZVDVJb0gxY0w1Mm1tdDhMVTdremdjSGVn?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Pasiones, intrigas e intereses de la Ibiza de antaño en la nueva novela de Joan Cardona, Joan des Pou",
-   "fuente": "Diario de Ibiza",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORHBJMF9oR3dpdUxYUjUxMzUtWURKSWd4dlZNQUF0VVVWWi1hckx6NVdfTmxUOTJNb3VtYlRxMmRkOGRoMy04X1BkTjNvaDE5RExlVndPSU9oaTB3a1FHTU0zSi1TLTFhWEsxVGlDVjlYNkNlVkNlOFRtd1lrbmNDTVpyUzk3dnJHano0eDR4UGwtaHVaei1sVU5CbXFNbTYxV0hV0gGoAUFVX3lxTE13WW8yYUdqcmxra195enRZRWpvVzdYeEN2bElJMUZvUTZCSTR5QWlYdEI4X21ZRi0xYUJCWEs0MUduNjNBWWNtczJuMklQS1c0OTBHS1c0OUZaUGtQUVNpVlRWZE52Ql9pNDNCNzJDWkZ5WTF5TEVOY0lVMnlMRHEwcG9jS2Foa0lqV19jZ3U1MVNtaGRfV194Vk02MXJ1SHc4eTRHWlFjUw?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "La nueva novela de Nerea Pascual se lee como un calendario de Adviento y te hará creer en la Navidad",
-   "fuente": "LaSexta",
-   "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNZmRsVnU4X2dDdUU5NHJVa1pJODNQWV9GYktNZlVNZVNGb212d3l1WjVPcFFPZ21fN3U1b2M1eHpsbEZwelBrZFhDRUlhQXNOX3pidjdmcmdNeS1uV0JVMGRZcFlxSGE0YzAxQnE3aUxIclplMW1vNkpyeEh6Z29vdXhWSEJ3aF9TQkRHb2Y3MER0bHFKandKZnRIajFqNWxUTElMWHBuT21rS1dMbmU3c2VEQjM4UmNraWJkalRWcWc1VTdESEVtWlRIZVczdzFlbUNjU0NNQ3FfckU0OHk0ZXQ4bXl0ZzVRUnJZ0gHrAUFVX3lxTE9HbDVhSks4WGlTUnZ5NEFweFU2cTMtTUFjRW5kUXZfblRyRmdVTkJvWmZWXzBFbnc0ZTZYYWZXbnZsN0tZZGhPR3YtUDNaOHNseE5lNE5LV2FNTkRicHVmUVJ0OWhDU2F3NTNDTjBsT2x5U1RCYnhlaVlEX2pHb0FaVW5lZUNsb3lvZUZiTThzemQ1RjdmVVN0N3RoMzc2YWYwYUhNUzhHei1IUUp6RERjT0xYVWw3ZWNJMFJxSEdLTVY4U01fZkFDVmFkZmEzbTZ5VEN2allseFI2RXplRlN1dFhiMGM5VGIwcWM?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "'El libro de los motes' de Federico Jiménez Losantos alcanza su segunda edición antes de salir a la venta",
-   "fuente": "Libertad Digital",
-   "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPdFNaMGZCWHZ1ZnVFYU1NdFo1ZFNZcXdMSEo4VWlOTnlrVl9XRUV0anpGUVpoTmJxQ3hacXF6b0ZKMmpnTUdKUHdkbV9QR1lUUVhLcDhxMzhQRXpWeHFQcXV1M3IyWlhMa2dpSzJnZ1FTUk1qNG80MDJNWEJHOFBYcmVTNFN0MlktdS14UjMzZnR1X2wxR2VFV2NVVVNBWERkREQ0VFl1cG9zbWdwVTJJMjZUQmZ1YTduLTQtUUV5T3FyRl9lLXZLZEhILUtnSTU0N2hpSmpDbjRTSjd5S0ZIbzhjNi1MUUtTaFhJMkZnRlRwUXJySUNTZ1gzQlVhbDVoZ0NlcXNlcldBZ9IBlAJBVV95cUxPNTA2MHJXc2RSYW05UU9Xc1ZTcVk3QjcyRTN6aXJkYzg4QVRUZlFhOFN4cnpRZWVDcWZIMENTRGZ0QTgyVVBmOFBsc0M4V2VKTklISEV6NzdjQVVFQk12ZklyZ2hFRXdMcGFfQVgyaEtCU3FjUTFzZkNjdEdOZGZPa05zT3pOWEpnc2JEUS1lS1M0MDFiN1pkNXRCeC1nd2FmbWZ4R21aQ0swQ29FN0Vfc0FtYXBuMTR6eUIzSUZUc2NZa3ZQWVlaU2I4V3VFWmRTQnhhT1RJd2d4dUlJN1VvVFFQLTVRMEVCTWRJUUdfeG9tYXNVRlA2RWpDdEhJMVV1WTFrNEwxdUJzeTlpbHVYeVg0Zlo?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "El nuevo libro de Andando Gredos se dedica a rutas por el macizo central",
-   "fuente": "Cadena SER",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPU2dZRUl3SWx5NWk5OFRpYjUzWnllRHA1b2g0Yi0xU1lKWEpya3hxN0xzZFpRSzVyWndCd0FaVG93YmRTcDlnYWF3b3g4VVhBZHR0cU1QUnVldHFjUFd2ZkJWX2hMU01xYlJGZk92akwxQU9jZ1FaTjVzUi00bmg0MnFQNjRWRnc3eHo4Wll5a3hRVDJrZGtuYndtekRWRXE1YXVSTHJQeEl2TTMzTkI1VE5reTBJMFNqZ2VFblJoSmEtMzMwcTQ5c3Nn0gHeAUFVX3lxTE80dXRUdlNlVUZ6TGZwVWdmSjBpSC0tY1B2OVZ6YTV1SWE4czhIUzZWY014VmNBa1dMMEtXOGhCdGJyQjNlWHk2S1I3bW1FVW5zdVI4MldtUWMxaHh4WGpfcnV0M2xDYjk5Qm1NLVJLMzNBMW1BYzdJQkFBWHVpT3FMUm4wR2lFdUE2UFcwMXZ4amM5S2xQOURFSDdTUmVvWFlHUjVMTlBCZGc4N3N1WjdpWXpfa2s0MTRHZkVzSVUxQXVHVGVsOS0xZi1rdTF6bU1LR2lDLS11X1N5bVo0QQ?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "El Convento de la Santa de Ávila acogerá la presentación de «Yo, Teresa de Jesús», el nuevo libro del carmelita Óscar I. Aparicio",
-   "fuente": "Carmelitas Descalzos Provincia Ibérica",
-   "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQY0ZOZG8tZUY2a1hkS0VlTEhIMl9qNEw3MXE4Uk9IaldPYmtGY1M2RG1YeENTUHBCYnFKSXRsZV9iZVBvc2d1RFZCODZ1MEVKemUwbWQyTS1YTGFUazU4TEdZOGdSWDdYMXpMMU9lelg2TkphU0toUmQzLXpxNnphRmwtUTJsMmZwemRydzVvczNjTERmcFAwUHlHbnVNWVRydTVFWkdtX2RELUlKTkdSVHlBcFZmWTcxYm5aVHdRcE0weUNiQk1nWnV2U3ZJakZ3UnFMUFpqeTFNdndDNnNSM001ejdCekRnaUhGQWp1TjQ?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Carlos Taranilla descubre los secretos de 28 templos en su nuevo libro sobre León",
-   "fuente": "Heraldo de León",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPY2l5TUZ4SzlQb2RPUlhiUXN6M2wxWFM0QzdmWGRlTWdEd1MyRjg2dVUxQjJXRjVhb1JURVNTbTFHNEhJYzFFeVBKRktyQ0RPRTlLRm5RdzZjZFRPWDA5dkFLS3dmMlpxWExBY3IzeWNudWhWNXZPQVNJTGt4Y1RpTGZBa0pwWWZFQTlxLXdhVDBreUhXMGVaUXZOeGM5eWIwb3I1N2IwS19wbVNSV25Qb3lUTnlRNWNoc2Q2YXdMcmV4U03SAcgBQVVfeXFMTndNZzZiUGRDNXhvWXE5WlFSTzYwUEdzQVBvZlQwaGRTdmJBSlRWc2xDMzNZUGYtUWRTNE5FeFlNNUVFX0FHdlFoRjlzR3Jlejc1a0VabktaOTNoQ3R1MVRfNWtGMGhnTWVxSmtLX3RfdkhIZ2Q2eUx5WEctdGM4SldUWTFOOGYxRWxaRnVleWdoZHktOTVSZGw3dnhwTUdtRjREdjIwWkd5RHlwczVKWEJ1LUs1OHBORTIyZXpPendNVXZOWEF4b00?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Novedades editoriales",
-   "resumen": ""
-  },
-  {
-   "titulo": "Actualidad Universitaria",
-   "fuente": "Universidad de Alicante",
-   "url": "https://news.google.com/rss/articles/CBMipgJBVV95cUxOUDkwU0dSdnJrbXdOcVU5MkpoQ19zX2g5cnJKcUhQVTlmWTZGeHZMS0dXVldvVmhCRWVWQlBwQzR2T1ZqMF8tLUxNb0JBdi15WHJuY2dzZXdHZmxLNnliNWt5ZDR0WngxR1JrSi15UFNydk9xYTVNVUpKb1hWQlBIRXJ1UjBTNXpSY0VncmNSVzJTbDZPWWhpVllIR2w0WmNBenV4ekNGQk1IbS1DaHhVeWEwSUhGNWZ4cEV6dnp3cXYxNFg0eVAwamZoajRud0lpQ0JtMlljY2gzR094RWRQbGQtQVBlaGIzd1BrR19jRlRReHp0SEctRDJjaHpRRmZHeTdORTlOT2l5aTgxdjYxMWFUb2lCdFVJWTVaYXBDWXFOd3Ytdnc?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Premios",
-   "resumen": ""
-  },
-  {
-   "titulo": "Pep Valsalobre, ganador del 43º Premio de ensayo Josep Vallverdú, y Meritxell Nus, del 31º Premio de poesía Màrius Torres - La Paeria",
-   "fuente": "La Paeria - Ajuntament de Lleida",
-   "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNNlBRT1NUdFZzRFg3aGZNUS1aRGNFOUpLT2xiUERNNjhvRG1ZUXFCN0MxTFltRWtOM1NfYTMtdnVSR1lsUllDdThLS1VVdWdBTEtucDZOYlVTXzIydlQ0M25ra2lzRi1xRDJoRWg1YW5tT0V5MHNURUJpRmNTOEtvYnRwdHExNVZtWndvcXkxSWdaWnBRMFJOMjltZUhua0pKc1pKMFAxUWNjRUJtSWFLbUFFRkQwdjVvQ1pNeDB2Z2xFT0kxaE9YbU1mcEZWOHNYTHVKX2tYTXpWbHFGTEFxcHNROVgxelZWWW5KSkc5cFdYRWlsMlQ2Y1JONVF4WlHSAf8BQVVfeXFMTTZQUU9TVHRWc0RYN2hmTVEtWkRjRTlKS09sYlBETTY4b0RtWVFxQjdDMUxZbUVrTjNTX2EzLXZ1UkdZbFJZQ3U4S0tVVXVnQUxLbnA2TmJVU18yMnZUNDNua2tpc0YtcUQyaEVoNWFubU9FeTBzVEVCaUZjUzhLb2J0cHRxMTVWbVp3b3F5MUlnWlpwUTBSTjI5bWVIbmtKSnNaSjBQMVFjY0VCbUlhS21BRUZEMHY1b0NaTXgwdmdsRU9JMWhPWG1NZnBGVjhzWEx1Sl9rWE16VmxxRkxBcXBzUTlYMXpWVlluSkpHOXBXWEVpbDJUNmNSTjVReFpR?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Premios",
-   "resumen": ""
-  },
-  {
-   "titulo": "De Patti Smith a Cerati: 10 biografías de músicos que sí vale la pena leer",
-   "fuente": "LifeBoxset",
-   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE55SldvYjZ6VEY0N0lKcjhZOHFubUl0S2VEMUZzMnd1RG9RNHRVSklEaGV5ZmxVUXltQk12VzkxMHpFaTJ6cFJLcEhuSXJIcEJQY1FGNEJFUUVDUl9PWXhfS0pPYWtnYml6X0NaSQ?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Libros de música",
-   "resumen": ""
-  },
-  {
-   "titulo": "Fundación Unicaja llena su agenda de flamenco, teatro, libros y talleres en Andalucía hasta el 28 de noviembre",
-   "fuente": "Aula Magna",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOdllFRUw3bzF5ZzFrWTRteHJjY1VfWVRXTU9jN2dGcjJmYnBpTU54cmttVkVoVENwMXJWN2pzaHkzR2xXaTYtOVBpaU14OF9RanJmNnVaaDVqSUUzTHdrM1d0b09wOGNXRWwtMEs1SVFZbmRfeEk1WTR5SnZvb0JBNEpmZXpGM2dJbTZ2cmUyb3lOSlh4dTA5NGpvdDRydG9OMVdmcjNUMHhhejRqZXpZWWRJM2F6MmpuRlBrOGs5TWcwVmUwLU5hSGZqeEJvYjYxTUFtdQ?oc=5",
-   "fecha": "2026-11-20",
-   "categoria": "Libros de música",
-   "resumen": ""
-  },
-  {
-   "titulo": "‘La promesa de l’alba’: amor de madre",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-20/la-promesa-de-lalba-amor-de-madre.html",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "Josep Maria Flotats regresa en solitario al Teatre Romea con una oda al amor materno, al poder de la palabra y a Francia"
-  },
-  {
-   "titulo": "‘Kurios. Gabinete de curiosidades’: fulgor y vértigo del Cirque du Soleil",
-   "fuente": "Babelia (El País)",
-   "url": "https://elpais.com/babelia/2026-11-20/kurios-gabinete-de-curiosidades-fulgor-y-vertigo-del-cirque-du-soleil.html",
-   "fecha": "2026-11-20",
-   "categoria": "Noticias",
-   "resumen": "Una producción de envergadura, gozosa y amplia, en la que brilla el equilibrista malagueño Antonio Vargas Montiel"
-  },
-  {
-   "titulo": "Cómo Hollywood dejó tirados a los actores y actrices trans: \"Ya nadie nos quiere\"",
-   "fuente": "elDiario.es Cultura",
-   "url": "https://www.eldiario.es/cultura/cine/hollywood-dejo-tirados-actores-actrices-trans-nadie-quiere_1_13679709.html",
-   "fecha": "2026-11-20",
-   "categoria": "Premios",
-   "resumen": "Incluso Elliot Page, tras su participación en 'La odisea' de Nolan, admite que aún no tiene definido su próximo proyecto Juan Diego Botto y Penélope Cruz comienzan el rodaje de 'Patricia', una película sobre la…"
-  },
-  {
-   "titulo": "Cynthia Menéndez: \"Quería contraponer el Vigo de la memoria y del trabajo con el Vigo de las luces de Navidad\"",
-   "fuente": "Ahora Qué Leo (laSexta)",
-   "url": "https://www.lasexta.com/ahoraqueleo/autores-libros/cynthia-menendez-queria-contraponer-vigo-memoria-trabajo-vigo-luces-navidad_202611196afeca5fa6f8072789ee9fb1.html",
-   "fecha": "2026-11-19",
-   "categoria": "Noticias",
-   "resumen": "Cynthia Menéndez revive la Navidad de 1997 que los trabajadores Vigo pasaron en huelga contra la privatización de los astilleros. Lo hace en su primera novela, Son como glaciares los barcos de acero."
   }
  ]
 }
